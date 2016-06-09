@@ -31,18 +31,18 @@ public class UsuarioDaoTest extends TestBaseRepository {
     @Test
     public void addUsuarioAndFindIt() {
         final Long usuarioAddedId = dbCommandExecutor.executeCommand(() -> {
-            return usuarioDao.add(joaoDaSilva()).getId();
+            return usuarioDao.insere(joaoDaSilva()).getId();
         });
         assertNotNull(usuarioAddedId);
 
-        final Usuario usuario = usuarioDao.findById(usuarioAddedId);
+        final Usuario usuario = usuarioDao.buscaPorId(usuarioAddedId);
         assertNotNull(usuario);
         assertEquals(joaoDaSilva().getNome(), usuario.getNome());
     }
 
     @Test
     public void findUsuarioByIdNotFound() {
-        final Usuario usuario = usuarioDao.findById(999L);
+        final Usuario usuario = usuarioDao.buscaPorId(999L);
         assertNull(usuario);
     }
 
@@ -50,22 +50,22 @@ public class UsuarioDaoTest extends TestBaseRepository {
     public void updateUsuario() {
 
         Long usuarioAddedId = dbCommandExecutor.executeCommand(() -> {
-            return usuarioDao.add(joaoDaSilva()).getId();
+            return usuarioDao.insere(joaoDaSilva()).getId();
         });
 
         assertNotNull(usuarioAddedId);
 
-        final Usuario usuario = usuarioDao.findById(usuarioAddedId);
+        final Usuario usuario = usuarioDao.buscaPorId(usuarioAddedId);
         assertNotNull(usuario);
 
         usuario.setNome(NOME_USUARIO_EDITADO);
 
         dbCommandExecutor.executeCommand(() -> {
-            usuarioDao.update(usuario);
+            usuarioDao.atualiza(usuario);
             return null;
         });
 
-        Usuario usuarioEditado = usuarioDao.findById(usuarioAddedId);
+        Usuario usuarioEditado = usuarioDao.buscaPorId(usuarioAddedId);
         assertEquals(NOME_USUARIO_EDITADO, usuarioEditado.getNome());
 
     }
@@ -76,7 +76,7 @@ public class UsuarioDaoTest extends TestBaseRepository {
         insereUsuariosParaTestarFinds();
         
         List<Usuario> usuarios = dbCommandExecutor.executeCommand(() -> {
-            return usuarioDao.findAll();
+            return usuarioDao.buscaTodos();
         });
         
         assertEquals(joaoDaSilva().getNome(), usuarios.get(0).getNome());
@@ -87,9 +87,9 @@ public class UsuarioDaoTest extends TestBaseRepository {
 
     private void insereUsuariosParaTestarFinds() {
         dbCommandExecutor.executeCommand(() -> {
-            usuarioDao.add(joaoDaSilva());
-            usuarioDao.add(juliaCarvalho());
-            usuarioDao.add(pedroMendonca());
+            usuarioDao.insere(joaoDaSilva());
+            usuarioDao.insere(juliaCarvalho());
+            usuarioDao.insere(pedroMendonca());
             return null;
         });
     }
