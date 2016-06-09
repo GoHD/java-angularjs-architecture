@@ -20,7 +20,7 @@
       timeInMs = new Date();
       timeInMs = timeInMs.setHours(timeInMs.getHours() - 24);
 
-      el = angular.element('<acme-navbar creation-date="' + timeInMs + '"></acme-navbar>');
+      el = angular.element('<gohd-navbar creation-date="' + timeInMs + '"></gohd-navbar>');
 
       $compile(el)($rootScope.$new());
       $rootScope.$digest();

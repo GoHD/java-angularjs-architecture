@@ -6,16 +6,9 @@
     .config(routerConfig);
 
   /** @ngInject */
-  function routerConfig($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      });
-
-    $urlRouterProvider.otherwise('/');
+  function routerConfig($urlRouterProvider) {
+        $urlRouterProvider.when('', '/gohd');
+        $urlRouterProvider.otherwise('/error?code=404');
   }
 
 })();
