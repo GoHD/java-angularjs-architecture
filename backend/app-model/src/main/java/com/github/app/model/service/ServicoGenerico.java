@@ -28,14 +28,19 @@ public abstract class ServicoGenerico<E extends IEntity<ID>, ID extends Serializ
         
     }
     
-    public void update(E entity) throws AtributoEntidadeInvalidoException, EntidadeNaoEncontradaException {
+    public E add(E entity) throws AtributoEntidadeInvalidoException {
+        ValidationUtils.validaAtributosDaEntidade(validator, entity);
+        return getDao().add(entity);
+    }
+    
+    public E update(E entity) throws AtributoEntidadeInvalidoException, EntidadeNaoEncontradaException {
         ValidationUtils.validaAtributosDaEntidade(validator, entity);
 
         if (!getDao().existsById(entity.getId())) {
             throw new EntidadeNaoEncontradaException();
         }
 
-        getDao().update(entity);
+        return getDao().update(entity);
     }
 
     public E findById(ID id) throws EntidadeNaoEncontradaException {

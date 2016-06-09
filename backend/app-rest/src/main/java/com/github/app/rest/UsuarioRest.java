@@ -1,6 +1,5 @@
 package com.github.app.rest;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,10 +7,13 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import com.github.app.common.exception.EntidadeNaoEncontradaException;
 import com.github.app.model.entity.Usuario;
@@ -26,40 +28,48 @@ public class UsuarioRest {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public Usuario buscaUsuario(@PathParam("id") final Long id) {
+    public Response buscaUsuario(@PathParam("id") final Long id) {
         try {
-            return usuarioService.findById(id);
+            Usuario usuario = usuarioService.findById(id);
+            return Response.status(Status.OK).entity(usuario).build();
         } catch (EntidadeNaoEncontradaException e) {
-            return new Usuario();
+            return Response.status(Status.NOT_FOUND).build();
         }
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Usuario> buscaUsuarios() {
+    public Response buscaUsuarios() {
         try {
             List<Usuario> usuarios = usuarioService.findAll();
-            return usuarios;
+            return Response.status(Status.OK).entity(usuarios).build();
         } catch (EntidadeNaoEncontradaException e) {
-            return new ArrayList<Usuario>();
+            return Response.status(Status.NOT_FOUND).build();
         }
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Usuario cadastraUsuario(Usuario usuario) {
-        return usuarioService.addOrUpdate(usuario);
-        // String resultado = "Usuario cadastrado com sucesso";
-        // return Response.status(Status.CREATED).entity(resultado).build();
+    public Response cadastraUsuario(Usuario usuario) {
+         usuarioService.add(usuario);
+         String resultado = "Usuario cadastrado com sucesso";
+         return Response.status(Status.CREATED).entity(resultado).build();
+    }
+    
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response alteraUsuario(Usuario usuario) {
+        usuarioService.update(usuario);
+        String resultado = "Usuario atualizado com sucesso";
+        return Response.status(Status.OK).entity(resultado).build();
     }
 
     @DELETE
     @Path("/{id}")
-    public void deletaUsuario(@PathParam("id") final Long id) {
+    public Response deletaUsuario(@PathParam("id") final Long id) {
         usuarioService.delete(id);
-        // String resultado = "Usuario deletado com sucesso";
-        // return Response.status(Status.OK).entity(resultado).build();
+        String resultado = "Usuario deletado com sucesso";
+        return Response.status(Status.OK).entity(resultado).build();
     }
 
 }
