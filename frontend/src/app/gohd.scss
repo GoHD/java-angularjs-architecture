@@ -1,0 +1,35 @@
+/**
+ * Se você quiser sobreescrever algumas variaveis do bootstrap, você deve trocar os valores aqui.
+ * A lista de variaveis está definida aqui: bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
+ */
+$navbar-inverse-link-color: #5AADBB;
+$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+
+/**
+ * Não remova os comentários abaixo. São as marcações usadas pelo wiredep para
+ * injetar as dependencias sass quando definidas no bower.json das dependencias.
+ */
+// bower:scss
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+
+/**
+ * Não remova os comentários abaixo. São as marcações usadas pelo gulp-inject para
+ * injetar automaticamente todos os arquivos sass.
+ */
+// injector
+// endinjector
