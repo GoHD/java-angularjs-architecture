@@ -17,50 +17,47 @@ public abstract class ServicoGenerico<E extends IEntity<ID>, ID extends Serializ
     @Inject
     Validator validator;
     
-    public E addOrUpdate(E entity) throws AtributoEntidadeInvalidoException {
-        ValidationUtils.validaAtributosDaEntidade(validator, entity);
-        
+    public E insereOuAtualiza(E entity) throws AtributoEntidadeInvalidoException {
         if (entity.getId() == null) {
-            return getDao().add(entity);
+            return insere(entity);
         } else {
-            return getDao().update(entity);
+            return atualiza(entity);
         }
-        
     }
     
-    public E add(E entity) throws AtributoEntidadeInvalidoException {
+    public E insere(E entity) throws AtributoEntidadeInvalidoException {
         ValidationUtils.validaAtributosDaEntidade(validator, entity);
-        return getDao().add(entity);
+        return getDao().insere(entity);
     }
     
-    public E update(E entity) throws AtributoEntidadeInvalidoException, EntidadeNaoEncontradaException {
+    public E atualiza(E entity) throws AtributoEntidadeInvalidoException, EntidadeNaoEncontradaException {
         ValidationUtils.validaAtributosDaEntidade(validator, entity);
 
-        if (!getDao().existsById(entity.getId())) {
+        if (!getDao().verificaSeEstaCadastrado(entity.getId())) {
             throw new EntidadeNaoEncontradaException();
         }
 
-        return getDao().update(entity);
+        return getDao().atualiza(entity);
     }
 
-    public E findById(ID id) throws EntidadeNaoEncontradaException {
-        final E entity = getDao().findById(id);
+    public E buscaPorId(ID id) throws EntidadeNaoEncontradaException {
+        final E entity = getDao().buscaPorId(id);
         if (entity == null) {
             throw new EntidadeNaoEncontradaException();
         }
         return entity;
     }
     
-    public List<E> findAll() {
-        List<E> entities = getDao().findAll();
+    public List<E> buscaTodos() {
+        List<E> entities = getDao().buscaTodos();
         if (entities == null) {
             throw new EntidadeNaoEncontradaException();
         }
         return entities;
     }
 
-    public void delete(ID id) {
-        getDao().delete(id);
+    public void remove(ID id) {
+        getDao().remove(id);
     }
     
     protected abstract DaoGenerico<E, ID> getDao();

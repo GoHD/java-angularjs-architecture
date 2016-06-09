@@ -10,34 +10,34 @@ public abstract class DaoGenerico<E, ID> {
     @PersistenceContext(name = "appPU")
     EntityManager em;
 
-    public E add(final E entity) {
+    public E insere(final E entity) {
         em.persist(entity);
         return entity;
     }
 
-    public E findById(final ID id) {
+    public E buscaPorId(final ID id) {
         if (id == null) {
             return null;
         }
         return em.find(getPersistentClass(), id);
     }
 
-    public E update(final E entity) {
+    public E atualiza(final E entity) {
         return em.merge(entity);
     }
 
     @SuppressWarnings("unchecked")
-    public List<E> findAll() {
+    public List<E> buscaTodos() {
         return em.createQuery("Select e From " + getPersistentClass().getSimpleName() + " e").getResultList();
     }
 
-    public boolean existsById(final ID id) {
+    public boolean verificaSeEstaCadastrado(final ID id) {
         String jpql = "Select 1 From " + getPersistentClass().getSimpleName() + " e where e.id = :id";
         return em.createQuery(jpql).setParameter("id", id).setMaxResults(1).getResultList().size() > 0;
     }
     
-    public void delete(final ID id) {
-        E entity = findById(id);
+    public void remove(final ID id) {
+        E entity = buscaPorId(id);
         if (entity != null) {
             em.remove(entity);
         }

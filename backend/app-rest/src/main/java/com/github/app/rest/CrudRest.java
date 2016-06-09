@@ -26,7 +26,7 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     @Path("/{id}")
     public Response busca(@PathParam("id") final ID id) {
         try {
-            E entidade  = getServico().findById(id);
+            E entidade  = getServico().buscaPorId(id);
             return Response.status(Status.OK).entity(entidade).build();
         } catch (EntidadeNaoEncontradaException e) {
             return Response.status(Status.NOT_FOUND).build();
@@ -37,7 +37,7 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     @Produces(MediaType.APPLICATION_JSON)
     public Response buscaTodos() {
         try {
-            List<E> entidades = getServico().findAll();
+            List<E> entidades = getServico().buscaTodos();
             return Response.status(Status.OK).entity(entidades).build();
         } catch (EntidadeNaoEncontradaException e) {
             return Response.status(Status.NOT_FOUND).build();
@@ -47,7 +47,7 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response inserir(E entidade) {
-         getServico().add(entidade);
+         getServico().insere(entidade);
          String resultado = "Cadastrado com sucesso";
          return Response.status(Status.CREATED).entity(resultado).build();
     }
@@ -55,7 +55,7 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response atualizar(E entidade) {
-        getServico().update(entidade);
+        getServico().atualiza(entidade);
         String resultado = "Atualizado com sucesso";
         return Response.status(Status.OK).entity(resultado).build();
     }
@@ -63,7 +63,7 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     @DELETE
     @Path("/{id}")
     public Response remover(@PathParam("id") final ID id) {
-        getServico().delete(id);
+        getServico().remove(id);
         String resultado = "Deletado com sucesso";
         return Response.status(Status.OK).entity(resultado).build();
     }
