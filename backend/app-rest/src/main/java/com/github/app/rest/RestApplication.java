@@ -1,7 +1,9 @@
 package com.github.app.rest;
 
-import javax.ws.rs.core.Application;
 import javax.ws.rs.ApplicationPath;
-@ApplicationPath("/rest")
+import javax.ws.rs.core.Application;
+
+@ApplicationPath("")
 public class RestApplication extends Application {
+
 }
