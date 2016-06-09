@@ -24,7 +24,7 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public Response busca(@PathParam("id") final ID id) {
+    public Response buscaPorId(@PathParam("id") final ID id) {
         try {
             E entidade  = getServico().buscaPorId(id);
             return Response.status(Status.OK).entity(entidade).build();
