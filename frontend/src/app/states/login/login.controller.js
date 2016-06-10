@@ -16,7 +16,7 @@
     };
 
     function login(credentials) {
-      AuthService.login(credentials).then(function(user) {
+      AuthService.login(credentials, function(user) {
         $log.debug('Usuário logado com sucesso: ' + user);
         $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
       }, function() {

@@ -8,8 +8,8 @@
   /* @ngInject */
   function Session() {
     var service = {
-      create: create,
-      destroy: destroy
+      /*create: create,
+      destroy: destroy*/
     };
 
     return service;

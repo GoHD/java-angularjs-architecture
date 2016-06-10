@@ -19,8 +19,7 @@
     return service;
 
     function login(credentials) {
-      return loginDao.save(credentials)
-        .then(function(res) {
+      return loginDao.save(credentials, function(res) {
           // Session.create(res.data.id, res.data.user.id, res.data.user.role);
           // return res.data.user;
           $log.debug(res);
