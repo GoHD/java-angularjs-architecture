@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
 import com.github.app.annotations.AuthenticationNotRequired;
-import com.github.app.commons.secutiry.JWTKey;
+import com.github.app.commons.security.JWTKey;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
