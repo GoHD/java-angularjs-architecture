@@ -1,6 +1,7 @@
 package com.github.app.rest;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -13,7 +14,6 @@ import com.github.app.annotations.AuthenticationNotRequired;
 import com.github.app.commons.secutiry.JWTKey;
 import com.github.app.model.bo.AutenticacaoBO;
 import com.github.app.model.service.AutenticacaoService;
-import com.github.app.model.service.UsuarioService;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -28,7 +28,7 @@ public class LoginRest {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     @AuthenticationNotRequired
-    public Response realizaLogin(AutenticacaoBO autenticacao) {
+    public Response realizaLogin(@Valid AutenticacaoBO autenticacao) {
     
         System.out.println("Login: " + autenticacao.getLogin());
         System.out.println("Senha: " + autenticacao.getSenha());

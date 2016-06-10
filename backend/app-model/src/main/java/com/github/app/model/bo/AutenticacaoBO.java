@@ -15,6 +15,8 @@ public class AutenticacaoBO {
     @Size(min = 4, max = 40)
     private String senha;
 
+    private String token;
+
     public String getLogin() {
         return login;
     }
@@ -30,5 +32,9 @@ public class AutenticacaoBO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
+    public String getToken() {
+        return token;
+    }
+
 }
