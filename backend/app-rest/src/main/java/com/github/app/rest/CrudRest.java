@@ -47,7 +47,7 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response insere(E entidade) {
+    public Response insere(@Valid E entidade) {
          getServico().insere(entidade);
          String resultado = "Cadastrado com sucesso";
          return Response.status(Status.CREATED).entity(resultado).build();
