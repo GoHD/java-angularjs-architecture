@@ -1,29 +1,42 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('gohd')
-    .controller('UsuarioController', UsuarioController);
+    angular
+      .module('gohd')
+      .controller('UsuarioController', UsuarioController);
 
-  /** @ngInject */
-  function UsuarioController(usuarioService, $log) {
-    var vm = this;
+    /** @ngInject */
+    function UsuarioController(usuarioService, $log) {
+      var vm = this;
 
-    vm.salvar = salvarFn;
-    vm.usuarios = [];
+      vm.salvar = salvarFn;
+      vm.usuarios = [];
 
-    function salvarFn(usuario) {
-      usuarioService.adicionarUsuario(usuario).then(
-        function(data) {
-          vm.usuarios.push(data);
-        },
-        function(e) {
-          $log.debug("Ocorreu um erro ao salvar um usuario: " + e);
-        }
-      );
+      buscarUsuarios();
 
-      delete vm.usuario;
-    }
+      function salvarFn(usuario) {
+        usuarioService.adicionarUsuario(usuario).then(
+          function(data) {
+            vm.usuarios.push(data);
+          },
+          function(e) {
+            $log.debug("Ocorreu um erro ao salvar um usuario: " + e);
+          }
+        );
+
+        delete vm.usuario;
+      }
+
+      function buscarUsuarios() {
+        usuarioService.buscarUsuarios().then(
+          function(data) {
+            vm.usuarios.push(data);
+          },
+          function(e) {
+            $log.debug("Ocorreu um erro ao buscar os usuarios cadastrados: " + e);
+          }
+        );
+      }
 
   }
 

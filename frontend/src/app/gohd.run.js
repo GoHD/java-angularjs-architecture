@@ -8,14 +8,14 @@
   /** @ngInject */
   function runBlock($rootScope, $state, $log, AuthService) {
 
-    $rootScope.$on("$stateChangeStart", function(event, toState/*, toParams, fromState, fromParams*/) {
+    var stateChangeStartFn = $rootScope.$on("$stateChangeStart", function(event, toState /*, toParams, fromState, fromParams*/ ) {
       if (toState.authenticate && AuthService.isAuthenticated === false) {
-        $log.debug('nao está autenticado');
         $state.transitionTo("login");
         event.preventDefault();
       }
     });
 
+    $rootScope.$on("$destroy", stateChangeStartFn);
     $log.debug('runBlock end');
   }
 

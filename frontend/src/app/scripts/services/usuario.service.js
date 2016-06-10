@@ -6,38 +6,39 @@
     .service('usuarioService', usuarioService);
 
   /* @ngInject */
-  function usuarioService($q, $http) {
+  function usuarioService($q, $http, $log, $resource) {
+
+    var users = $resource('http://localhost:8080/app-rest/usuario');
+
     var service = {
-      buscarUsuarios: buscarUsuariosFn,
-      adicionarUsuario: adicionarUsuarioFn
+      buscarUsuarios: buscarUsuarios,
+      adicionarUsuario: adicionarUsuario
     };
 
     return service;
 
-    function buscarUsuariosFn() {
+    function adicionarUsuario(usuario) {
       var deferred = $q.defer();
-
-      $http.get('http://localhost:8080/app-rest/usuario')
-        .success(function(data) {
+      users.save(usuario, function(data) {
           deferred.resolve(data);
-        })
-        .error(function(err) {
+        },
+        function(err) {
           deferred.reject(err);
         });
 
       return deferred.promise;
     }
 
-    function adicionarUsuarioFn(usuario) {
+    function buscarUsuarios() {
       var deferred = $q.defer();
-
-      $http.post('http://localhost:8080/app-rest/usuario', usuario)
-        .success(function(data) {
+      users.getAll(
+        function(data) {
           deferred.resolve(data);
-        })
-        .error(function(err) {
+        },
+        function(err) {
           deferred.reject(err);
-        });
+        }
+      );
 
       return deferred.promise;
     }

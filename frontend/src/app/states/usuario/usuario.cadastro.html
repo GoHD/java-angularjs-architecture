@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-offset-4 col-md-4">
+  <div class="col-md-offset-2 col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4>Novo Usuário</h4>
@@ -28,6 +28,15 @@
       </div>
       <div class="panel-footer">
         <button ng-click="uc.salvar(uc.usuario)" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4" ng-if="uc.usuarios.length > 0">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Usuários Cadastrados</h4>
+      </div>
+      <div class="panel-body">
       </div>
     </div>
   </div>
