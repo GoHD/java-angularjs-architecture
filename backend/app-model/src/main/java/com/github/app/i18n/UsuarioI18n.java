@@ -3,7 +3,7 @@ package com.github.app.i18n;
 import java.util.ResourceBundle;
 
 public enum UsuarioI18n {
-
+    
     TESTE;
     
     public String mensagem() {

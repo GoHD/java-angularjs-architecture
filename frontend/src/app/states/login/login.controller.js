@@ -11,8 +11,7 @@
 
     vm.autenticaUsuario = autenticaUsuarioFn;
 
-    function autenticaUsuarioFn(nome, senha) {
-      console.log(nome + senha);
+    function autenticaUsuarioFn() {
       $state.go('gohd');
     }
   }
