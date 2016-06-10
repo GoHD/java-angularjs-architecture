@@ -9,7 +9,8 @@ import javax.ws.rs.core.MediaType;
 
 import com.github.app.annotations.AuthenticationNotRequired;
 import com.github.app.commons.secutiry.JWTKey;
-import com.github.app.model.entity.Usuario;
+import com.github.app.model.bo.AutenticacaoBO;
+import com.github.app.model.service.AutenticacaoService;
 import com.github.app.model.service.UsuarioService;
 
 import io.jsonwebtoken.Jwts;
@@ -19,20 +20,19 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class LoginRest {
     
     @Inject
-    private UsuarioService usuarioService;
+    private AutenticacaoService autenticacaoService;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     @AuthenticationNotRequired
-    public String realizaLogin(Usuario usuario) {
-        
-        System.out.println("Login: " + usuario.getLogin());
-        System.out.println("Senha: " + usuario.getSenha());
+    public String realizaLogin(AutenticacaoBO autenticacao) {
+        System.out.println("Login: " + autenticacao.getLogin());
+        System.out.println("Senha: " + autenticacao.getSenha());
         
         // TODO Valida usuário no banco 
         
-        String jwtToken = Jwts.builder().setSubject(usuario.getLogin()).signWith(SignatureAlgorithm.HS512, JWTKey.key).compact();
+        String jwtToken = Jwts.builder().setSubject(autenticacao.getLogin()).signWith(SignatureAlgorithm.HS512, JWTKey.key).compact();
         System.out.println("Token Gerado: " + jwtToken);
         
         return jwtToken;

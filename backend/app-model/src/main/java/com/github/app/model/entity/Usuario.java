@@ -20,15 +20,15 @@ public class Usuario implements Serializable, IEntity<Long> {
     private Long id;
 
     @NotNull
-    @Size(min = 2, max = 40)
+    @Size(min = 4, max = 40)
     private String nome;
 
     @NotNull
-    @Size(min = 2, max = 40)
+    @Size(min = 4, max = 40)
     private String login;
 
     @NotNull
-    @Size(min = 2, max = 40)
+    @Size(min = 4, max = 40)
     private String senha;
 
     public Long getId() {
