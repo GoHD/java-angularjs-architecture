@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
+    "start": "npm i -d && npm i -d -g bower && bower install -d && npm i -g -d gulp-cli && gulp serve",
     "test": "gulp test"
   },
   "devDependencies": {
