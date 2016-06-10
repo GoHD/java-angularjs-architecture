@@ -5,8 +5,7 @@
     'ngAnimate',
     'ngResource',
     'ui.router',
-    'ui.bootstrap',
-    'toastr'
+    'ui.bootstrap'
   ];
 
   angular

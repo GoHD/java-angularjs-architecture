@@ -3,10 +3,10 @@
 
   angular
     .module('gohd')
-    .directive('acmeNavbar', acmeNavbar);
+    .directive('gohdNavbar', gohdNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function gohdNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
