@@ -1,4 +1,4 @@
-package com.github.app.commons.secutiry;
+package com.github.app.commons.security;
 
 import java.security.Key;
 

@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import com.github.app.annotations.AuthenticationNotRequired;
-import com.github.app.commons.secutiry.JWTKey;
+import com.github.app.commons.security.JWTKey;
 import com.github.app.model.bo.AutenticacaoBO;
 import com.github.app.model.service.AutenticacaoService;
 import com.github.app.model.service.UsuarioService;
