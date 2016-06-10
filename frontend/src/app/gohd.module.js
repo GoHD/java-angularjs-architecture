@@ -5,7 +5,8 @@
     'ngAnimate',
     'ngResource',
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'LocalStorageModule'
   ];
 
   angular
