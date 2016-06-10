@@ -3,6 +3,7 @@ package com.github.app.rest;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -54,7 +55,7 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response atualiza(E entidade) {
+    public Response atualiza(@Valid E entidade) {
         getServico().atualiza(entidade);
         String resultado = "Atualizado com sucesso";
         return Response.status(Status.OK).entity(resultado).build();
