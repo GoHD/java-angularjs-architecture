@@ -6,15 +6,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "usuario")
+@NamedQuery(name="Usuario.BuscaPorLogin", query="SELECT u FROM Usuario u where u.login = :login")
 public class Usuario implements Serializable, IEntity<Long> {
     private static final long serialVersionUID = 771274427113043642L;
-
+    
+    public enum NamedQueries {
+        
+        BUSCA_POR_LOGIN("BuscaPorLogin");
+        
+        private NamedQueries(String name) {
+            this.name = name;
+        }
+        
+        public final String name;
+        
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

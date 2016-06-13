@@ -29,7 +29,6 @@ public class LoginRest {
         System.out.println("Login: " + loginDto.getLogin());
         System.out.println("Senha: " + loginDto.getSenha());
         
-        
         UsuarioLogadoDto usuarioLogadoDto = autenticacaoService.realizaLogin(loginDto);
         return Response.status(Status.OK).entity(usuarioLogadoDto).build() ;
     }

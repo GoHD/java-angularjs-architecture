@@ -18,5 +18,8 @@ public class UsuarioService extends ServicoGenerico<Usuario, Long> {
         return usuarioDao;
     }
     
+    public Usuario buscaPorLogin(String login) {
+        return usuarioDao.buscaPorLogin(login);
+    }
     
 }

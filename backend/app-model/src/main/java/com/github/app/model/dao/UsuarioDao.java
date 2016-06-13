@@ -3,6 +3,7 @@ package com.github.app.model.dao;
 import javax.persistence.TypedQuery;
 
 import com.github.app.model.entity.Usuario;
+import com.github.app.model.entity.Usuario.NamedQueries;
 
 public class UsuarioDao extends DaoGenerico<Usuario, Long> {
 
@@ -12,8 +13,7 @@ public class UsuarioDao extends DaoGenerico<Usuario, Long> {
     }
 
     public Usuario buscaPorLogin(String login) {
-        String jpql = "FROM Usuario WHERE login = :login";
-        TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
+        TypedQuery<Usuario> query = em.createNamedQuery(NamedQueries.BUSCA_POR_LOGIN.name, Usuario.class);
         query.setParameter("login", login);
         return query.getSingleResult();
     }
