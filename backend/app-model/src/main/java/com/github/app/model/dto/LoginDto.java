@@ -1,11 +1,11 @@
-package com.github.app.model.bo;
+package com.github.app.model.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class AutenticacaoBO {
+public class LoginDto {
 
     @NotNull
     @Size(min = 4, max = 40)
@@ -30,5 +30,5 @@ public class AutenticacaoBO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
 }

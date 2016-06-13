@@ -12,24 +12,24 @@ public class UsuarioMocks {
     public static Usuario joaoDaSilva() {
         Usuario usuario = new Usuario();
         usuario.setNome("João da silva");
-        usuario.setLogin("aaa");
-        usuario.setSenha("aaa");
+        usuario.setLogin("aaaa");
+        usuario.setSenha("aaaa");
         return usuario;
     }
     
     public static Usuario juliaCarvalho() {
         Usuario usuario = new Usuario();
         usuario.setNome("Júlia Carvalho");
-        usuario.setLogin("aaa");
-        usuario.setSenha("aaa");
+        usuario.setLogin("aaaa");
+        usuario.setSenha("aaaa");
         return usuario;
     }
     
     public static Usuario pedroMendonca() {
         Usuario usuario = new Usuario();
         usuario.setNome("Pedro Mendonça");
-        usuario.setLogin("aaa");
-        usuario.setSenha("aaa");
+        usuario.setLogin("aaaa");
+        usuario.setSenha("aaaa");
         return usuario;
     }
     
