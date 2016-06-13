@@ -5,13 +5,14 @@
         <span class="glyphicon glyphicon-home"></span> GoHD
       </a>
     </div>
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="#">Home</a></li>
+        <li><a ng-href="/home" ui-sref="gohd.home">Home</a></li>
         <li><a ng-href="/usuario" ui-sref="gohd.usuario">Usuarios</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ng-href="#" ng-click="vm.logout()">Sair</a></li>
+      </ul>
     </div>
-
   </div>
 </nav>

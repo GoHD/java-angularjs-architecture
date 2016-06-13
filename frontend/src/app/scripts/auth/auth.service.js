@@ -14,17 +14,14 @@
       login: login,
       logout: logout,
       isAuthenticated: isAuthenticated
-      // isAuthorized: isAuthorized
     };
 
     return service;
 
     function login(credentials) {
       return loginDao.save(credentials, function(res) {
-          // var auth = res.data;
-          $log.debug(res.data);
-          $log.debug(res);
-          // SessionStorage.create(auth.id, auth.nome, auth.username/*, auth.roles*/);
+          var auth = res;
+          SessionStorage.create(auth.id, auth.nome, auth.login, auth.token);
           $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
         });
     }
@@ -36,18 +33,8 @@
     }
 
     function isAuthenticated() {
-      return !!SessionStorage.userId;
+      return !!SessionStorage.getName();
     }
-
-    /*
-    function isAuthorized(authorizedRoles) {
-      if (!angular.isArray(authorizedRoles)) {
-        authorizedRoles = [authorizedRoles];
-      }
-      return (isAuthenticated() && authorizedRoles.indexOf(.userRole) !== -1);
-    }
-    */
   }
-
 
 })();

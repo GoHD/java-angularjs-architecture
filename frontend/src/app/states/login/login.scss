@@ -4,10 +4,17 @@ html, body {
 
 .login-container {
   height: 100vh;
+  background-color: #F0F0F0;
+}
+
+.login-content {
   display:flex;
   justify-content: center;
   align-items: center;
-  background-color: #F0F0F0;
+}
+
+.login-content {
+  height: 80vh;
 }
 
 .login-input {
