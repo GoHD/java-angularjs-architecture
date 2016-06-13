@@ -21,9 +21,10 @@
 
     function login(credentials) {
       return loginDao.save(credentials, function(res) {
-          var auth = res.data;
-          $log.debug(auth.id, auth.username);
-          SessionStorage.create(auth.id, auth.username, auth.roles);
+          // var auth = res.data;
+          $log.debug(res.data);
+          $log.debug(res);
+          // SessionStorage.create(auth.id, auth.nome, auth.username/*, auth.roles*/);
           $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
         });
     }

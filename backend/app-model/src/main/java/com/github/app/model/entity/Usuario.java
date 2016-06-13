@@ -45,6 +45,7 @@ public class Usuario implements Serializable, IEntity<Long> {
     @Size(min = 4, max = 40)
     private String senha;
 
+    @Override
     public Long getId() {
         return id;
     }

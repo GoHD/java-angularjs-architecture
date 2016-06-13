@@ -17,9 +17,9 @@
 
     function request(config) {
       config.headers = config.headers || {};
-      if (SessionStorage.token && !config.headers.Authorization) {
+      /*if (SessionStorage.token && !config.headers.Authorization) {
         config.headers.Authorization = SessionStorage.token;
-      }
+      }*/
       return config;
     }
 

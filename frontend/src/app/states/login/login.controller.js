@@ -9,6 +9,7 @@
   function LoginController($scope, $rootScope, AuthService, AUTH_EVENTS, $log) {
     var vm = this;
 
+    vm.title = "Bem vindo!";
     vm.login = login;
     vm.credentials = {
       login: '',

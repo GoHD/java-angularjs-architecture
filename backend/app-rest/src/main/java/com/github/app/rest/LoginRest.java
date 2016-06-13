@@ -23,7 +23,7 @@ public class LoginRest {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @AuthenticationNotRequired
     public Response realizaLogin(@Valid LoginDto loginDto) {
         System.out.println("Login: " + loginDto.getLogin());
