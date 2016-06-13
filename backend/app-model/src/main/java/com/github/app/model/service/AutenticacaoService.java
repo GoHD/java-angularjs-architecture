@@ -3,9 +3,10 @@ package com.github.app.model.service;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.github.app.common.exception.FalhaDeAutenticacaoException;
-import com.github.app.common.security.CriptografiaSHA512;
-import com.github.app.commons.security.JWTKey;
+import com.github.app.common.security.ConstantesDeSeguranca;
 import com.github.app.model.dto.LoginDto;
 import com.github.app.model.dto.UsuarioLogadoDto;
 import com.github.app.model.entity.Usuario;
@@ -17,35 +18,46 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class AutenticacaoService {
     
     @Inject
-    private UsuarioService usuarioService;
+    UsuarioService usuarioService;
     
     public UsuarioLogadoDto realizaLogin(LoginDto loginDto) {
-        
-        Usuario usuario = usuarioService.buscaPorLogin(loginDto.getLogin());
-        
-        if (usuario == null) {
-            throw new FalhaDeAutenticacaoException("Login não cadastrado");
-        }
-        
-        boolean senhaValida = validaSenhaInformada(loginDto, usuario);
-        if (!senhaValida) {
-            throw new FalhaDeAutenticacaoException("Senha inválida");
-        }
+        Usuario usuario = buscaUsuarioComLoginInformado(loginDto);
+        validaSenhaInformada(loginDto.getSenha(), usuario.getSenha());
         
         String jwtToken = geraTokenJWT(loginDto.getLogin());
-        UsuarioLogadoDto usuarioLogadoDto = new UsuarioLogadoDto(1L, "admin", "admin", "admin@admin.admin", jwtToken);
+        
+        UsuarioLogadoDto usuarioLogadoDto = criaDtoDoUsuarioLogado(usuario, jwtToken);
         
         return usuarioLogadoDto;
     }
 
-    private boolean validaSenhaInformada(LoginDto loginDto, Usuario usuario) {
-        // TODO Tratar SALT
-        String senhaDigitada = CriptografiaSHA512.criptografa(loginDto.getSenha(), "");
-        return senhaDigitada.equals(usuario.getSenha());
+    private UsuarioLogadoDto criaDtoDoUsuarioLogado(Usuario usuario, String jwtToken) {
+        Long id = usuario.getId();
+        String login = usuario.getLogin();
+        String nome = usuario.getNome();
+        String email = usuario.getEmail();
+        
+        UsuarioLogadoDto usuarioLogadoDto = new UsuarioLogadoDto(id, login, nome, email, jwtToken);
+        return usuarioLogadoDto;
+    }
+
+    private void validaSenhaInformada(String senhaInformada, String hashSenhaUsuario) {
+        boolean senhaValida = BCrypt.checkpw(senhaInformada, hashSenhaUsuario);
+        if (!senhaValida) {
+            throw new FalhaDeAutenticacaoException("Senha inválida");
+        }
+    }
+
+    private Usuario buscaUsuarioComLoginInformado(LoginDto loginDto) {
+        Usuario usuario = usuarioService.buscaPorLogin(loginDto.getLogin());
+        if (usuario == null) {
+            throw new FalhaDeAutenticacaoException("Login não cadastrado");
+        }
+        return usuario;
     }
 
     private String geraTokenJWT(String login) {
-        return Jwts.builder().setSubject(login).signWith(SignatureAlgorithm.HS512, JWTKey.key).compact();
+        return Jwts.builder().setSubject(login).signWith(SignatureAlgorithm.HS512, ConstantesDeSeguranca.JWT_KEY).compact();
     }
     
 }

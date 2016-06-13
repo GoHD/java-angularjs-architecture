@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
 import com.github.app.annotations.AuthenticationNotRequired;
-import com.github.app.commons.security.JWTKey;
+import com.github.app.common.security.ConstantesDeSeguranca;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
@@ -33,7 +33,7 @@ public class AutenticacaoRequestFilter implements ContainerRequestFilter {
         final String jwtToken = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);
 
         try {
-            Jwts.parser().setSigningKey(JWTKey.key).parseClaimsJws(jwtToken);
+            Jwts.parser().setSigningKey(ConstantesDeSeguranca.JWT_KEY).parseClaimsJws(jwtToken);
             // .getBody().getSubject().equals(usuario.getLogin())
         } catch (SignatureException e) {
             requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("User cannot access the resource.").build());

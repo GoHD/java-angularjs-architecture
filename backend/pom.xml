@@ -101,14 +101,19 @@
 				<type>test-jar</type>
 			</dependency>
 			<dependency>
-	            <groupId>org.flywaydb</groupId>
-	            <artifactId>flyway-core</artifactId>
-	            <version>3.2.1</version>
-	        </dependency>
-	        <dependency>
-			    <groupId>org.apache.commons</groupId>
-			    <artifactId>commons-lang3</artifactId>
-			    <version>3.3.2</version>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-core</artifactId>
+				<version>3.2.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.3.2</version>
+			</dependency>
+			<dependency>
+			    <groupId>de.svenkubiak</groupId>
+			    <artifactId>jBCrypt</artifactId>
+			    <version>0.4.1</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

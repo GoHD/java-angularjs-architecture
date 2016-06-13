@@ -27,9 +27,12 @@ public abstract class ServicoGenerico<E extends IEntity<ID>, ID extends Serializ
     
     public E insere(E entity) throws AtributosDaEntidadeInvalidosException {
         ValidationUtils.validaAtributosDaEntidade(validator, entity);
+        preparaEntidadeParaInserir(entity);
         return getDao().insere(entity);
     }
     
+    protected abstract void preparaEntidadeParaInserir(E entity);
+
     public E atualiza(E entity) throws AtributosDaEntidadeInvalidosException, EntidadeNaoEncontradaException {
         ValidationUtils.validaAtributosDaEntidade(validator, entity);
 
