@@ -35,9 +35,7 @@ public class AutenticacaoRequestFilter implements ContainerRequestFilter {
         try {
             Jwts.parser().setSigningKey(JWTKey.key).parseClaimsJws(jwtToken);
             // .getBody().getSubject().equals(usuario.getLogin())
-            System.out.println("Autenticação realizada com sucesso!!!! \\o/");
         } catch (SignatureException e) {
-            System.out.println("Autenticação falhou!!!");
             requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("User cannot access the resource.").build());
         }
 

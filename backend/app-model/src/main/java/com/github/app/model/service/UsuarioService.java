@@ -18,4 +18,5 @@ public class UsuarioService extends ServicoGenerico<Usuario, Long> {
         return usuarioDao;
     }
     
+    
 }
