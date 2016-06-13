@@ -8,13 +8,10 @@
   /** @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
-      .state('gohd.usuario', {
-        url: '/usuario',
+      .state('gohd.home', {
+        url: '/home',
         authenticate: true,
-        templateUrl: "app/states/usuario/usuario.cadastro.html",
-        controller: 'UsuarioController',
-        controllerAs: 'uc'
+        templateUrl: "app/states/home/home.html"
       });
   }
-
 })();

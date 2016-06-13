@@ -10,7 +10,6 @@
     $stateProvider
       .state('gohd', {
         url: '/gohd',
-        sticky: true,
         authenticate: true,
         templateUrl: "app/layout/shell.html",
         controller: 'ShellController',
