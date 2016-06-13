@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container-fluid login-container">
   <div class="row">
-    <div class="col-md-offset-5 col-md-3">
+    <div class="col-md-12">
       <form ng-submit="lc.login(lc.credentials)">
-        <h4>Bem vindo!</h4>
-        <input type="text" id="nome" class="form-control" placeholder="username" ng-model="lc.credentials.login"/>
-        <input type="text" id="senha" class="form-control" placeholder="password" ng-model="lc.credentials.senha"/>
-        <button class="btn btn-info" type="submit">Login</button>
+        <h4 class="login-title">{{::lc.title}}</h4>
+        <input type="text" id="nome" class="login-input form-control" placeholder="login" ng-model="lc.credentials.login" autocomplete="off"/>
+        <input type="password" id="senha" class="login-input form-control" placeholder="senha" ng-model="lc.credentials.senha" autocomplete="off"/>
+        <button class="btn btn-info login-btn form-control" type="submit">Entrar</button>
       </form>
     </div>
   </div>

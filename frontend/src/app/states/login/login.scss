@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+}
+
+.login-container {
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F0F0F0;
+}
+
+.login-input {
+  text-align: center;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.login-btn {
+  text-align: center;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.login-title {
+  font-family: 'Courier, monospace';
+  color: gray;
+  text-align: center;
+  margin-bottom: 20px;
+}
