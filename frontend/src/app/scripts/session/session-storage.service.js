@@ -10,10 +10,10 @@
         this.id = id;
         this.nome = nome;
         this.login = login;
+        console.log(token);
         this.token = token;
         this.email = email;
         localStorageService.set('session', this);
-        broadcastSessionChanges();
       };
 
       sessionStorage.destroy = function() {
@@ -29,9 +29,15 @@
         return this.nome;
       };
 
-      function broadcastSessionChanges() {
-        $rootScope.$broadcast('sessionStorageChanged', sessionStorage);
-      }
+      sessionStorage.getToken = function() {
+        return this.token;
+      };
+
+      sessionStorage.atualiza = function() {
+        $rootScope.id = this.id;
+        $rootScope.nome = this.nome;
+        $rootScope.token = this.token;
+      };
 
       return sessionStorage;
     });
