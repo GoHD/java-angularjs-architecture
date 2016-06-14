@@ -21,7 +21,7 @@ public class Usuario implements Serializable, IEntity<Long> {
 
     public enum NamedQueries {
 
-        BUSCA_POR_LOGIN("BuscaPorLogin");
+        BUSCA_POR_LOGIN("Usuario.BuscaPorLogin");
 
         private NamedQueries(String name) {
             this.name = name;
@@ -49,9 +49,6 @@ public class Usuario implements Serializable, IEntity<Long> {
     @Email
     @NotNull
     private String email;
-
-    @NotNull
-    private String salt;
 
     @Override
     public Long getId() {
@@ -92,14 +89,6 @@ public class Usuario implements Serializable, IEntity<Long> {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
     }
 
     @Override

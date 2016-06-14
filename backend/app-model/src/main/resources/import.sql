@@ -1,0 +1,1 @@
+INSERT INTO usuario(id, email, login, nome, senha) VALUES (0, 'admin@gohd.com', 'admin', 'Admin da Silva', '$2a$12$wovE6pQEYY1BM9SIxNS58OfXWhJMxpHurpwfn9Wp2FsWdKVq9XqL2');
