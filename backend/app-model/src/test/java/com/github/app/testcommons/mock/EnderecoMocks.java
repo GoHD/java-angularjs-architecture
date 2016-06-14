@@ -13,7 +13,7 @@ public class EnderecoMocks {
         endereco.setEstado(EstadoMocks.SC());
         endereco.setNumero(999);
         endereco.setPontoDeReferencia("Não tem");
-        endereco.setRua("Rua 1");
+        endereco.setRua("Rua 1 de maio");
         return endereco;
     }
     

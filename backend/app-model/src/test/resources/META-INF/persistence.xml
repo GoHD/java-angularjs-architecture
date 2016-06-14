@@ -6,6 +6,9 @@
 	<persistence-unit name="appTestsPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.github.app.model.entity.Usuario</class>
+		<class>com.github.app.model.entity.Cliente</class>
+		<class>com.github.app.model.entity.Endereco</class>
+		<class>com.github.app.model.entity.Estado</class>
 
 		<properties>
 			<property name="hibernate.show_sql" value="true" />

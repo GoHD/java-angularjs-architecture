@@ -43,7 +43,7 @@ public class Cliente implements Serializable, IEntity<Long> {
     private String cnpj;
 
     @NotNull
-    @Size(min = 8, max = 8)
+    @Size(min = 7, max = 9)
     private String rg;
     
     @NotNull

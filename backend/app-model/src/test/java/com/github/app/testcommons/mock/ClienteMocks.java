@@ -41,6 +41,7 @@ public class ClienteMocks {
         cliente.setRg("460876223");
         cliente.setCpf("10955384460");
         cliente.setDataNascimento(LocalDate.of(1968, 11, 18));
+        cliente.setEmail("balthazar@gohd.com");
         cliente.setEnderecos(Arrays.asList(EnderecoMocks.enderecoPadrao()));
         return cliente;
     }
