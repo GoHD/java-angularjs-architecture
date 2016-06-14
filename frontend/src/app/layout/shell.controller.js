@@ -14,9 +14,5 @@
     vm.nome = $rootScope.nome;
     vm.email = $rootScope.email;
     vm.token = $rootScope.token;
-
-    console.log($rootScope.nome);
-    console.log($rootScope.id);
-    console.log($rootScope.token);
   }
 })();

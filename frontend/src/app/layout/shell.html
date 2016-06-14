@@ -9,10 +9,12 @@
           </div>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+          <ul class="nav navbar-nav">
+              <li><a ng-href="#" ui-sref="gohd.home">Início</a></li>
+              <li><a ng-href="#" ui-sref="gohd.usuario">Usuários</a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a ng-href="#" ng-click="sc.logout()">{{sc.nome}} <span class="caret"></span></a>
-            </li>
+            <li><a ng-href="#" ng-click="sc.logout()">{{sc.nome}} <span class="caret"></span></a></li>
           </ul>
         </div>
       </div>
