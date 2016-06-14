@@ -1,7 +1,7 @@
 package com.github.app.model.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -51,7 +51,7 @@ public class Cliente implements Serializable, IEntity<Long> {
     private String email;
     
     @NotNull
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     
     @NotNull
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -111,11 +111,11 @@ public class Cliente implements Serializable, IEntity<Long> {
         this.email = email;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

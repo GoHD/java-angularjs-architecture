@@ -43,6 +43,6 @@ public abstract class DaoGenerico<E, ID> {
         }
     }
 
-    protected abstract Class<E> getPersistentClass();
+    abstract Class<E> getPersistentClass();
 
 }
