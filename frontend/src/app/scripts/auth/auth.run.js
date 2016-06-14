@@ -6,13 +6,15 @@
     .run(runBlock);
 
   /* @ngInject */
-  function runBlock($state, AuthService, $rootScope, AUTH_EVENTS, $timeout) {
+  function runBlock($state, AuthService, $rootScope, AUTH_EVENTS, $timeout, SessionStorage) {
 
-    $rootScope.$on("$stateChangeStart", function(event, toState/*, toParams, fromState, fromParams*/) {
+    $rootScope.$on("$stateChangeStart", function(event, toState /*, toParams, fromState, fromParams*/ ) {
       if (toState.authenticate && AuthService.isAuthenticated() === false) {
         event.preventDefault();
         $state.transitionTo("login");
       }
+
+      SessionStorage.atualiza();
     });
 
     function login() {
@@ -22,7 +24,7 @@
     }
 
     $rootScope.$on(AUTH_EVENTS.loginSuccess, function() {
-      $state.go('gohd');
+      $state.go('gohd.home');
     });
 
     $rootScope.$on(AUTH_EVENTS.logoutSuccess, function() {
