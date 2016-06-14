@@ -13,6 +13,7 @@ public class UsuarioMocks {
         Usuario usuario = new Usuario();
         usuario.setNome("João da silva");
         usuario.setLogin("joao");
+        usuario.setEmail("joao@gmail.com");
         usuario.setSenha("$2a$12$.8JLsecpO0v/lt3cHjZFfup752E6XADygn9KOwKDOfQXkwo4PDBCG");
         return usuario;
     }
@@ -21,6 +22,7 @@ public class UsuarioMocks {
         Usuario usuario = new Usuario();
         usuario.setNome("Júlia Carvalho");
         usuario.setLogin("julia");
+        usuario.setEmail("julia@gmail.com");
         usuario.setSenha("$2a$12$yqUdBXdg1NziORkrZ.o1EOG3aE2itcQ5EU6b1YQ8k1rj5q/WeDKz2");
         return usuario;
     }
@@ -29,6 +31,7 @@ public class UsuarioMocks {
         Usuario usuario = new Usuario();
         usuario.setNome("Pedro Mendonça");
         usuario.setLogin("pedro");
+        usuario.setEmail("pedro@gmail.com");
         usuario.setSenha("$2a$12$rEv0/9B65EUo4vpRL0fODONaGxIBITfeEjy2famVobfoPQD0G2ki2");
         return usuario;
     }
