@@ -25,7 +25,7 @@ public class LoginRest {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @AuthenticationNotRequired
-    public Response realizaLogin(@Valid LoginDto loginDto) {
+    public Response realizaLogin(LoginDto loginDto) {
         System.out.println("Login: " + loginDto.getLogin());
         System.out.println("Senha: " + loginDto.getSenha());
         

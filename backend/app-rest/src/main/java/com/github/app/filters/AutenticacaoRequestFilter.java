@@ -14,6 +14,8 @@ import javax.ws.rs.ext.Provider;
 import com.github.app.annotations.AuthenticationNotRequired;
 import com.github.app.common.security.ConstantesDeSeguranca;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
 
@@ -34,7 +36,7 @@ public class AutenticacaoRequestFilter implements ContainerRequestFilter {
 
         try {
             Jwts.parser().setSigningKey(ConstantesDeSeguranca.JWT_KEY).parseClaimsJws(jwtToken);
-            // .getBody().getSubject().equals(usuario.getLogin())
+            // jws.getBody().getSubject().equals("Login do vivente");
         } catch (SignatureException e) {
             requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("User cannot access the resource.").build());
         }
