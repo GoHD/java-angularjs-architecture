@@ -2,6 +2,7 @@ package com.github.app.model.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,6 +42,7 @@ public class Usuario implements Serializable, IEntity<Long> {
 
     @NotNull
     @Size(min = 4, max = 40)
+    @Column(unique=true)
     private String login;
 
     @NotNull
@@ -119,6 +121,10 @@ public class Usuario implements Serializable, IEntity<Long> {
     @Override
     public String toString() {
         return "Usuario [id=" + id + ", nome=" + nome + "]";
+    }
+    
+    public class UsuarioNull extends Usuario {
+        private static final long serialVersionUID = 1L; 
     }
 
 }

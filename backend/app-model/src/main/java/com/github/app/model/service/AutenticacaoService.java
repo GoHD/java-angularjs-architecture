@@ -7,6 +7,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import com.github.app.common.exception.FalhaDeAutenticacaoException;
 import com.github.app.common.security.ConstantesDeSeguranca;
+import static com.github.app.i18n.MensagensI18n.*;
 import com.github.app.model.dto.LoginDto;
 import com.github.app.model.dto.UsuarioLogadoDto;
 import com.github.app.model.entity.Usuario;
@@ -44,14 +45,14 @@ public class AutenticacaoService {
     private void validaSenhaInformada(String senhaInformada, String hashSenhaUsuario) {
         boolean senhaValida = BCrypt.checkpw(senhaInformada, hashSenhaUsuario);
         if (!senhaValida) {
-            throw new FalhaDeAutenticacaoException("Senha inválida");
+            throw new FalhaDeAutenticacaoException(SENHA_INVALIDA.name(), SENHA_INVALIDA.mensagem());
         }
     }
 
     private Usuario buscaUsuarioComLoginInformado(LoginDto loginDto) {
         Usuario usuario = usuarioService.buscaPorLogin(loginDto.getLogin());
         if (usuario == null) {
-            throw new FalhaDeAutenticacaoException("Login não cadastrado");
+            throw new FalhaDeAutenticacaoException(LOGIN_NAO_CADASTRADO.name(), LOGIN_NAO_CADASTRADO.mensagem());
         }
         return usuario;
     }

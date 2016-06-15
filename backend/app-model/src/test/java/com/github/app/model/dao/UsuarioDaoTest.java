@@ -79,9 +79,9 @@ public class UsuarioDaoTest extends TestBaseRepository {
             return usuarioDao.buscaTodos();
         });
         
-        assertEquals(joaoDaSilva().getNome(), usuarios.get(1).getNome());
-        assertEquals(juliaCarvalho().getNome(), usuarios.get(2).getNome());
-        assertEquals(pedroMendonca().getNome(), usuarios.get(3).getNome());
+        assertEquals(joaoDaSilva().getNome(), usuarios.get(0).getNome());
+        assertEquals(juliaCarvalho().getNome(), usuarios.get(1).getNome());
+        assertEquals(pedroMendonca().getNome(), usuarios.get(2).getNome());
 
     }
 
