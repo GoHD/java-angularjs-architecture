@@ -24,6 +24,10 @@
         localStorageService.remove('session');
       };
 
+      sessionStorage.getToken = function() {
+        return this.token;
+      };
+
       sessionStorage.atualizaUsuarioLogado = function() {
         UsuarioLogadoService.atualizar(
           this.id, this.nome, this.email, this.token
