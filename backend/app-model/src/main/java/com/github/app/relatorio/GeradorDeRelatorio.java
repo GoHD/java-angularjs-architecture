@@ -1,6 +1,7 @@
 package com.github.app.relatorio;
 
 import java.util.Collection;
+import static com.github.app.common.utils.GohdLogger.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ public class GeradorDeRelatorio {
             JasperPrint print = JasperFillManager.fillReport(report, parametros, collectionDataSource);
             relatorioEmPdf = JasperExportManager.exportReportToPdf(print);
         } catch (JRException e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage(), e);
         }
         return relatorioEmPdf;
     }
