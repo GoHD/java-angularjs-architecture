@@ -53,7 +53,7 @@ public class ClienteDao extends DaoGenerico<Cliente, Long> implements IBuscaComF
             where.append("AND e.dataNascimento BETWEEN :dataNascimentoInicio AND :dataNascimentoFim ");
         }
         
-        return filtros.toString();
+        return where.toString();
     }
 
     @Override

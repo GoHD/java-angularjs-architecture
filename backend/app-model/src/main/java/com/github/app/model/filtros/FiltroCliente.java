@@ -6,8 +6,8 @@ import com.github.app.common.utils.IntervaloDeDatas;
 
 public class FiltroCliente implements IFiltroDeQuery {
 
-    private final int firstResult;
-    private final int maxResults;
+    private final Integer firstResult;
+    private final Integer maxResults;
     private final IntervaloDeDatas intervaloDataNascimento;
     private final LocalDate dataNascimento;
     private final String nome;
@@ -25,17 +25,22 @@ public class FiltroCliente implements IFiltroDeQuery {
     }
 
     public static class FiltroClienteBuilder {
-        private final int firstResult;
-        private final int maxResults;
+        private Integer firstResult;
+        private Integer maxResults;
         private IntervaloDeDatas intervaloDataNascimento;
         private LocalDate dataNascimento;
         private String nome;
         private String cpf;
         private String cnpj;
         
-        public FiltroClienteBuilder(final int firstResult, final int maxResults) {
+        public FiltroClienteBuilder firstResult(Integer firstResult) {
             this.firstResult = firstResult;
+            return this;
+        }
+        
+        public FiltroClienteBuilder maxResults(Integer maxResults) {
             this.maxResults = maxResults;
+            return this;
         }
         
         public FiltroClienteBuilder intervaloDataNascimento(LocalDate inicio, LocalDate fim) {
