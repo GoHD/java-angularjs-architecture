@@ -18,4 +18,9 @@ public class MensagemDeErro {
         return mensagem;
     }
 
+    @Override
+    public String toString() {
+        return "MensagemDeErro [" + chave + " " + mensagem + "]";
+    }
+    
 }

@@ -111,10 +111,16 @@
 				<version>3.3.2</version>
 			</dependency>
 			<dependency>
-			    <groupId>de.svenkubiak</groupId>
-			    <artifactId>jBCrypt</artifactId>
-			    <version>0.4.1</version>
+				<groupId>de.svenkubiak</groupId>
+				<artifactId>jBCrypt</artifactId>
+				<version>0.4.1</version>
 			</dependency>
+			<dependency>
+				<groupId>net.sf.jasperreports</groupId>
+				<artifactId>jasperreports</artifactId>
+				<version>6.2.2</version>
+			</dependency>
+		
 		</dependencies>
 	</dependencyManagement>
 
