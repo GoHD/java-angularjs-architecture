@@ -1,6 +1,5 @@
 package com.github.app.model.service;
 
-import javax.validation.ConstraintViolationException;
 import javax.validation.Validation;
 import javax.validation.Validator;
 
@@ -10,6 +9,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.github.app.common.exception.AtributosDaEntidadeInvalidosException;
 import com.github.app.common.exception.EntidadeNaoEncontradaException;
 import com.github.app.model.dao.UsuarioDao;
 import com.github.app.model.entity.Usuario;
@@ -35,7 +35,7 @@ public class UsuarioServiceTest {
         usuarioService.usuarioDao = usuarioDao;
     }
 
-    @Test(expected = ConstraintViolationException.class)
+    @Test(expected = AtributosDaEntidadeInvalidosException.class)
     public void adicionaUsuarioComAtributosNulos() {
         final Usuario usuario = new Usuario();
         usuarioService.insere(usuario);

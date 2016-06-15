@@ -3,23 +3,27 @@ package com.github.app.common.exception;
 import javax.ejb.ApplicationException;
 
 @ApplicationException
-public class AtributosDaEntidadeInvalidosException extends RuntimeException {
-	private static final long serialVersionUID = 4525821332583716666L;
+public class AtributosDaEntidadeInvalidosException extends ErroDoClienteException {
+    private static final long serialVersionUID = 1L;
 
-	private final String nomeAtributo;
+    private Erro erro;
 
-	public AtributosDaEntidadeInvalidosException(final String nomeAtributo, final String mensagem) {
-		super(mensagem);
-		this.nomeAtributo = nomeAtributo;
-	}
+    public AtributosDaEntidadeInvalidosException(final String chaveI18n, final String tituloDoErro) {
+        super(chaveI18n, tituloDoErro);
+        this.erro = new Erro(chaveI18n, tituloDoErro);
+    }
 
-	public String getNomeAtributo() {
-		return nomeAtributo;
-	}
+    public void adicionaAtributoInvalido(String atributo, String mensagem) {
+        erro.adicionaMensagem(atributo, mensagem);
+    }
+    
+    public Erro getErro() {
+        return erro;
+    }
 
-	@Override
-	public String toString() {
-		return "AtributoEntidadeInvalidoException [nomeAtributo=" + nomeAtributo + "]";
-	}
-
+    @Override
+    public String toString() {
+        return "AtributosDaEntidadeInvalidosException [" + erro + "]";
+    }
+    
 }
