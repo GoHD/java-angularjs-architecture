@@ -10,7 +10,7 @@ public interface IBuscaComFiltros<E, F> {
     @SuppressWarnings("unchecked")
     default List<E> buscaComFiltros(F filtros) {
         StringBuilder jpql = new StringBuilder();
-        jpql.append("SELECT e FROM " + getPersistentClass() + " e");
+        jpql.append("SELECT e FROM " + getPersistentClass().getSimpleName() + " e ");
         jpql.append(criaClausulaWhereParaBuscaComFiltros(filtros));
         Query query = getEntityManager().createQuery(jpql.toString());
         setaParametrosParaBuscaComFiltros(query, filtros);
