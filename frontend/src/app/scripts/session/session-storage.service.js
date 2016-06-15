@@ -3,7 +3,7 @@
 
   angular
     .module('gohd')
-    .factory('SessionStorage', function($rootScope, localStorageService) {
+    .factory('SessionStorage', function($rootScope, localStorageService, UsuarioLogadoService) {
       var sessionStorage = localStorageService.get('session') || {};
 
       sessionStorage.create = function(id, nome, login, token, email) {
@@ -24,18 +24,10 @@
         localStorageService.remove('session');
       };
 
-      sessionStorage.getName = function() {
-        return this.nome;
-      };
-
-      sessionStorage.getToken = function() {
-        return this.token;
-      };
-
-      sessionStorage.atualiza = function() {
-        $rootScope.id = this.id;
-        $rootScope.nome = this.nome;
-        $rootScope.token = this.token;
+      sessionStorage.atualizaUsuarioLogado = function() {
+        UsuarioLogadoService.atualizar(
+          this.id, this.nome, this.email, this.token
+        );
       };
 
       return sessionStorage;

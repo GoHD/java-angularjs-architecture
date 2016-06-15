@@ -14,7 +14,7 @@
         $state.transitionTo("login");
       }
 
-      SessionStorage.atualiza();
+      SessionStorage.atualizaUsuarioLogado();
     });
 
     function login() {

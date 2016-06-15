@@ -6,13 +6,13 @@
     .controller('ShellController', ShellController);
 
   /* @ngInject */
-  function ShellController(AuthService, $rootScope) {
+  function ShellController(AuthService, $rootScope, UsuarioLogadoService) {
     var vm = this;
 
     vm.logout = AuthService.logout;
-    vm.id = $rootScope.id;
-    vm.nome = $rootScope.nome;
-    vm.email = $rootScope.email;
-    vm.token = $rootScope.token;
+    vm.id = UsuarioLogadoService.id;
+    vm.nome = UsuarioLogadoService.nome;
+    vm.email = UsuarioLogadoService.email;
+    vm.token = UsuarioLogadoService.token;
   }
 })();
