@@ -2,6 +2,8 @@ package com.github.app.model.service;
 
 import static com.github.app.i18n.MensagensI18n.*;
 
+import java.util.Optional;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -51,11 +53,11 @@ public class AutenticacaoService {
     }
 
     private Usuario buscaUsuarioComLoginInformado(LoginDto loginDto) {
-        Usuario usuario = usuarioService.buscaPorLogin(loginDto.getLogin());
-        if (usuario == null) {
+        Optional<Usuario> usuario = usuarioService.buscaPorLogin(loginDto.getLogin());
+        if (!usuario.isPresent()) {
             throw new FalhaDeAutenticacaoException(LOGIN_NAO_CADASTRADO.name(), LOGIN_NAO_CADASTRADO.mensagem());
         }
-        return usuario;
+        return usuario.get();
     }
 
     private String geraTokenJWT(String login) {

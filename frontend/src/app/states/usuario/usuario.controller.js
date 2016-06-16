@@ -18,13 +18,13 @@
         usuarioService.adicionarUsuario(usuario).then(
           function(data) {
             vm.usuarios.push(data);
+            delete vm.usuario;
           },
           function(e) {
             $log.debug("Ocorreu um erro ao salvar um usuario: " + e);
           }
         );
 
-        delete vm.usuario;
       }
 
       function buscarUsuarios() {

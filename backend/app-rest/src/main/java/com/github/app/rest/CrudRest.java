@@ -46,22 +46,23 @@ public abstract class CrudRest<E extends IEntity<ID> , ID extends Serializable> 
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response insere(E entidade) {
-         getServico().insere(entidade);
-         String resultado = "Cadastrado com sucesso";
-         return Response.status(Status.CREATED).entity(resultado).build();
+         E entidadeInserida = getServico().insere(entidade);
+         return Response.status(Status.CREATED).entity(entidadeInserida).build();
     }
     
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response atualiza(E entidade) {
-        getServico().atualiza(entidade);
-        String resultado = "Atualizado com sucesso";
-        return Response.status(Status.OK).entity(resultado).build();
+        E entidadeAtualizada = getServico().atualiza(entidade);
+        return Response.status(Status.OK).entity(entidadeAtualizada).build();
     }
     
     @DELETE
     @Path("/{id}")
+    @Produces(MediaType.TEXT_PLAIN)
     public Response remove(@PathParam("id") final ID id) {
         getServico().remove(id);
         String resultado = "Deletado com sucesso";

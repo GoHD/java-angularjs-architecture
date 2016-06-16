@@ -1,5 +1,8 @@
 package com.github.app.model.dao;
 
+import java.util.Optional;
+
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import com.github.app.model.entity.Usuario;
@@ -12,10 +15,15 @@ public class UsuarioDao extends DaoGenerico<Usuario, Long> {
         return Usuario.class;
     }
 
-    public Usuario buscaPorLogin(String login) {
+    public Optional<Usuario> buscaPorLogin(String login) {
         TypedQuery<Usuario> query = em.createNamedQuery(NamedQueries.BUSCA_POR_LOGIN.name, Usuario.class);
         query.setParameter("login", login);
-        return query.getSingleResult();
+        
+        try {
+            return Optional.ofNullable(query.getSingleResult());
+        } catch (NoResultException ex) {
+            return Optional.empty();
+        }
     }
 
 }

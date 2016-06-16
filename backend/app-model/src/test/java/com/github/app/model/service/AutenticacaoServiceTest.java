@@ -5,6 +5,8 @@ import static com.github.app.testcommons.mock.UsuarioMocks.*;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import java.util.Optional;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -33,19 +35,19 @@ public class AutenticacaoServiceTest {
 
     @Test(expected = FalhaDeAutenticacaoException.class)
     public void realizaAutenticacaoComLoginInexistente() {
-        when(usuarioDao.buscaPorLogin(LoginDtoComLoginInexistente().getLogin())).thenReturn(null);
+        when(usuarioDao.buscaPorLogin(LoginDtoComLoginInexistente().getLogin())).thenReturn(Optional.empty());
         autenticacaoService.realizaLogin(LoginDtoComLoginInexistente());
     }
 
     @Test(expected = FalhaDeAutenticacaoException.class)
     public void realizaAutenticacaoComSenhaInvalida() {
-        when(usuarioDao.buscaPorLogin(LoginDtoLoginValidoSenhaInvalida().getLogin())).thenReturn(pedroMendonca());
+        when(usuarioDao.buscaPorLogin(LoginDtoLoginValidoSenhaInvalida().getLogin())).thenReturn(Optional.of(pedroMendonca()));
         autenticacaoService.realizaLogin(LoginDtoLoginValidoSenhaInvalida());
     }
 
     @Test()
     public void realizaAutenticacaoComUsuarioESenhaValidos() {
-        when(usuarioDao.buscaPorLogin(LoginDtoValido().getLogin())).thenReturn(pedroMendonca());
+        when(usuarioDao.buscaPorLogin(LoginDtoValido().getLogin())).thenReturn(Optional.of(pedroMendonca()));
         UsuarioLogadoDto loginDto = autenticacaoService.realizaLogin(LoginDtoValido());
 
         assertEquals(loginDto.getId(), pedroMendonca().getId());

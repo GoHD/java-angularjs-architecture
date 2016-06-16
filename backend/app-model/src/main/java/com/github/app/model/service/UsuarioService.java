@@ -1,10 +1,15 @@
 package com.github.app.model.service;
 
+import static com.github.app.i18n.MensagensI18n.*;
+
+import java.util.Optional;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+import com.github.app.common.exception.ErroDoClienteException;
 import com.github.app.common.security.ConstantesDeSeguranca;
 import com.github.app.common.utils.ValidationUtils;
 import com.github.app.model.dao.DaoGenerico;
@@ -25,20 +30,16 @@ public class UsuarioService extends ServicoGenerico<Usuario, Long> {
     @Override
     public Usuario insere(Usuario entity) {
         ValidationUtils.validaAtributosDaEntidade(validator, entity);
-        validaSeLoginJaExiste(entity);
+        validaSeLoginJaFoiUtilizado(entity);
         geraSenhaCriptografada(entity);
         return getDao().insere(entity);
     }
 
-    private void validaSeLoginJaExiste(Usuario entity) {
-        
-        Usuario usuarioComMesmoLogin = buscaPorLogin(entity.getLogin());
-        
-        if (usuarioComMesmoLogin != null) {
-//            throw new 
+    private void validaSeLoginJaFoiUtilizado(Usuario entity) {
+        Optional<Usuario> usuarioComMesmoLogin = buscaPorLogin(entity.getLogin());
+        if (usuarioComMesmoLogin.isPresent()) {
+            throw new ErroDoClienteException(LOGIN_JA_UTILIZADO.name(), LOGIN_JA_UTILIZADO.mensagem());
         }
-        
-        
     }
 
     private void geraSenhaCriptografada(Usuario entity) {
@@ -46,19 +47,7 @@ public class UsuarioService extends ServicoGenerico<Usuario, Long> {
         entity.setSenha(BCrypt.hashpw(entity.getSenha(), salt));
     }
     
-    private static void geraSenhaCriptografada2(Usuario entity) {
-        String salt = BCrypt.gensalt(ConstantesDeSeguranca.BCRYPT_WORKLOAD);
-        entity.setSenha(BCrypt.hashpw(entity.getSenha(), salt));
-    }
-    
-    public static void main(String[] args) {
-        Usuario user = new Usuario();
-        user.setSenha("1234");
-        geraSenhaCriptografada2(user);
-        System.out.println(user.getSenha());
-    }
-
-    public Usuario buscaPorLogin(String login) {
+    public Optional<Usuario> buscaPorLogin(String login) {
         return usuarioDao.buscaPorLogin(login);
     }
 
