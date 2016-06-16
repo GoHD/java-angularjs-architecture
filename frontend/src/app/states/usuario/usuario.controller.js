@@ -30,7 +30,7 @@
       function buscarUsuarios() {
         usuarioService.buscarUsuarios().then(
           function(data) {
-            vm.usuarios.push(data);
+            vm.usuarios = data;
           },
           function(e) {
             $log.debug("Ocorreu um erro ao buscar os usuarios cadastrados: " + e);
