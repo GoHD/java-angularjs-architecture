@@ -18,19 +18,19 @@
         usuarioService.adicionarUsuario(usuario).then(
           function(data) {
             vm.usuarios.push(data);
+            delete vm.usuario;
           },
           function(e) {
             $log.debug("Ocorreu um erro ao salvar um usuario: " + e);
           }
         );
 
-        delete vm.usuario;
       }
 
       function buscarUsuarios() {
         usuarioService.buscarUsuarios().then(
           function(data) {
-            vm.usuarios.push(data);
+            vm.usuarios = data;
           },
           function(e) {
             $log.debug("Ocorreu um erro ao buscar os usuarios cadastrados: " + e);

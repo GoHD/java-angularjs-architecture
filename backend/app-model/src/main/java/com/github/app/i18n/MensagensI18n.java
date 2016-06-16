@@ -9,7 +9,8 @@ public enum MensagensI18n {
     REGISTRO_JA_CADASTRADO,
     REGISTRO_NAO_ENCONTRADO,
     SENHA_INVALIDA,
-    LOGIN_NAO_CADASTRADO;
+    LOGIN_NAO_CADASTRADO,
+    LOGIN_JA_UTILIZADO;
 
     public String mensagem() {
         return ResourceBundle.getBundle("i18n.mensagensI18n").getString(name());
