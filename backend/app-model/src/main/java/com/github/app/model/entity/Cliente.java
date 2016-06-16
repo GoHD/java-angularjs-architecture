@@ -53,7 +53,7 @@ public class Cliente implements Serializable, IEntity<Long> {
     @NotNull
     private LocalDate dataNascimento;
     
-    @NotNull
+    //@NotNull
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_cliente")
     private List<Endereco> enderecos;
