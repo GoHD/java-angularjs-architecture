@@ -1,6 +1,7 @@
 package com.github.app.i18n;
 
 import static org.junit.Assert.*;
+
 import java.util.MissingResourceException;
 
 import org.junit.Test;

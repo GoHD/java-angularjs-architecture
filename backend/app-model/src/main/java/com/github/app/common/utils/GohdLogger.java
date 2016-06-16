@@ -1,8 +1,8 @@
 package com.github.app.common.utils;
 
-import org.slf4j.Logger;
+import static org.slf4j.LoggerFactory.*;
 
-import static org.slf4j.LoggerFactory.getLogger;
+import org.slf4j.Logger;
 
 public class GohdLogger {
 

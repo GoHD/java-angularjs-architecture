@@ -1,13 +1,13 @@
 package com.github.app.model.dao;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import static com.github.app.testcommons.mock.ClienteMocks.*;
 import static org.junit.Assert.*;
 
 import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import com.github.app.model.entity.Cliente;
 import com.github.app.model.filtros.FiltroCliente.FiltroClienteBuilder;

@@ -14,8 +14,6 @@ import javax.ws.rs.ext.Provider;
 import com.github.app.annotations.AuthenticationNotRequired;
 import com.github.app.common.security.ConstantesDeSeguranca;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
 

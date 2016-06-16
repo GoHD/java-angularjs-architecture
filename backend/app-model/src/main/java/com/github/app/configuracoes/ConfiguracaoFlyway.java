@@ -4,7 +4,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.EJBException;
 import javax.ejb.Singleton;
-import javax.ejb.Startup;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.sql.DataSource;

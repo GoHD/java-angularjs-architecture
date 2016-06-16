@@ -1,5 +1,7 @@
 package com.github.app.model.service;
 
+import static com.github.app.i18n.MensagensI18n.*;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -7,7 +9,6 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import com.github.app.common.exception.FalhaDeAutenticacaoException;
 import com.github.app.common.security.ConstantesDeSeguranca;
-import static com.github.app.i18n.MensagensI18n.*;
 import com.github.app.model.dto.LoginDto;
 import com.github.app.model.dto.UsuarioLogadoDto;
 import com.github.app.model.entity.Usuario;

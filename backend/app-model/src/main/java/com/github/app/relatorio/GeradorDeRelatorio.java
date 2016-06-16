@@ -1,7 +1,8 @@
 package com.github.app.relatorio;
 
-import java.util.Collection;
 import static com.github.app.common.utils.GohdLogger.*;
+
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
