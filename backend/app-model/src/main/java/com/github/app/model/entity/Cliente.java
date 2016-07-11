@@ -18,6 +18,11 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.github.app.jpa.converter.LocalDateDeserializer;
+import com.github.app.jpa.converter.LocalDateSerializer;
+
 @Entity
 @Table(name = "cliente")
 public class Cliente implements Serializable, IEntity<Long> {
@@ -51,6 +56,8 @@ public class Cliente implements Serializable, IEntity<Long> {
     private String email;
     
     @NotNull
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate dataNascimento;
     
     //@NotNull
