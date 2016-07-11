@@ -2,8 +2,7 @@
 
 var path = require('path');
 var gulp = require('gulp');
-var conf = require('./conf');
-
+var globals = require('.././globals');
 var browserSync = require('browser-sync');
 
 var $ = require('gulp-load-plugins')();
@@ -17,9 +16,9 @@ function runProtractor (done) {
   var params = process.argv;
   var args = params.length > 3 ? [params[3], params[4]] : [];
 
-  gulp.src(path.join(conf.paths.e2e, '/**/*.js'))
+  gulp.src(path.join(globals.paths.e2e, '/**/*.js'))
     .pipe($.protractor.protractor({
-      configFile: 'protractor.conf.js',
+      configFile: 'protractor.config.js',
       args: args
     }))
     .on('error', function (err) {
