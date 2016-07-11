@@ -6,6 +6,9 @@
 	<persistence-unit name="appPU" transaction-type="JTA">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/appDS</jta-data-source>
+		<class>br.com.triersistemas.commons.jpa.converter.LocalTimeConverter</class>
+		<class>br.com.triersistemas.commons.jpa.converter.LocalDateTimeConverter</class>
+		<class>br.com.triersistemas.commons.jpa.converter.LocalDateConverter</class>
 		<properties>
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
