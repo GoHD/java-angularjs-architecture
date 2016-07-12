@@ -2,7 +2,8 @@
 
 var path = require('path');
 var gulp = require('gulp');
-var conf = require('./conf');
+var config = require('.././config');
+var globals = require('.././globals');
 
 var browserSync = require('browser-sync');
 
@@ -26,13 +27,13 @@ var buildStyles = function() {
   };
 
   var injectFiles = gulp.src([
-    path.join(conf.paths.src, '/app/**/*.scss'),
-    path.join('!' + conf.paths.src, '/app/gohd.scss')
+    path.join(globals.paths.src, '/app/**/**/*.scss'),
+    path.join(globals.paths.src, '/app/gohd.scss')
   ], { read: false });
 
   var injectOptions = {
     transform: function(filePath) {
-      filePath = filePath.replace(conf.paths.src + '/app/', '');
+      filePath = filePath.replace(globals.paths.src + '/app/', '');
       return '@import "' + filePath + '";';
     },
     starttag: '// injector',
@@ -40,15 +41,14 @@ var buildStyles = function() {
     addRootSlash: false
   };
 
-
   return gulp.src([
-    path.join(conf.paths.src, '/app/gohd.scss')
+    path.join(globals.paths.src, '/app/gohd.scss')
   ])
     .pipe($.inject(injectFiles, injectOptions))
-    .pipe(wiredep(_.extend({}, conf.wiredep)))
+    .pipe(wiredep(_.extend({}, config.wiredep)))
     .pipe($.sourcemaps.init())
-    .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
-    .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
+    .pipe($.sass(sassOptions)).on('error', config.errorHandler('Sass'))
+    .pipe($.autoprefixer()).on('error', config.errorHandler('Autoprefixer'))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/')));
+    .pipe(gulp.dest(path.join(globals.paths.tmp, '/serve/app/')));
 };

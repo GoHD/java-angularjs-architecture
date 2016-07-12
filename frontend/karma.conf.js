@@ -1,13 +1,14 @@
 'use strict';
 
 var path = require('path');
-var conf = require('./gulp/conf');
+var conf = require('./gulp/config');
+var globals = require('./gulp/globals');
 
 var _ = require('lodash');
 var wiredep = require('wiredep');
 
 var pathSrcHtml = [
-  path.join(conf.paths.src, '/**/*.html')
+  path.join(globals.paths.src, '/**/*.html')
 ];
 
 function listFiles() {
@@ -18,10 +19,10 @@ function listFiles() {
 
   var patterns = wiredep(wiredepOptions).js
     .concat([
-      path.join(conf.paths.src, '/app/**/*.module.js'),
-      path.join(conf.paths.src, '/app/**/*.js'),
-      path.join(conf.paths.src, '/**/*.spec.js'),
-      path.join(conf.paths.src, '/**/*.mock.js'),
+      path.join(globals.paths.src, '/app/**/*.module.js'),
+      path.join(globals.paths.src, '/app/**/*.js'),
+      path.join(globals.paths.src, '/**/*.spec.js'),
+      path.join(globals.paths.src, '/**/*.mock.js'),
     ])
     .concat(pathSrcHtml);
 
@@ -31,7 +32,7 @@ function listFiles() {
     };
   });
   files.push({
-    pattern: path.join(conf.paths.src, '/assets/**/*'),
+    pattern: path.join(globals.paths.src, '/assets/**/*'),
     included: false,
     served: true,
     watched: false
@@ -49,7 +50,7 @@ module.exports = function(config) {
     autoWatch: false,
 
     ngHtml2JsPreprocessor: {
-      stripPrefix: conf.paths.src + '/',
+      stripPrefix: globals.paths.src + '/',
       moduleName: 'gohd'
     },
 
@@ -58,7 +59,7 @@ module.exports = function(config) {
     frameworks: ['phantomjs-shim', 'jasmine', 'angular-filesort'],
 
     angularFilesort: {
-      whitelist: [path.join(conf.paths.src, '/**/!(*.html|*.spec|*.mock).js')]
+      whitelist: [path.join(globals.paths.src, '/**/!(*.html|*.spec|*.mock).js')]
     },
 
     browsers : ['PhantomJS'],
@@ -80,7 +81,7 @@ module.exports = function(config) {
     reporters: ['progress'],
 
     proxies: {
-      '/assets/': path.join('/base/', conf.paths.src, '/assets/')
+      '/assets/': path.join('/base/', globals.paths.src, '/assets/')
     }
   };
 

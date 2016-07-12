@@ -2,20 +2,20 @@
 
 var path = require('path');
 var gulp = require('gulp');
-var conf = require('./conf');
+var globals = require('.././globals');
 
 var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
-var proxyMiddleware = require('http-proxy-middleware');
+// var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
 
   var routes = null;
-  if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
+  if(baseDir === globals.paths.src || (util.isArray(baseDir) && baseDir.indexOf(globals.paths.src) !== -1)) {
     routes = {
       '/bower_components': 'bower_components'
     };
@@ -48,17 +48,17 @@ browserSync.use(browserSyncSpa({
 }));
 
 gulp.task('serve', ['watch'], function () {
-  browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
+  browserSyncInit([path.join(globals.paths.tmp, '/serve'), globals.paths.src]);
 });
 
 gulp.task('serve:dist', ['build'], function () {
-  browserSyncInit(conf.paths.dist);
+  browserSyncInit(globals.paths.dist);
 });
 
 gulp.task('serve:e2e', ['inject'], function () {
-  browserSyncInit([conf.paths.tmp + '/serve', conf.paths.src], []);
+  browserSyncInit([globals.paths.tmp + '/serve', globals.paths.src], []);
 });
 
 gulp.task('serve:e2e-dist', ['build'], function () {
-  browserSyncInit(conf.paths.dist, []);
+  browserSyncInit(globals.paths.dist, []);
 });

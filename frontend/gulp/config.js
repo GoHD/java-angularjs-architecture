@@ -3,18 +3,7 @@
  *  gulp que contém tasks.
  *  Mantém as tasks limpas e facilida a manutenção de código.
  */
-
 var gutil = require('gulp-util');
-
-/**
- *  Os caminhos dos diretórios principais da aplicação.
- */
-exports.paths = {
-  src: 'src',
-  dist: 'dist',
-  tmp: '.tmp',
-  e2e: 'e2e'
-};
 
 /**
  *  Lib responsável por injetar as dependencias do Bower no projeto.
