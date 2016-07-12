@@ -8,7 +8,7 @@
   /** @ngInject */
   function config($logProvider, growlProvider) {
     $logProvider.debugEnabled(true);
-      growlProvider.globalTimeToLive(5000);
+    growlProvider.globalTimeToLive(5000);
   }
     
 })();
