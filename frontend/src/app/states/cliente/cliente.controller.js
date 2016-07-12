@@ -15,7 +15,7 @@
       buscarClientes();
 
       function salvarFn(cliente) {
-        cliente.dataNascimento = new Date().getTime();
+        cliente.dataNascimento = moment().format("YYYY-MM-DD");
         clienteService.adicionarCliente(cliente).then(
           function(data) {
             vm.clientes.push(data);
