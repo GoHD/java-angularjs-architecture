@@ -1,4 +1,128 @@
-body {
+$LIGHT-GRAY: #dddddd;
+$LIGHT-BLUE: #32c7ee;
+
+html, body {
+  height: 100vh;
   font-family: sans-serif;
   font-size: 12px;
+}
+
+@mixin gray-bottom-shadow() {
+  -webkit-box-shadow: 0 2px 2px $LIGHT-GRAY;
+  -moz-box-shadow: 0 2px 2px $LIGHT-GRAY;
+  box-shadow: 0 2px 2px $LIGHT-GRAY;
+}
+
+.gohd-main-panel {
+  @extend .col-xs-11;
+  @extend .col-sm-9;
+
+  padding: 15px;
+  left: 0;
+}
+
+.gohd-sidebar {
+  @extend .col-sm-3;
+  @extend .col-xs-1;
+  @extend .sidebar-offcanvas;
+
+  color: white;
+  background-color: $LIGHT-BLUE;
+  padding-left: 0;
+  float: left;
+  min-height: 100%;
+
+  nav {
+    li {
+      a {
+          white-space: nowrap;
+          overflow: hidden;
+      }
+    }
+  }
+
+  .collapse.in {
+      display: inline;
+  }
+}
+
+.wrapper, .row {
+   height: 100%;
+   margin-left:0;
+   margin-right:0;
+}
+
+.wrapper:before, .wrapper:after,
+.column:before, .column:after {
+    content: "";
+    display: table;
+}
+
+.wrapper:after,
+.column:after {
+    clear: both;
+}
+
+/*
+ * off canvas sidebar
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+    .gohd-sidebar {
+        min-width: 44px;
+    }
+
+    .gohd-main-panel {
+        width: 1%;
+        left: 0;
+    }
+
+    .gohd-sidebar .visible-xs {
+       display:inline !important;
+    }
+
+    .row-offcanvas {
+       position: relative;
+       -webkit-transition: all 0.4s ease-in-out;
+       -moz-transition: all 0.4s ease-in-out;
+       transition: all 0.4s ease-in-out;
+    }
+
+    .row-offcanvas-left.active {
+       left: 45%;
+    }
+
+    .row-offcanvas-left.active .sidebar-offcanvas {
+       left: -45%;
+       position: absolute;
+       top: 0;
+       width: 45%;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-left.active {
+    left: 3%;
+  }
+
+  .row-offcanvas-left.active .sidebar-offcanvas {
+    left: -3%;
+    position: absolute;
+    top: 0;
+    width: 3%;
+    text-align: center;
+    min-width:42px;
+  }
+
+  .gohd-main-panel {
+    left: 0;
+  }
 }

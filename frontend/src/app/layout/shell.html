@@ -1,29 +1,46 @@
-<div growl></div>
-<div class="container-fluid">
-  <div class="row">
-    <nav class="navbar navbar-static-top navbar-default custom">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <div class="navbar-brand">
-            <span>QUICKSTART</span>
-            <i class="fa fa-anchor"></i>
-          </div>
+<div class="wrapper">
+    <div class="row row-offcanvas row-offcanvas-left">
+
+        <!-- gohd-sidebar -->
+        <div class="gohd-sidebar column">
+            <ul class="nav" id="menu">
+                <li><a href="#"><i class="fa fa-list-alt"></i> <span class="collapse in hidden-xs">Link 1</span></a></li>
+                <li><a href="#"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Stories</span></a></li>
+                <li><a href="#"><i class="fa fa-paperclip"></i> <span class="collapse in hidden-xs">Saved</span></a></li>
+                <li><a href="#"><i class="fa fa-refresh"></i> <span class="collapse in hidden-xs">Refresh</span></a></li>
+                <li>
+                    <a href="#" data-target="#item1" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
+                    <ul class="nav nav-stacked collapse left-submenu" id="item1">
+                        <li><a href="google.com">View One</a></li>
+                        <li><a href="gmail.com">View Two</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-target="#item2" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
+                    <ul class="nav nav-stacked collapse" id="item2">
+                        <li><a href="#">View One</a></li>
+                        <li><a href="#">View Two</a></li>
+                        <li><a href="#">View Three</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span class="collapse in hidden-xs">Link</span></a></li>
+            </ul>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-          <ul class="nav navbar-nav">
-              <li><a ng-href="#" ui-sref="gohd.home">Início</a></li>
-              <li><a ng-href="#" ui-sref="gohd.usuario">Usuários</a></li>
-              <li><a ng-href="#" ui-sref="gohd.cliente">Clientes</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="">{{sc.nome}}</a></li>
-            <li><a ng-href="#" ng-click="sc.logout()">Sair</a></li>
-          </ul>
+        <!-- /gohd-sidebar -->
+
+        <!-- navbar-top -->
+        <div class="gohd-main-panel column">
+          <li><a href="#" data-toggle="offcanvas"><i class="fa fa-list-ul" aria-hidden="true"></i></a></li>
         </div>
-      </div>
-    </nav>
-  </div>
-  <div class="row">
-    <div ui-view></div>
-  </div>
+        <!-- /navbar-top -->
+
+    </div>
 </div>
+
+<script type="text/javascript">
+  /* off-canvas sidebar toggle */
+  $('[data-toggle=offcanvas]').click(function() {
+      $('.row-offcanvas').toggleClass('active');
+      $('.collapse').toggleClass('in').toggleClass('hidden-xs').toggleClass('visible-xs');
+  });
+</script>
