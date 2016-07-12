@@ -39,7 +39,8 @@ gulp.task('html', ['inject', 'partials'], function () {
   var jsFilter = $.filter('**/*.js', { restore: true });
   var cssFilter = $.filter('**/*.css', { restore: true });
 
-  return gulp.src(path.join(globals.paths.tmp, '/serve/*.html'))
+  return gulp
+    .src(path.join(globals.paths.tmp, '/serve/*.html'))
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe($.useref())
     .pipe(jsFilter)
@@ -50,11 +51,12 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.sourcemaps.write('maps'))
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
-    // .pipe($.sourcemaps.init())
+    //.pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
+    .pipe($.replace('../../bower_components/font-awesome/fonts/', '../fonts/'))
     .pipe($.cssnano())
     .pipe($.rev())
-    // .pipe($.sourcemaps.write('maps'))
+    //.pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
     .pipe($.revReplace())
     .pipe(htmlFilter)
@@ -67,15 +69,33 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(htmlFilter.restore)
     .pipe(gulp.dest(path.join(globals.paths.dist, '/')))
     .pipe($.size({ title: path.join(globals.paths.dist, '/'), showFiles: true }));
-  });
+});
 
-// Aplicada apenas para fonts das dependencias bower
-// Fonts customizadas sao tratadas pela task "other"
-gulp.task('fonts', function () {
-  return gulp.src($.mainBowerFiles())
-    .pipe($.filter('**/*.{eot,otf,svg,ttf,woff,woff2}'))
-    .pipe($.flatten())
+gulp.task('fonts', ['copy-bs-fonts', 'copy-fa-fonts'], function () {});
+gulp.task('fonts-serve', ['copy-bs-fonts-serve', 'copy-fa-fonts-serve'], function () {});
+
+gulp.task('copy-bs-fonts', function(){
+  return gulp
+    .src(config.wiredep.directory + '/bootstrap/fonts/*.{eot,svg,ttf,woff,woff2}')
+    .pipe(gulp.dest(path.join(globals.paths.dist, '/fonts/bootstrap/')));
+});
+
+gulp.task('copy-bs-fonts-serve', function(){
+  return gulp
+    .src(config.wiredep.directory + '/bootstrap/fonts/*.{eot,svg,ttf,woff,woff2}')
+    .pipe(gulp.dest(path.join(globals.paths.tmp, '/serve/fonts/bootstrap/')));
+});
+
+gulp.task('copy-fa-fonts', function(){
+  return gulp
+    .src(config.wiredep.directory + '/fontawesome/fonts/*.{eot,svg,ttf,woff,woff2}')
     .pipe(gulp.dest(path.join(globals.paths.dist, '/fonts/')));
+});
+
+gulp.task('copy-fa-fonts-serve', function(){
+  return gulp
+    .src(config.wiredep.directory + '/fontawesome/fonts/*.{eot,svg,ttf,woff,woff2}')
+    .pipe(gulp.dest(path.join(globals.paths.tmp, '/serve/fonts/')));
 });
 
 gulp.task('other', function () {
