@@ -9,9 +9,11 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.Provider;
 
+import org.jboss.resteasy.api.validation.Validation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,18 +44,10 @@ public class AutenticacaoRequestFilter implements ContainerRequestFilter {
             Jwts.parser().setSigningKey(ConstantesDeSeguranca.JWT_KEY).parseClaimsJws(jwtToken);
         } catch (SignatureException e) {
         	LOGGER.info("User cannot access the resource", e);
-            requestContext
-            	.abortWith(Response.status(Status.UNAUTHORIZED)
-            	.entity("User cannot access the resource.")
-            	.type(MediaType.TEXT_PLAIN)
-            	.build());
+            requestContext.abortWith(buildResponseUnauthorized("User cannot access the resource."));
         } catch (IllegalArgumentException e) {
         	LOGGER.error("Invalid Token", e);
-        	requestContext
-				.abortWith(Response.status(Status.UNAUTHORIZED)
-    			.entity("Invalid Token.")
-        		.type(MediaType.TEXT_PLAIN)
-        		.build());
+        	requestContext.abortWith(buildResponseUnauthorized("Invalid Token."));
         }
 
     }
@@ -62,5 +56,11 @@ public class AutenticacaoRequestFilter implements ContainerRequestFilter {
         final Method method = resourceInfo.getResourceMethod();
         return method != null && method.isAnnotationPresent(AuthenticationNotRequired.class);
     }
-
+    
+    private Response buildResponseUnauthorized(Object entity) {
+        ResponseBuilder builder = Response.status(Status.UNAUTHORIZED).entity(entity);
+        builder.type(MediaType.TEXT_PLAIN);
+        builder.header(Validation.VALIDATION_HEADER, "true");
+        return builder.build();
+    }
 }

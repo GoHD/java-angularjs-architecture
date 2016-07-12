@@ -25,9 +25,6 @@ public class LoginRest {
     @Produces(MediaType.APPLICATION_JSON)
     @AuthenticationNotRequired
     public Response realizaLogin(LoginDto loginDto) {
-        System.out.println("Login: " + loginDto.getLogin());
-        System.out.println("Senha: " + loginDto.getSenha());
-        
         UsuarioLogadoDto usuarioLogadoDto = autenticacaoService.realizaLogin(loginDto);
         return Response.status(Status.OK).entity(usuarioLogadoDto).build() ;
     }
