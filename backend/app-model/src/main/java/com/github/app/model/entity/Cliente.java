@@ -20,8 +20,8 @@ import org.hibernate.validator.constraints.Email;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.github.app.jpa.converter.LocalDateDeserializer;
-import com.github.app.jpa.converter.LocalDateSerializer;
+import com.github.app.converter.json.LocalDateDeserializer;
+import com.github.app.converter.json.LocalDateSerializer;
 
 @Entity
 @Table(name = "cliente")

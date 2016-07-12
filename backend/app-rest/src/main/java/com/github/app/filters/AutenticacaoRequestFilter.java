@@ -20,6 +20,8 @@ import org.slf4j.LoggerFactory;
 import com.github.app.annotations.AuthenticationNotRequired;
 import com.github.app.common.security.ConstantesDeSeguranca;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
 
@@ -41,7 +43,8 @@ public class AutenticacaoRequestFilter implements ContainerRequestFilter {
         final String jwtToken = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);
 
         try {
-            Jwts.parser().setSigningKey(ConstantesDeSeguranca.JWT_KEY).parseClaimsJws(jwtToken);
+            Jws<Claims> claimsJws = Jwts.parser().setSigningKey(ConstantesDeSeguranca.JWT_KEY).parseClaimsJws(jwtToken);
+            String loginUsuario = claimsJws.getBody().getSubject();
         } catch (SignatureException e) {
         	LOGGER.info("User cannot access the resource", e);
             requestContext.abortWith(buildResponseUnauthorized("User cannot access the resource."));
