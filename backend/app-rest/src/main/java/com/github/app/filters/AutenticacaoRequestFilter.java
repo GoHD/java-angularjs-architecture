@@ -1,6 +1,5 @@
 package com.github.app.filters;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 
 import javax.ws.rs.container.ContainerRequestContext;
@@ -8,8 +7,13 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.ResourceInfo;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.Provider;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.github.app.annotations.AuthenticationNotRequired;
 import com.github.app.common.security.ConstantesDeSeguranca;
@@ -20,11 +24,13 @@ import io.jsonwebtoken.SignatureException;
 @Provider
 public class AutenticacaoRequestFilter implements ContainerRequestFilter {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(AutenticacaoRequestFilter.class);
+	
     @Context
     private ResourceInfo resourceInfo;
 
     @Override
-    public void filter(ContainerRequestContext requestContext) throws IOException {
+    public void filter(ContainerRequestContext requestContext) {
 
         if (isAuthenticationNotRequired()) {
             return;
@@ -34,9 +40,20 @@ public class AutenticacaoRequestFilter implements ContainerRequestFilter {
 
         try {
             Jwts.parser().setSigningKey(ConstantesDeSeguranca.JWT_KEY).parseClaimsJws(jwtToken);
-            // jws.getBody().getSubject().equals("Login do vivente");
         } catch (SignatureException e) {
-            requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("User cannot access the resource.").build());
+        	LOGGER.info("User cannot access the resource", e);
+            requestContext
+            	.abortWith(Response.status(Status.UNAUTHORIZED)
+            	.entity("User cannot access the resource.")
+            	.type(MediaType.TEXT_PLAIN)
+            	.build());
+        } catch (IllegalArgumentException e) {
+        	LOGGER.error("Invalid Token", e);
+        	requestContext
+				.abortWith(Response.status(Status.UNAUTHORIZED)
+    			.entity("Invalid Token.")
+        		.type(MediaType.TEXT_PLAIN)
+        		.build());
         }
 
     }
