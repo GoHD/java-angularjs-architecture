@@ -1,53 +1,43 @@
+<div growl></div>
 <div class="wrapper" id="wrapper">
 
-  <!-- SIDEBAR -->
-  <div id="sidebar-wrapper">
-    <ul id="sidebar_menu" class="sidebar-nav">
-         <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
-    </ul>
-    <ul class="sidebar-nav" id="sidebar">
-      <li><a>Link1<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
-      <li><a>link2<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+  <!-- sidebar -->
+  <div class="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand"><a>GoHD</a></li>
+        <li><a ui-sref="gohd.home">Início <i class="fa fa-home fa-fw sub_icon" aria-hidden="true"></i></a></li>
+        <li><a ui-sref="gohd.usuario">Usuários <i class="fa fa-cog fa-fw sub_icon" aria-hidden="true"></i></a></li>
+        <li><a ui-sref="gohd.cliente">Cliente <i class="fa fa-search fa-fw sub_icon" aria-hidden="true"></i></a></li>
     </ul>
     <ul class="sidebar-nav sidebar-bottom">
-        <li><a>Link1<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
-        <li><a>Link2<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+      <li><a>Configurações <i class="fa fa-cog fa-fw sub_icon" aria-hidden="true"></i></a></li>
     </ul>
   </div>
-  <!-- /SIDEBAR -->
+  <!-- /sidebar -->
 
-  <!-- PAGE CONTENT -->
-  <div id="page-content-wrapper">
-    <div class="page-content inset">
-
-      <!-- NAVBAR -->
-      <nav class="nav navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">WebSiteName</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Sair</a></li>
-          </ul>
+  <div class="body">
+    <!-- navbar -->
+    <div class="row">
+      <nav class="gohd-navbar col-md-12">
+        <div class="navbar-header">
+          <a class="navbar-brand" id="menu-toggle" href="#"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a>
         </div>
+        <!-- <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+        </ul> -->
+        <ul class="gohd-navbar-right">
+          <li><img src="https://www.gravatar.com/avatar/0bf973872ae54d1a495903ec96c2d88b" class="img-circle"></li>
+          <li><a href="#">{{ sc.nome }}<span class="caret"></span> </a></li>
+          <li><a href="#" ng-click="sc.logout()"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Sair</a></li>
+        </ul>
       </nav>
-      <!-- NAVBAR -->
-
     </div>
+    <!-- navbar -->
+
+    <!-- ui-router content -->
+    <div class="container-fluid">
+      <div ui-view class="route-content-panel"></div>
+    </div>
+
   </div>
-  <!-- PAGE CONTENT -->
-
 </div>
-
-<script type="text/javascript">
-  $("#menu-toggle").click(function(e) {
-          e.preventDefault();
-          $("#wrapper").toggleClass("active");
-  });
-</script>
