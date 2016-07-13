@@ -15,6 +15,8 @@ import com.github.app.model.dto.LoginDto;
 import com.github.app.model.dto.UsuarioLogadoDto;
 import com.github.app.model.entity.Usuario;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -25,7 +27,7 @@ public class AutenticacaoService {
     UsuarioService usuarioService;
     
     public UsuarioLogadoDto realizaLogin(LoginDto loginDto) {
-        Usuario usuario = buscaUsuarioComLoginInformado(loginDto);
+        Usuario usuario = buscaUsuarioComLoginInformado(loginDto.getLogin());
         validaSenhaInformada(loginDto.getSenha(), usuario.getSenha());
         
         String jwtToken = geraTokenJWT(loginDto.getLogin());
@@ -33,6 +35,13 @@ public class AutenticacaoService {
         UsuarioLogadoDto usuarioLogadoDto = criaDtoDoUsuarioLogado(usuario, jwtToken);
         
         return usuarioLogadoDto;
+    }
+    
+    public UsuarioLogadoDto buscaUsuarioPorToken(String token) {
+    	 Jws<Claims> claimsJws = Jwts.parser().setSigningKey(ConstantesDeSeguranca.JWT_KEY).parseClaimsJws(token);
+         String loginUsuario = claimsJws.getBody().getSubject();
+         Usuario usuario = buscaUsuarioComLoginInformado(loginUsuario);
+         return criaDtoDoUsuarioLogado(usuario, token);
     }
 
     private UsuarioLogadoDto criaDtoDoUsuarioLogado(Usuario usuario, String jwtToken) {
@@ -52,8 +61,8 @@ public class AutenticacaoService {
         }
     }
 
-    private Usuario buscaUsuarioComLoginInformado(LoginDto loginDto) {
-        Optional<Usuario> usuario = usuarioService.buscaPorLogin(loginDto.getLogin());
+    private Usuario buscaUsuarioComLoginInformado(String login) {
+        Optional<Usuario> usuario = usuarioService.buscaPorLogin(login);
         if (!usuario.isPresent()) {
             throw new FalhaDeAutenticacaoException(LOGIN_NAO_CADASTRADO.name(), LOGIN_NAO_CADASTRADO.mensagem());
         }

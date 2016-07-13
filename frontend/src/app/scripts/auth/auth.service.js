@@ -6,9 +6,10 @@
     .service('AuthService', AuthService);
 
   /* @ngInject */
-  function AuthService($rootScope, $resource, $state, $log, SessionStorage, AUTH_EVENTS) {
+  function AuthService($rootScope, $resource, $state, $log, SessionStorage, AUTH_EVENTS, UsuarioLogadoService) {
 
     var loginDao = $resource('http://localhost:8080/app-rest/login');
+    var tokenDao = $resource('http://localhost:8080/app-rest/login/busca-usuario-por-token');
 
     var service = {
       login: login,
@@ -21,8 +22,8 @@
     function login(credentials) {
       return loginDao.save(credentials, function(res) {
           var auth = res;
-          SessionStorage.create(auth.id, auth.nome, auth.login, auth.token);
-          SessionStorage.atualizaUsuarioLogado();
+          SessionStorage.create(auth.token);
+          UsuarioLogadoService.atualizaUsuarioLogado(auth);
           $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
         });
     }
@@ -34,8 +35,19 @@
     }
 
     function verifyAuthenticated() {
-        loginDao.get();
+        if (UsuarioLogadoService.login === '') {
+          findLoggedUserByToken();
+        } else {
+          loginDao.get();
+        }
     }
+    
+    function findLoggedUserByToken() {
+      tokenDao.get({token: SessionStorage.token}, function(res) {
+        UsuarioLogadoService.atualizaUsuarioLogado(res);
+      });  
+    }
+    
   }
 
 })();

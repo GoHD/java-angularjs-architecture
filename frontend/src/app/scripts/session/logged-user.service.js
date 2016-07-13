@@ -8,20 +8,22 @@
   /* @ngInject */
   function UsuarioLogadoService() {
     var service = {
-      id: "",
-      nome: "",
-      email: "",
-      token: "",
-      atualizar: atualizar
+      id: '',
+      login: '',
+      nome: '',
+      email: '',
+      token: '',
+      atualizaUsuarioLogado: atualizaUsuarioLogado
     };
 
     return service;
 
-    function atualizar(id, nome, email, token) {
-      service.id = id;
-      service.nome = nome;
-      service.email = email;
-      service.token = token;
+    function atualizaUsuarioLogado(usuarioLogado) {
+      service.id = usuarioLogado.id;
+      service.login = usuarioLogado.login;
+      service.nome = usuarioLogado.nome;
+      service.email = usuarioLogado.email;
+      service.token = usuarioLogado.token;
     }
   }
 })();
