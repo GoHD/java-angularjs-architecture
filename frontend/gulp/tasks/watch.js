@@ -9,7 +9,7 @@ function isOnlyChange(event) {
   return event.type === 'changed';
 }
 
-gulp.task('watch', ['inject'], function () {
+gulp.task('watch', ['inject', 'fonts-serve'], function () {
 
   gulp.watch([path.join(globals.paths.src, '/*.html'), 'bower.json'], ['inject-reload']);
 

@@ -1,29 +1,43 @@
 <div growl></div>
-<div class="container-fluid">
-  <div class="row">
-    <nav class="navbar navbar-static-top navbar-default custom">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <div class="navbar-brand">
-            <span>QUICKSTART</span>
-            <i class="fa fa-anchor"></i>
-          </div>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-          <ul class="nav navbar-nav">
-              <li><a ng-href="#" ui-sref="gohd.home">Início</a></li>
-              <li><a ng-href="#" ui-sref="gohd.usuario">Usuários</a></li>
-              <li><a ng-href="#" ui-sref="gohd.cliente">Clientes</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="">{{sc.nome}}</a></li>
-            <li><a ng-href="#" ng-click="sc.logout()">Sair</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<div class="wrapper" id="wrapper">
+
+  <!-- sidebar -->
+  <div class="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand"><a>GoHD</a></li>
+        <li><a ui-sref="gohd.home">Início <i class="fa fa-home fa-fw sub_icon" aria-hidden="true"></i></a></li>
+        <li><a ui-sref="gohd.usuario">Usuários <i class="fa fa-cog fa-fw sub_icon" aria-hidden="true"></i></a></li>
+        <li><a ui-sref="gohd.cliente">Cliente <i class="fa fa-search fa-fw sub_icon" aria-hidden="true"></i></a></li>
+    </ul>
+    <ul class="sidebar-nav sidebar-bottom">
+      <li><a>Configurações <i class="fa fa-cog fa-fw sub_icon" aria-hidden="true"></i></a></li>
+    </ul>
   </div>
-  <div class="row">
-    <div ui-view></div>
+  <!-- /sidebar -->
+
+  <div class="body">
+    <!-- navbar -->
+    <div class="row">
+      <nav class="gohd-navbar col-md-12">
+        <div class="navbar-header">
+          <a class="navbar-brand" id="menu-toggle" href="#"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a>
+        </div>
+        <!-- <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+        </ul> -->
+        <ul class="gohd-navbar-right">
+          <li><img src="https://www.gravatar.com/avatar/0bf973872ae54d1a495903ec96c2d88b" class="img-circle"></li>
+          <li><a href="#">{{ sc.nome }}<span class="caret"></span> </a></li>
+          <li><a href="#" ng-click="sc.logout()"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- navbar -->
+
+    <!-- ui-router content -->
+    <div class="container-fluid">
+      <div ui-view class="route-content-panel"></div>
+    </div>
+
   </div>
 </div>
