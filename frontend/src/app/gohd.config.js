@@ -10,5 +10,5 @@
     $logProvider.debugEnabled(true);
     growlProvider.globalTimeToLive(5000);
   }
-    
+
 })();

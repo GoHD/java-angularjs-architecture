@@ -41,13 +41,13 @@
           loginDao.get();
         }
     }
-    
+
     function findLoggedUserByToken() {
       tokenDao.get({token: SessionStorage.token}, function(res) {
         UsuarioLogadoService.atualizaUsuarioLogado(res);
-      });  
+        $rootScope.$broadcast(AUTH_EVENTS.userInfoChanged);
+      });
     }
-    
   }
 
 })();

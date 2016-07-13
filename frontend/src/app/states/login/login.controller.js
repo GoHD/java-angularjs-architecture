@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /* @ngInject */
-  function LoginController($scope, $rootScope, AuthService, AUTH_EVENTS, $log) {
+  function LoginController($scope, $rootScope, AuthService, AUTH_EVENTS) {
     var vm = this;
 
     vm.title = "Bem vindo!";
@@ -17,8 +17,7 @@
     };
 
     function login(credentials) {
-      AuthService.login(credentials, function(user) {
-        $log.debug('Usuário logado com sucesso: ' + user);
+      AuthService.login(credentials, function() {
         $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
       }, function() {
         $rootScope.$broadcast(AUTH_EVENTS.loginFailed);

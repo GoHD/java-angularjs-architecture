@@ -6,9 +6,9 @@
     .run(runBlock);
 
   /* @ngInject */
-  function runBlock($state, AuthService, $rootScope, AUTH_EVENTS, $timeout, SessionStorage) {
+  function runBlock($state, AuthService, $rootScope, AUTH_EVENTS, $timeout) {
 
-    $rootScope.$on("$stateChangeStart", function(event, toState /*, toParams, fromState, fromParams*/ ) {
+    $rootScope.$on("$stateChangeStart", function() {
       AuthService.verifyAuthenticated();
     });
 

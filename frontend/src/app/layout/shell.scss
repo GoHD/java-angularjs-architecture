@@ -1,7 +1,7 @@
 $LIGHT-GRAY: #dddddd;
 $GRAY: #797979;
 
-$SIDEBAR-COLOR: #508bda;
+$SIDEBAR-COLOR: #366e8e;
 $SIDEBAR-SIZE: 190px;
 
 body, html {
@@ -43,9 +43,14 @@ body, html {
   li {
     a {
       color: $GRAY;
+      span {
+        margin-left: 5px;
+      }
     }
     img {
       margin-top: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
       border-radius: 50;
       height: 40px;
     }

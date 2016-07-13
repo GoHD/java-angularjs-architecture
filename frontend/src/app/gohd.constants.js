@@ -1,8 +1,10 @@
+/* global moment:false */
 (function() {
   'use strict';
 
   angular
     .module('gohd')
+    .constant('moment', moment)
     .constant('USER_ROLES', {
       user: '*',
       admin: 'admin'
@@ -13,7 +15,8 @@
       logoutSuccess: 'auth-logout-success',
       sessionTimeout: 'auth-session-timeout',
       notAuthenticated: 'auth-not-authenticated',
-      notAuthorized: 'auth-not-authorized'
+      notAuthorized: 'auth-not-authorized',
+      userInfoChanged: 'user-info-changed'
     });
 
 })();
