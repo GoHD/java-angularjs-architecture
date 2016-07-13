@@ -1,61 +1,59 @@
-<div class="row">
-  <div class="col-md-offset-2 col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>Novo Usuário</h4>
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="name">Nome</label>
-              <input type="text" id="name" maxlength="150" ng-model="uc.usuario.nome" class="form-control"/>
-            </div>
+<div class="col-md-offset-2 col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Novo Usuário</h4>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" maxlength="150" ng-model="uc.usuario.nome" class="form-control"/>
           </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="login">Login</label>
-              <input type="text" id="login" maxlength="150" ng-model="uc.usuario.login" class="form-control"/>
-            </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" id="login" maxlength="150" ng-model="uc.usuario.login" class="form-control"/>
           </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="senha">Senha</label>
-              <input type="password" id="senha" maxlength="150" ng-model="uc.usuario.senha" class="form-control"/>
-            </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" maxlength="150" ng-model="uc.usuario.senha" class="form-control"/>
           </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="email">E-Mail</label>
-              <input type="email" id="email" maxlength="150" ng-model="uc.usuario.email" class="form-control"/>
-            </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" maxlength="150" ng-model="uc.usuario.email" class="form-control"/>
           </div>
         </div>
       </div>
-      <div class="panel-footer">
-        <button ng-click="uc.salvar(uc.usuario)" class="btn btn-primary">Salvar</button>
-      </div>
+    </div>
+    <div class="panel-footer">
+      <button ng-click="uc.salvar(uc.usuario)" class="btn btn-primary">Salvar</button>
     </div>
   </div>
-  <div class="col-md-4" ng-if="uc.usuarios.length > 0">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>Usuários Cadastrados</h4>
-      </div>
-      <div class="panel-body">
-        <table class="table" >
-            <tr>
-                <th>Nome</th>
-                <th>Login</th>
-                <th>E-Mail</th>
-            </tr>
-            <tr ng-repeat="usuario in uc.usuarios">
-                <td>{{usuario.nome}}</td>
-                <td>{{usuario.login}}</td>
-                <td>{{usuario.email}}</td>
-            </tr>
-        </table>
-      </div>
+</div>
+<div class="col-md-4" ng-if="uc.usuarios.length > 0">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Usuários Cadastrados</h4>
+    </div>
+    <div class="panel-body">
+      <table class="table" >
+          <tr>
+              <th>Nome</th>
+              <th>Login</th>
+              <th>E-Mail</th>
+          </tr>
+          <tr ng-repeat="usuario in uc.usuarios">
+              <td>{{usuario.nome}}</td>
+              <td>{{usuario.login}}</td>
+              <td>{{usuario.email}}</td>
+          </tr>
+      </table>
     </div>
   </div>
 </div>
