@@ -1,10 +1,11 @@
 package com.github.app.relatorio;
 
-import static com.github.app.common.utils.GohdLogger.*;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -15,6 +16,8 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class GeradorDeRelatorio {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final String nomeRelatorio;
     private Map<String, Object> parametros = new HashMap<>();
@@ -33,7 +36,7 @@ public class GeradorDeRelatorio {
             JasperPrint print = JasperFillManager.fillReport(report, parametros, collectionDataSource);
             relatorioEmPdf = JasperExportManager.exportReportToPdf(print);
         } catch (JRException e) {
-            LOGGER.error(e.getMessage(), e);
+        	logger.error(e.getMessage(), e);
         }
         return relatorioEmPdf;
     }

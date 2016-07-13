@@ -13,7 +13,7 @@
     var service = {
       login: login,
       logout: logout,
-      isAuthenticated: isAuthenticated
+      verifyAuthenticated: verifyAuthenticated
     };
 
     return service;
@@ -22,6 +22,7 @@
       return loginDao.save(credentials, function(res) {
           var auth = res;
           SessionStorage.create(auth.id, auth.nome, auth.login, auth.token);
+          SessionStorage.atualizaUsuarioLogado();
           $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
         });
     }
@@ -32,9 +33,8 @@
         return;
     }
 
-    function isAuthenticated() {
-      return true;
-      //return !!SessionStorage.getName();
+    function verifyAuthenticated() {
+        loginDao.get();
     }
   }
 

@@ -1,4 +1,4 @@
-package com.github.app.jpa.converter;
+package com.github.app.converter.json;
 
 import java.io.IOException;
 import java.time.LocalDate;

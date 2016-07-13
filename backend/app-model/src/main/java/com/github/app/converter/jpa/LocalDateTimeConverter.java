@@ -1,4 +1,4 @@
-package com.github.app.jpa.converter;
+package com.github.app.converter.jpa;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

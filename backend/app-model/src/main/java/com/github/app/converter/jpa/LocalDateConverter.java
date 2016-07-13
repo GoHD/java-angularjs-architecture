@@ -1,22 +1,22 @@
-package com.github.app.jpa.converter;
+package com.github.app.converter.jpa;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.sql.Time;
-import java.time.LocalTime;
+import java.sql.Date;
+import java.time.LocalDate;
 
 /**
- * Converts {@link LocalTime} to {@link java.sql.Time} and back in support of
+ * Converts {@link LocalDate} to {@link java.sql.Date} and back in support of
  * JPA persistence.
  * <p>
  * The existence of this class in the classpath and it being known by the
  * persistence unit is sufficient to allow you to use the as-of Java SE 8
- * {@link LocalTime} class in an {@link javax.persistence.Entity} or in other
+ * {@link LocalDate} class in an {@link javax.persistence.Entity} or in other
  * persistable classes.
  * <p>
  * Important: the setting of <code>@Converter(autoApply = true)</code> in this
  * class will make this conversion effective for all Entities that have one or
- * more persistent {@link java.time.LocalTime} properties.
+ * more persistent {@link java.time.LocalDate} properties.
  * <p>
  * The persistence provider must minimally support
  * <a
@@ -25,16 +25,16 @@ import java.time.LocalTime;
  * for this to work.
  */
 @Converter(autoApply = true)
-public class LocalTimeConverter implements AttributeConverter<LocalTime, java.sql.Time> {
+public class LocalDateConverter implements AttributeConverter<java.time.LocalDate, java.sql.Date> {
 
     @Override
-    public Time convertToDatabaseColumn(LocalTime entityValue) {
-        return (entityValue == null) ? null : Time.valueOf(entityValue);
+    public Date convertToDatabaseColumn(LocalDate entityValue) {
+        return (entityValue == null) ? null : Date.valueOf(entityValue);
     }
 
     @Override
-    public LocalTime convertToEntityAttribute(Time databaseValue) {
-        return (databaseValue == null) ? null : databaseValue.toLocalTime();
+    public LocalDate convertToEntityAttribute(Date databaseValue) {
+        return (databaseValue == null) ? null : databaseValue.toLocalDate();
     }
 
 }

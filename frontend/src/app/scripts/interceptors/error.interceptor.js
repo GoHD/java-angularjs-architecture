@@ -13,13 +13,15 @@
 
         return interceptor;
 
-        function responseErrorFn(rejection) {
-            if (rejection.status === 404) {
+        function responseErrorFn(response) {
+            if (response.status === 404) {
                 $location.path('/error');
-            } else if(rejection.status === 400) {
-                messagesService.addErrorMessage(rejection.data.tituloDoErro);
+            } else if (response.status === 401) {
+                $location.path('/login');
+            } else if (response.status === 400) {
+                messagesService.addErrorMessage(response.data.tituloDoErro);
             }
-            return $q.reject(rejection);
+            return $q.reject(response);
         }
     }
 

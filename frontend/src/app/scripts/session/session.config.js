@@ -9,6 +9,6 @@
   function configFn(localStorageServiceProvider) {
     localStorageServiceProvider
       .setPrefix('gohd')
-      .setStorageType('sessionStorage');
+      .setStorageType('localStorage');
   }
 })();

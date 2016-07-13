@@ -9,12 +9,8 @@
   function runBlock($state, AuthService, $rootScope, AUTH_EVENTS, $timeout, SessionStorage) {
 
     $rootScope.$on("$stateChangeStart", function(event, toState /*, toParams, fromState, fromParams*/ ) {
-      if (toState.authenticate && AuthService.isAuthenticated() === false) {
-        event.preventDefault();
-        $state.transitionTo("login");
-      }
-
       SessionStorage.atualizaUsuarioLogado();
+      AuthService.verifyAuthenticated();
     });
 
     function login() {
