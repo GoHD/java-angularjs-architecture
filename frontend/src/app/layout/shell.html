@@ -1,46 +1,53 @@
-<div class="wrapper">
-    <div class="row row-offcanvas row-offcanvas-left">
+<div class="wrapper" id="wrapper">
 
-        <!-- gohd-sidebar -->
-        <div class="gohd-sidebar column">
-            <ul class="nav" id="menu">
-                <li><a href="#"><i class="fa fa-list-alt"></i> <span class="collapse in hidden-xs">Link 1</span></a></li>
-                <li><a href="#"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Stories</span></a></li>
-                <li><a href="#"><i class="fa fa-paperclip"></i> <span class="collapse in hidden-xs">Saved</span></a></li>
-                <li><a href="#"><i class="fa fa-refresh"></i> <span class="collapse in hidden-xs">Refresh</span></a></li>
-                <li>
-                    <a href="#" data-target="#item1" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
-                    <ul class="nav nav-stacked collapse left-submenu" id="item1">
-                        <li><a href="google.com">View One</a></li>
-                        <li><a href="gmail.com">View Two</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" data-target="#item2" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
-                    <ul class="nav nav-stacked collapse" id="item2">
-                        <li><a href="#">View One</a></li>
-                        <li><a href="#">View Two</a></li>
-                        <li><a href="#">View Three</a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span class="collapse in hidden-xs">Link</span></a></li>
-            </ul>
-        </div>
-        <!-- /gohd-sidebar -->
+  <!-- SIDEBAR -->
+  <div id="sidebar-wrapper">
+    <ul id="sidebar_menu" class="sidebar-nav">
+         <li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
+    </ul>
+    <ul class="sidebar-nav" id="sidebar">
+      <li><a>Link1<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+      <li><a>link2<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+    </ul>
+    <ul class="sidebar-nav sidebar-bottom">
+        <li><a>Link1<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+        <li><a>Link2<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+    </ul>
+  </div>
+  <!-- /SIDEBAR -->
 
-        <!-- navbar-top -->
-        <div class="gohd-main-panel column">
-          <li><a href="#" data-toggle="offcanvas"><i class="fa fa-list-ul" aria-hidden="true"></i></a></li>
+  <!-- PAGE CONTENT -->
+  <div id="page-content-wrapper">
+    <div class="page-content inset">
+
+      <!-- NAVBAR -->
+      <nav class="nav navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Sair</a></li>
+          </ul>
         </div>
-        <!-- /navbar-top -->
+      </nav>
+      <!-- NAVBAR -->
 
     </div>
+  </div>
+  <!-- PAGE CONTENT -->
+
 </div>
 
 <script type="text/javascript">
-  /* off-canvas sidebar toggle */
-  $('[data-toggle=offcanvas]').click(function() {
-      $('.row-offcanvas').toggleClass('active');
-      $('.collapse').toggleClass('in').toggleClass('hidden-xs').toggleClass('visible-xs');
+  $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("active");
   });
 </script>
