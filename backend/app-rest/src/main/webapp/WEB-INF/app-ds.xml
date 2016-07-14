@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datasources>
+	<datasource jndi-name="java:jboss/datasources/appDS" pool-name="appDS">
+        <connection-url>jdbc:postgresql://localhost/app-db</connection-url>
+		<driver>postgres</driver>
+		<security>
+			<user-name>postgres</user-name>
+			<password>postgres</password>
+		</security>
+	</datasource>
+</datasources>

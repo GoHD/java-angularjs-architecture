@@ -1,7 +1,10 @@
 package com.github.app.model.service;
 
-import static com.github.app.i18n.MensagensI18n.*;
+import static com.github.app.i18n.MensagensI18n.LOGIN_NAO_CADASTRADO;
+import static com.github.app.i18n.MensagensI18n.SENHA_INVALIDA;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Optional;
 
 import javax.ejb.Stateless;
@@ -11,6 +14,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import com.github.app.common.exception.FalhaDeAutenticacaoException;
 import com.github.app.common.security.ConstantesDeSeguranca;
+import com.github.app.common.utils.DateUtils;
 import com.github.app.model.dto.LoginDto;
 import com.github.app.model.dto.UsuarioLogadoDto;
 import com.github.app.model.entity.Usuario;
@@ -23,7 +27,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Stateless
 public class AutenticacaoService {
     
-    @Inject
+    private static final long TEMPO_VALIDADE_TOKEN = 10;
+	@Inject
     UsuarioService usuarioService;
     
     public UsuarioLogadoDto realizaLogin(LoginDto loginDto) {
@@ -70,7 +75,10 @@ public class AutenticacaoService {
     }
 
     private String geraTokenJWT(String login) {
-        return Jwts.builder().setSubject(login).signWith(SignatureAlgorithm.HS512, ConstantesDeSeguranca.JWT_KEY).compact();
+    	LocalDateTime dateTime = LocalDateTime.now();
+    	dateTime = dateTime.plusHours(TEMPO_VALIDADE_TOKEN);
+    	Date dataExpiracao = DateUtils.convertToDate(dateTime);
+        return Jwts.builder().setSubject(login).signWith(SignatureAlgorithm.HS512, ConstantesDeSeguranca.JWT_KEY).setExpiration(dataExpiracao).compact();
     }
     
 }
