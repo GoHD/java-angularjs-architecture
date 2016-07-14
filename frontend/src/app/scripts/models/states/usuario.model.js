@@ -1,16 +1,13 @@
-(function() {
+(function(){
   'use strict';
 
   angular
-    .module('gohd.models', [])
+    .module('gohd.models')
     .factory('UsuarioModel', UsuarioModelFn);
 
   /* @ngInject */
-  function UsuarioModelFn($resource) {
-    var factory = $resource('/api/jobs/:jobId', {
-      full: 'true',
-      jobId: '@id'
-    });
+  function UsuarioModelFn($resource, ModelsConstants) {
+    var factory = $resource(ModelsConstants.API.url + '/usuario');
 
     return factory;
   }

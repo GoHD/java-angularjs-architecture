@@ -5,7 +5,6 @@
     'gohd.models',
     'gohd.layout',
     'ngAnimate',
-    'ngResource',
     'ui.router',
     'ui.bootstrap',
     'LocalStorageModule',

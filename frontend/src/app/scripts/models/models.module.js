@@ -1,6 +1,10 @@
 (function(){
   'use strict';
 
+  var requires = [
+    'ngResource'
+  ];
+
   angular
-    .module('gohd.models', []);
+    .module('gohd.models', requires);
 })();

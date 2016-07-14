@@ -9,6 +9,7 @@
     "angular": true,
     "module": true,
     "inject": true,
-    "moment": true
+    "moment": true,
+    "_": true
   }
 }

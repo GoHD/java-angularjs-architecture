@@ -6,9 +6,7 @@
     .service('usuarioService', usuarioService);
 
   /* @ngInject */
-  function usuarioService($q, $http, $log, $resource) {
-
-    var users = $resource('http://localhost:8080/app-rest/usuario');
+  function usuarioService($q, $http, $log, UsuarioModel) {
 
     var service = {
       buscarUsuarios: buscarUsuarios,
@@ -19,7 +17,7 @@
 
     function adicionarUsuario(usuario) {
       var deferred = $q.defer();
-      users.save(usuario, function(data) {
+      UsuarioModel.save(usuario, function(data) {
           deferred.resolve(data);
         },
         function(err) {
@@ -31,7 +29,7 @@
 
     function buscarUsuarios() {
       var deferred = $q.defer();
-      users.getAll(
+      UsuarioModel.getAll(
         function(data) {
           deferred.resolve(data);
         },

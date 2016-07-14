@@ -23,8 +23,7 @@ gulp.task('inject', ['scripts', 'styles'], function () {
   ], { read: false });
 
   var injectScripts = gulp.src([
-    path.join(globals.paths.src, '/app/**/*.module.js'),
-    path.join(globals.paths.src, '/app/**/*.js'),
+    path.join(globals.paths.src, '/app/**/**/**/**/*.js'),
     path.join('!' + globals.paths.src, '/app/**/*.spec.js'),
     path.join('!' + globals.paths.src, '/app/**/*.mock.js'),
   ])

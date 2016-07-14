@@ -6,9 +6,7 @@
     .service('clienteService', clienteService);
 
   /* @ngInject */
-  function clienteService($q, $http, $log, $resource) {
-
-    var clientes = $resource('http://localhost:8080/app-rest/cliente');
+  function clienteService($q, $http, $log, ClienteModel) {
 
     var service = {
       buscarClientes: buscarClientes,
@@ -19,7 +17,7 @@
 
     function adicionarCliente(cliente) {
       var deferred = $q.defer();
-      clientes.save(cliente, function(data) {
+      ClienteModel.save(cliente, function(data) {
           deferred.resolve(data);
         },
         function(err) {
@@ -31,7 +29,7 @@
 
     function buscarClientes() {
       var deferred = $q.defer();
-      clientes.getAll(
+      ClienteModel.getAll(
         function(data) {
           deferred.resolve(data);
         },
