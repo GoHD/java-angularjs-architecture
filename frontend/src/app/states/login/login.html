@@ -1,14 +1,19 @@
 <div class="body-login">
   <div class="wrapper-login">
-    <form class="login" ng-submit="lc.login(lc.credentials)">
-      <p class="title">Efetuar Login</p>
-      <input type="text" placeholder="Nome de usuario" autofocus ng-model="lc.credentials.login" autocomplete="off"/>
-      <i class="fa fa-user"></i>
-      <input type="password" placeholder="Senha" ng-model="lc.credentials.senha" autocomplete="off"/>
-      <i class="fa fa-key fa-1x"></i>
-      <button type="submit">
-        <span class="state">Entrar</span>
-      </button>
+    <form ng-submit="lc.login(lc.credentials)" class="login-box animated fadeInUp">
+      <div class="box-header">
+        <h2>Log In</h2>
+      </div>
+      <label for="username">Username</label>
+      <br/>
+      <input type="text" id="username" ng-model="lc.credentials.login" autocomplete="off">
+      <br/>
+      <label for="password" >Password</label>
+      <br/>
+      <input type="password" id="password" ng-model="lc.credentials.senha" autocomplete="off">
+      <br/>
+      <button type="submit">Sign In</button>
+      <br/>
     </form>
   </div>
 </div>

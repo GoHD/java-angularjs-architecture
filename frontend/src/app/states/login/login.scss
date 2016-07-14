@@ -1,14 +1,11 @@
-$primary: rgb(11, 85, 117);
+$template-color: rgb(97, 117, 168);
 
 .body-login {
-  font-family: "Open Sans", sans-serif;
+	font-family: 'Lato', sans-serif;
   height: 100vh;
-  background: url("http://i.imgur.com/HgflTDf.jpg") 50% fixed;
+  background: url('../../../assets/images/login.jpg') 50% fixed;
+  background-color: white;
   background-size: cover;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .wrapper-login {
@@ -17,109 +14,97 @@ $primary: rgb(11, 85, 117);
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 100vh;
   min-height: 100%;
-  background: rgba(darken($primary,40%), 0.25);
+  background: rgba(darken($template-color,40%), 0.40);
 }
 
-
-.login {
-  border-radius: 2px 2px 5px 5px;
-  padding: 10px 20px 20px 20px;
+.login-box {
+  text-align: center;
   width: 90%;
-  max-width: 320px;
+  max-width: 340px;
   background: #ffffff;
   position: relative;
-  padding-bottom: 80px;
-  box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
+  margin-top: 0px;
+  padding-bottom: 20px;
+  padding-top: 0px;
+	box-shadow: 0 5px 50px rgba(0,0,0,0.4);
+	border-radius: 5px;
 
-  &.loading {
-    button {
-      max-height: 100%;
-      padding-top: 50px;
-      .spinner {
-        opacity: 1;
-        top: 20%;
-      }
-    }
-  }
-
-  &.ok {
-    button {
-      background-color: #8bc34a;
-    }
-  }
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
 
   input {
-    display: block;
-    padding: 15px 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    border: 1px solid #ddd;
-    transition: border-width 0.2s ease;
-    border-radius: 2px;
-    color: #ccc;
-    &+ i.fa {
-        color: #fff;
-      font-size: 1em;
-      position: absolute;
-      margin-top: -47px;
-      opacity: 0;
-      left: 0;
-      transition: all 0.1s ease-in;
-    }
+  	margin-bottom: 5px;
+  	padding: 8px;
+  	border: 1px solid #ccc;
+  	border-radius: 2px;
+  	font-size: .9em;
+  	color: #888;
+
     &:focus {
-      &+ i.fa {
-        opacity: 1;
-        left: 30px;
-      transition: all 0.25s ease-out;
-      }
-      outline: none;
-      color: #444;
-      border-color: $primary;
-      border-left-width: 35px;
+    	outline: none;
+    	border-color: $template-color;
+    	transition: 0.5s;
+    	color: $template-color;
     }
-  }
-
-  a {
-   font-size: 0.8em;
-    color: $primary;
-    text-decoration: none;
-  }
-
-  .title {
-    color: #444;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 10px 0 30px 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
   }
 
   button {
-    width: 100%;
-    height: 100%;
-    padding: 10px 10px;
-    background: $primary;
-    color: #fff;
-    display: block;
-    border: none;
-    margin-top: 20px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    max-height: 60px;
-    border: 0px solid rgba(0,0,0,0.1);
-    border-radius: 0 0 2px 2px;
-    transform: rotateZ(0deg);
-    transition: all 0.1s ease-out;
-    border-bottom-width: 7px;
+  	margin-top: 10px;
+  	border: 0;
+  	border-radius: 2px;
+  	color: white;
+  	padding: 10px;
+  	text-transform: uppercase;
+  	font-weight: 400;
+  	font-size: 0.7em;
+  	letter-spacing: 1px;
+  	background-color: $template-color;
+  	cursor:pointer;
+  	outline: none;
+
+    &:hover {
+    	opacity: 0.7;
+    	transition: 0.5s;
+    }
   }
 
-    &:not(.loading) button:hover {
-      box-shadow: 0px 1px 3px $primary;
+  label {
+  	font-weight: 700;
+  	font-size: .8em;
+  	color: #888;
+  	letter-spacing: 1px;
+  	text-transform: uppercase;
+  	line-height: 2em;
+  }
+
+  a {
+    text-decoration: none;
+    color: #666;
+
+    &:hover {
+      color: #aeaeae;
     }
-    &:not(.loading) button:focus {
-      border-bottom-width: 4px;
-    }
+  }
+
+  h2 {
+  	text-transform: uppercase;
+  	color: white;
+  	font-weight: 400;
+  	letter-spacing: 1px;
+  	font-size: 1.4em;
+  	line-height: 2.8em;
+    margin-top: 0px;
+  }
+
+  p.small {
+  	font-size: 0.8em;
+  	margin: 20px 0 0;
+  }
+}
+
+.box-header {
+  background-color: $template-color;
+  border-radius: 5px 5px 0 0;
+  padding-top: 0px;
 }
