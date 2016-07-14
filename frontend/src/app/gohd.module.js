@@ -2,6 +2,8 @@
   'use strict';
 
   var requires = [
+    'gohd.models',
+    'gohd.layout',
     'ngAnimate',
     'ngResource',
     'ui.router',

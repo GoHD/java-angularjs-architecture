@@ -92,7 +92,6 @@
         "by":true,
         "io":true,
         "_":false,
-        "$":false,
-        "jQuery": false
+        "moment": true
       } // additional predefined global variables
 }
