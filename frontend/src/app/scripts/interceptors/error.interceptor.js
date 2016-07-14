@@ -6,7 +6,7 @@
         .factory('errorInterceptor', errorInterceptorFn);
 
     /* @ngInject */
-    function errorInterceptorFn($q, $location, messagesService) {
+    function errorInterceptorFn($q, $location, messagesService, AUTH_EVENTS) {
         var interceptor = {
             responseError: responseErrorFn
         };
@@ -16,8 +16,6 @@
         function responseErrorFn(response) {
             if (response.status === 404) {
                 $location.path('/error');
-            } else if (response.status === 401) {
-                $location.path('/login');
             } else if (response.status === 400) {
                 messagesService.addErrorMessage(response.data.tituloDoErro);
             }
