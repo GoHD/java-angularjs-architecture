@@ -1,12 +1,14 @@
-<div class="container-fluid login-container">
-  <div class="row">
-    <div class="col-md-12 login-content">
-      <form ng-submit="lc.login(lc.credentials)">
-        <h4 class="login-title">{{::lc.title}}</h4>
-        <input type="text" id="nome" class="login-input form-control" placeholder="login" ng-model="lc.credentials.login" autocomplete="off"/>
-        <input type="password" id="senha" class="login-input form-control" placeholder="senha" ng-model="lc.credentials.senha" autocomplete="off"/>
-        <button class="btn btn-info login-btn form-control" type="submit">Entrar</button>
-      </form>
-    </div>
+<div class="body-login">
+  <div class="wrapper-login">
+    <form class="login" ng-submit="lc.login(lc.credentials)">
+      <p class="title">Efetuar Login</p>
+      <input type="text" placeholder="Nome de usuario" autofocus ng-model="lc.credentials.login" autocomplete="off"/>
+      <i class="fa fa-user"></i>
+      <input type="password" placeholder="Senha" ng-model="lc.credentials.senha" autocomplete="off"/>
+      <i class="fa fa-key fa-1x"></i>
+      <button type="submit">
+        <span class="state">Entrar</span>
+      </button>
+    </form>
   </div>
 </div>
