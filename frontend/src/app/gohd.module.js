@@ -11,7 +11,5 @@
     'angular-growl'
   ];
 
-  angular
-    .module('gohd', requires);
-
+  angular.module('gohd', requires);
 })();

@@ -5,10 +5,8 @@
     .module('gohd')
     .config(config);
 
-  /** @ngInject */
-  function config($logProvider, growlProvider) {
+  /* @ngInject */
+  function config($logProvider) {
     $logProvider.debugEnabled(true);
-    growlProvider.globalTimeToLive(5000);
   }
-
 })();

@@ -5,7 +5,7 @@
     .module('gohd')
     .config(routerConfig);
 
-  /** @ngInject */
+  /* @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
       .state('login', {
@@ -13,7 +13,7 @@
         authenticate: false,
         templateUrl: "app/states/login/login.html",
         controller: 'LoginController',
-        controllerAs: 'lc'
+        controllerAs: 'vm'
       });
   }
 })();

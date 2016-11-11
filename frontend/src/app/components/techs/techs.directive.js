@@ -67,7 +67,5 @@
         'logo': 'node-sass.png'
       }];
     }
-
   }
-
 })();

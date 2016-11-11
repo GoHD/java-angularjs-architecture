@@ -1,20 +1,23 @@
-<div growl></div>
 <div class="body-login">
   <div class="wrapper-login">
-    <form ng-submit="lc.login(lc.credentials)" class="login-box animated fadeInUp">
+    <form id="loginForm" ng-submit="vm.efetuarLogin(vm.credenciais)" class="login-box">
       <div class="box-header">
-        <h2>Log In</h2>
+        <h2>Super Quickstart Project</h2>
       </div>
-      <label for="username">Username</label>
+      <span><i class="fa fa-user" aria-hidden="true"></i></span>
+      <input type="text" placeholder="Usuario" ng-model="vm.credenciais.login" autocomplete="off">
       <br/>
-      <input type="text" id="username" ng-model="lc.credentials.login" autocomplete="off">
+      <span><i class="fa fa-lock" aria-hidden="true"></i></span>
+      <input type="password" placeholder="Senha" ng-model="vm.credenciais.senha" autocomplete="off">
       <br/>
-      <label for="password" >Password</label>
+      <button class="btn-login" type="submit">Efetuar Login
+        <i ng-show="vm.loading" class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+      </button>
       <br/>
-      <input type="password" id="password" ng-model="lc.credentials.senha" autocomplete="off">
-      <br/>
-      <button type="submit">Sign In</button>
-      <br/>
+      <div class="techs">
+        <img style="height: 30px;" src="../../../assets/images/angular.png" alt="AngularJS"/>
+        <img style="height: 50px;" src="../../../assets/images/java.png" alt="Java"/>
+      </div>
     </form>
   </div>
 </div>
