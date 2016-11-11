@@ -71,8 +71,20 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.size({ title: path.join(globals.paths.dist, '/'), showFiles: true }));
 });
 
-gulp.task('fonts', ['copy-bs-fonts', 'copy-fa-fonts'], function () {});
-gulp.task('fonts-serve', ['copy-bs-fonts-serve', 'copy-fa-fonts-serve'], function () {});
+gulp.task('fonts', ['copy-bs-fonts', 'copy-fa-fonts', 'copy-roboto-fonts'], function () {});
+gulp.task('fonts-serve', ['copy-bs-fonts-serve', 'copy-fa-fonts-serve', 'copy-roboto-fonts-serve'], function () {});
+
+gulp.task('copy-roboto-fonts', function() {
+  return gulp
+    .src(config.wiredep.directory + '/roboto-fontface/fonts/roboto/*.{eot,svg,ttf,woff,woff2}')
+    .pipe(gulp.dest(path.join(globals.paths.dist, '/fonts/Roboto/')));
+});
+
+gulp.task('copy-roboto-fonts-serve', function() {
+  return gulp
+    .src(config.wiredep.directory + '/roboto-fontface/fonts/roboto/*.{eot,svg,ttf,woff,woff2}')
+    .pipe(gulp.dest(path.join(globals.paths.tmp, '/serve/fonts/roboto/')));
+});
 
 gulp.task('copy-bs-fonts', function(){
   return gulp
@@ -88,13 +100,13 @@ gulp.task('copy-bs-fonts-serve', function(){
 
 gulp.task('copy-fa-fonts', function(){
   return gulp
-    .src(config.wiredep.directory + '/fontawesome/fonts/*.{eot,svg,ttf,woff,woff2}')
+    .src(config.wiredep.directory + '/font-awesome/fonts/*.{eot,svg,ttf,woff,woff2}')
     .pipe(gulp.dest(path.join(globals.paths.dist, '/fonts/')));
 });
 
 gulp.task('copy-fa-fonts-serve', function(){
   return gulp
-    .src(config.wiredep.directory + '/fontawesome/fonts/*.{eot,svg,ttf,woff,woff2}')
+    .src(config.wiredep.directory + '/fonta-wesome/fonts/*.{eot,svg,ttf,woff,woff2}')
     .pipe(gulp.dest(path.join(globals.paths.tmp, '/serve/fonts/')));
 });
 

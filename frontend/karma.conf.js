@@ -21,7 +21,7 @@ function listFiles() {
     .concat([
       path.join(globals.paths.src, '/app/**/*.module.js'),
       path.join(globals.paths.src, '/app/**/*.js'),
-      path.join(globals.paths.src, '/**/*.spec.js'),
+      path.join(globals.paths.src, '/**/**/**/**/*.spec.js'),
       path.join(globals.paths.src, '/**/*.mock.js'),
     ])
     .concat(pathSrcHtml);
@@ -54,7 +54,7 @@ module.exports = function(config) {
       moduleName: 'gohd'
     },
 
-    logLevel: 'WARN',
+    logLevel: config.LOG_ERROR,
 
     frameworks: ['phantomjs-shim', 'jasmine', 'angular-filesort'],
 

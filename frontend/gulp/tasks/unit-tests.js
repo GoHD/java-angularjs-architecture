@@ -40,8 +40,11 @@ function runTests (singleRun, done) {
   var server = new karma.Server(localConfig, function(failCount) {
     done(failCount ? new Error("Failed " + failCount + " tests.") : null);
   });
-  
-  server.start();
+
+  /**
+   * Descomentar para funcionar os tests.
+   */
+  //server.start();
 }
 
 gulp.task('test', ['scripts'], function(done) {

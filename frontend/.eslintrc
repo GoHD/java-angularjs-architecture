@@ -10,6 +10,8 @@
     "module": true,
     "inject": true,
     "moment": true,
-    "_": true
+    "_": true,
+    "swal": true,
+    "Chart": true
   }
 }

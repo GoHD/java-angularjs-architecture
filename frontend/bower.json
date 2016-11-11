@@ -1,23 +1,35 @@
 {
   "name": "gohd",
-  "version": "0.0.0",
+  "version": "1.1.0",
   "dependencies": {
-    "angular-animate": "~1.5.3",
-    "jquery": "~2.1.4",
-    "angular-resource": "~1.5.3",
-    "angular-ui-router": "~0.2.15",
-    "bootstrap-sass": "~3.3.5",
-    "angular-bootstrap": "~0.14.3",
-    "angular-toastr": "~1.5.0",
-    "animate.css": "~3.4.0",
-    "angular": "~1.5.3",
-    "angular-local-storage": "^0.2.7",
-    "angular-growl-v2": "^0.7.9",
-    "moment": "^2.14.1",
-    "font-awesome": "fontawesome#^4.6.3"
+    "angular-animate": "1.5.3",
+    "jquery": "2.1.4",
+    "angular-resource": "1.5.3",
+    "angular-ui-router": "0.2.15",
+    "bootstrap-sass": "3.3.5",
+    "angular-bootstrap": "0.14.3",
+    "angular-toastr": "1.5.0",
+    "animate.css": "3.4.0",
+    "angular": "1.5.3",
+    "angular-local-storage": "0.2.7",
+    "angular-growl-v2": "0.7.9",
+    "moment": "2.14.1",
+    "font-awesome": "fontawesome#4.6.3",
+    "angular-gravatar": "0.4.2",
+    "angular-input-masks": "2.4.0",
+    "angularUtils-pagination": "angular-utils-pagination#0.11.1",
+    "ng-sweet-alert": "1.0.7",
+    "AngularJS-Toaster": "angularjs-toaster#2.0.0",
+    "angular-i18n": "1.5.8",
+    "angular-block-ui": "0.2.2",
+    "underscore": "1.8.3",
+    "chart.js": "2.3.0",
+    "angularjs-slider": "5.7.0",
+    "roboto-fontface": "0.5.0",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#1.7.0"
   },
   "devDependencies": {
-    "angular-mocks": "~1.5.3"
+    "angular-mocks": "1.5.8"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -30,18 +42,29 @@
         "assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
       ]
     },
+    "angular-i18n": {
+      "main": [
+        "angular-locale_pt-br.js"
+      ]
+    },
     "fontawesome": {
-          "main": [
-              "css/font-awesome.css",
-              "fonts/fontawesome-webfont.eot",
-              "fonts/fontawesome-webfont.woff",
-              "fonts/fontawesome-webfont.ttf",
-              "fonts/fontawesome-webfont.svg"
-          ]
-      }
+      "main": [
+        "css/font-awesome.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.svg"
+      ]
+    },
+    "roboto-fontface": {
+      "main": [
+        "css/roboto/sass/roboto-fontface-regular.scss"
+      ]
+    }
   },
   "resolutions": {
-    "jquery": "~2.1.4",
-    "angular": "~1.5.3"
+    "jquery": "2.1.4",
+    "angular": "1.5.8",
+    "angular-mocks": "1.5.8"
   }
 }

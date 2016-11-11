@@ -22,10 +22,13 @@ gulp.task('inject', ['scripts', 'styles'], function () {
     path.join('!' + globals.paths.tmp, '/serve/app/vendor.css')
   ], { read: false });
 
+  var mock = (process.argv[4] === 'mock');
+  var k = mock ? '' : '!';
+
   var injectScripts = gulp.src([
     path.join(globals.paths.src, '/app/**/**/**/**/*.js'),
     path.join('!' + globals.paths.src, '/app/**/*.spec.js'),
-    path.join('!' + globals.paths.src, '/app/**/*.mock.js'),
+    path.join(k + globals.paths.src, '/mocks/**/**/**/**/*.js')
   ])
   .pipe($.angularFilesort()).on('error', config.errorHandler('AngularFilesort'));
 
