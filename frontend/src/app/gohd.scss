@@ -1,17 +1,18 @@
 /**
  * Se você quiser sobreescrever algumas variaveis do bootstrap, você deve trocar os valores aqui.
  * A lista de variaveis está definida aqui: bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
- *
+ */
+
+$fa-font-path: "../../bower_components/font-awesome/fonts";
+@import "../../bower_components/font-awesome/scss/font-awesome.scss";
+
+/**
  * Não remova os comentários abaixo. São as marcações usadas pelo wiredep para
  * injetar as dependencias sass quando definidas no bower.json das dependencias.
  */
 
- $fa-font-path: "../../bower_components/font-awesome/fonts";
- @import "../../bower_components/font-awesome/scss/font-awesome.scss";
-
 // bower:scss
 // endbower
-
 
 .browsehappy {
   margin: 0.2em 0;
@@ -32,5 +33,113 @@
  * Não remova os comentários abaixo. São as marcações usadas pelo gulp-inject para
  * injetar automaticamente todos os arquivos sass.
  */
+
 // injector
 // endinjector
+
+/**
+ * Utilitários Globais
+ */
+
+.top0  {  margin-top: 0px  !important; }
+.top5  {  margin-top: 5px  !important; }
+.top10 {  margin-top: 10px !important; }
+.top15 {  margin-top: 15px !important; }
+.top20 {  margin-top: 20px !important; }
+.top25 {  margin-top: 25px !important; }
+.top30 {  margin-top: 30px !important; }
+.top35 {  margin-top: 35px !important; }
+.top40 {  margin-top: 40px !important; }
+
+.bottom0  {  margin-bottom: 0px  !important; }
+.bottom5  {  margin-bottom: 5px  !important; }
+.bottom10 {  margin-bottom: 10px !important; }
+.bottom15 {  margin-bottom: 15px !important; }
+.bottom20 {  margin-bottom: 20px !important; }
+.bottom25 {  margin-bottom: 25px !important; }
+.bottom30 {  margin-bottom: 30px !important; }
+.bottom35 {  margin-bottom: 35px !important; }
+.bottom40 {  margin-bottom: 40px !important; }
+
+.left0  {  margin-left: 0px  !important; }
+.left5  {  margin-left: 5px  !important; }
+.left10 {  margin-left: 10px !important; }
+.left15 {  margin-left: 15px !important; }
+.left18 {  margin-left: 18px !important; }
+.left20 {  margin-left: 20px !important; }
+.left25 {  margin-left: 25px !important; }
+.left30 {  margin-left: 30px !important; }
+.left35 {  margin-left: 35px !important; }
+.left40 {  margin-left: 40px !important; }
+
+.right0  {  margin-right: 0px  !important; }
+.right5  {  margin-right: 5px  !important; }
+.right10 {  margin-right: 10px !important; }
+.right15 {  margin-right: 15px !important; }
+.right20 {  margin-right: 20px !important; }
+.right25 {  margin-right: 25px !important; }
+.right30 {  margin-right: 30px !important; }
+.right35 {  margin-right: 35px !important; }
+.right40 {  margin-right: 40px !important; }
+
+.ptop0  {  padding-top: 0px  !important; }
+.ptop5  {  padding-top: 5px  !important; }
+.ptop10 {  padding-top: 10px !important; }
+.ptop15 {  padding-top: 15px !important; }
+.ptop20 {  padding-top: 20px !important; }
+.ptop25 {  padding-top: 25px !important; }
+.ptop30 {  padding-top: 30px !important; }
+.ptop35 {  padding-top: 35px !important; }
+.ptop40 {  padding-top: 40px !important; }
+
+.pbottom0  {  padding-bottom: 0px  !important; }
+.pbottom5  {  padding-bottom: 5px  !important; }
+.pbottom10 {  padding-bottom: 10px !important; }
+.pbottom15 {  padding-bottom: 15px !important; }
+.pbottom20 {  padding-bottom: 20px !important; }
+.pbottom25 {  padding-bottom: 25px !important; }
+.pbottom30 {  padding-bottom: 30px !important; }
+.pbottom35 {  padding-bottom: 35px !important; }
+.pbottom40 {  padding-bottom: 40px !important; }
+
+.pleft0  {  padding-left: 0px  !important; }
+.pleft5  {  padding-left: 5px  !important; }
+.pleft10 {  padding-left: 10px !important; }
+.pleft15 {  padding-left: 15px !important; }
+.pleft18 {  padding-left: 18px !important; }
+.pleft20 {  padding-left: 20px !important; }
+.pleft25 {  padding-left: 25px !important; }
+.pleft30 {  padding-left: 30px !important; }
+.pleft35 {  padding-left: 35px !important; }
+.pleft40 {  padding-left: 40px !important; }
+
+.pright0  {  padding-right: 0px  !important; }
+.pright5  {  padding-right: 5px  !important; }
+.pright10 {  padding-right: 10px !important; }
+.pright15 {  padding-right: 15px !important; }
+.pright20 {  padding-right: 20px !important; }
+.pright25 {  padding-right: 25px !important; }
+.pright30 {  padding-right: 30px !important; }
+.pright35 {  padding-right: 35px !important; }
+.pright40 {  padding-right: 40px !important; }
+
+.no-margin-horizontal  {  margin-left:  0px !important;  margin-right:   0px !important; }
+.no-margin-vertical    {  margin-top:   0px !important;  margin-bottom:  0px !important; }
+.no-padding-vertical   {  padding-top:  0px !important;  padding-bottom: 0px !important; }
+.no-padding-horizontal {  padding-left: 0px !important;  padding-right:  0px !important; }
+
+$red-bootstrap:    #d9534f;
+$green-bootstrap:  #5cb85c;
+$orange-bootstrap: #f0ad4e;
+$blue-bootstrap:   #5bc0de;
+
+.bg-blue   { background-color: $blue-bootstrap   }
+.bg-red    { background-color: $red-bootstrap    }
+.bg-green  { background-color: $green-bootstrap  }
+.bg-orange { background-color: $orange-bootstrap }
+.bg-gray   { background-color: lightgray         }
+
+.border-gray   { border: 1px solid lightgray         }
+.border-blue   { border: 1px solid $blue-bootstrap   }
+.border-orange { border: 1px solid $orange-bootstrap }
+.border-green  { border: 1px solid $green-bootstrap  }
