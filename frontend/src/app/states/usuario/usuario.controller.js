@@ -1,43 +1,78 @@
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    angular
-      .module('gohd')
-      .controller('UsuarioController', UsuarioController);
+  angular
+    .module('gohd')
+    .controller('UsuarioController', UsuarioController);
 
-    /** @ngInject */
-    function UsuarioController(usuarioService, $log) {
-      var vm = this;
+  /** @ngInject */
+  function UsuarioController(usuarioService, $log) {
 
-      vm.salvar = salvarFn;
-      vm.usuarios = [];
+    var vm = this;
+    vm.usuarios = [];
+    vm.camposUsuario = getUserFields();
 
-      buscarUsuarios();
+    vm.salvar = salvarFn;
 
-      function salvarFn(usuario) {
-        usuarioService.adicionarUsuario(usuario).then(
-          function(data) {
-            vm.usuarios.push(data);
-            delete vm.usuario;
-          },
-          function(e) {
-            $log.debug("Ocorreu um erro ao salvar um usuario: " + e);
+    function salvarFn(usuario) {
+      usuarioService.adicionarUsuario(usuario).then(
+        function (data) {
+          vm.usuarios.push(data);
+          delete vm.usuario;
+        },
+        function (e) {
+          $log.debug("Ocorreu um erro ao salvar um usuario: " + e);
+        }
+      );
+    }
+
+    function buscarUsuarios() {
+      usuarioService.buscarUsuarios().then(
+        function (data) {
+          vm.usuarios = data;
+        },
+        function (e) {
+          $log.debug("Ocorreu um erro ao buscar os usuarios cadastrados: " + e);
+        }
+      );
+    }
+
+    function getUserFields() {
+      return [
+        {
+          key: 'nome',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'Nome',
+            placeholder: 'Digite seu nome'
           }
-        );
-
-      }
-
-      function buscarUsuarios() {
-        usuarioService.buscarUsuarios().then(
-          function(data) {
-            vm.usuarios = data;
-          },
-          function(e) {
-            $log.debug("Ocorreu um erro ao buscar os usuarios cadastrados: " + e);
+        }, {
+          key: 'email',
+          type: 'input',
+          templateOptions: {
+            type: 'email',
+            label: 'Email',
+            placeholder: 'Digite seu E-mail'
           }
-        );
-      }
-
+        }, {
+          key: 'login',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'Login',
+            placeholder: 'Digite seu login'
+          }
+        }, {
+          key: 'senha',
+          type: 'input',
+          templateOptions: {
+            type: 'password',
+            label: 'Senha',
+            placeholder: 'Digite sua senha'
+          }
+        }
+      ];
+    }
   }
-
 })();

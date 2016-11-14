@@ -7,7 +7,9 @@
     'gohd.scripts',
     'ui.router',
     'ui.bootstrap',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'formly',
+    'formlyBootstrap'
   ];
 
   angular.module('gohd', requires);

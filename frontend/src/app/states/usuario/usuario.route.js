@@ -13,7 +13,7 @@
         authenticate: true,
         templateUrl: "app/states/usuario/usuario.cadastro.html",
         controller: 'UsuarioController',
-        controllerAs: 'uc'
+        controllerAs: 'vm'
       });
   }
 

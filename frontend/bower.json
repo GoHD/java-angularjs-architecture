@@ -26,7 +26,9 @@
     "chart.js": "2.3.0",
     "angularjs-slider": "5.7.0",
     "roboto-fontface": "0.5.0",
-    "angular-hotkeys": "chieffancypants/angular-hotkeys#1.7.0"
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#1.7.0",
+    "angular-formly": "8.4.0",
+    "angular-formly-templates-bootstrap": "6.3.2"
   },
   "devDependencies": {
     "angular-mocks": "1.5.8"

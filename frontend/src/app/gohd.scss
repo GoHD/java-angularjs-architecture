@@ -5,6 +5,7 @@
 
 $fa-font-path: "../../bower_components/font-awesome/fonts";
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
+@import "layout/variables";
 
 /**
  * Não remova os comentários abaixo. São as marcações usadas pelo wiredep para
@@ -51,7 +52,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .top35 {  margin-top: 35px !important; }
 .top40 {  margin-top: 40px !important; }
 
-.bottom0  {  margin-bottom: 0px  !important; }
+.bottom0  {  margin-bottom: 0  !important; }
 .bottom5  {  margin-bottom: 5px  !important; }
 .bottom10 {  margin-bottom: 10px !important; }
 .bottom15 {  margin-bottom: 15px !important; }
@@ -61,7 +62,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .bottom35 {  margin-bottom: 35px !important; }
 .bottom40 {  margin-bottom: 40px !important; }
 
-.left0  {  margin-left: 0px  !important; }
+.left0  {  margin-left: 0  !important; }
 .left5  {  margin-left: 5px  !important; }
 .left10 {  margin-left: 10px !important; }
 .left15 {  margin-left: 15px !important; }
@@ -72,7 +73,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .left35 {  margin-left: 35px !important; }
 .left40 {  margin-left: 40px !important; }
 
-.right0  {  margin-right: 0px  !important; }
+.right0  {  margin-right: 0  !important; }
 .right5  {  margin-right: 5px  !important; }
 .right10 {  margin-right: 10px !important; }
 .right15 {  margin-right: 15px !important; }
@@ -82,7 +83,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .right35 {  margin-right: 35px !important; }
 .right40 {  margin-right: 40px !important; }
 
-.ptop0  {  padding-top: 0px  !important; }
+.ptop0  {  padding-top: 0  !important; }
 .ptop5  {  padding-top: 5px  !important; }
 .ptop10 {  padding-top: 10px !important; }
 .ptop15 {  padding-top: 15px !important; }
@@ -92,7 +93,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .ptop35 {  padding-top: 35px !important; }
 .ptop40 {  padding-top: 40px !important; }
 
-.pbottom0  {  padding-bottom: 0px  !important; }
+.pbottom0  {  padding-bottom: 0  !important; }
 .pbottom5  {  padding-bottom: 5px  !important; }
 .pbottom10 {  padding-bottom: 10px !important; }
 .pbottom15 {  padding-bottom: 15px !important; }
@@ -102,7 +103,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .pbottom35 {  padding-bottom: 35px !important; }
 .pbottom40 {  padding-bottom: 40px !important; }
 
-.pleft0  {  padding-left: 0px  !important; }
+.pleft0  {  padding-left: 0  !important; }
 .pleft5  {  padding-left: 5px  !important; }
 .pleft10 {  padding-left: 10px !important; }
 .pleft15 {  padding-left: 15px !important; }
@@ -113,7 +114,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .pleft35 {  padding-left: 35px !important; }
 .pleft40 {  padding-left: 40px !important; }
 
-.pright0  {  padding-right: 0px  !important; }
+.pright0  {  padding-right: 0  !important; }
 .pright5  {  padding-right: 5px  !important; }
 .pright10 {  padding-right: 10px !important; }
 .pright15 {  padding-right: 15px !important; }
@@ -123,25 +124,18 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .pright35 {  padding-right: 35px !important; }
 .pright40 {  padding-right: 40px !important; }
 
-.no-margin-horizontal  {  margin-left:  0px !important;  margin-right:   0px !important; }
-.no-margin-vertical    {  margin-top:   0px !important;  margin-bottom:  0px !important; }
-.no-padding-vertical   {  padding-top:  0px !important;  padding-bottom: 0px !important; }
-.no-padding-horizontal {  padding-left: 0px !important;  padding-right:  0px !important; }
+.no-margin-horizontal  {  margin-left:  0 !important;  margin-right:   0 !important; }
+.no-margin-vertical    {  margin-top:   0 !important;  margin-bottom:  0 !important; }
+.no-padding-vertical   {  padding-top:  0 !important;  padding-bottom: 0 !important; }
+.no-padding-horizontal {  padding-left: 0 !important;  padding-right:  0 !important; }
 
-.bg-blue   { background-color: $BLUE-BOOTSTRAP
-}
-.bg-red    { background-color: $RED-BOOTSTRAP
-}
-.bg-green  { background-color: $GREEN-BOOTSTRAP
-}
-.bg-orange { background-color: $ORANGE-BOOTSTRAP
-}
-.bg-gray   { background-color: lightgray         }
+.bg-blue   { background-color: $BLUE-BOOTSTRAP }
+.bg-red    { background-color: $RED-BOOTSTRAP }
+.bg-green  { background-color: $GREEN-BOOTSTRAP }
+.bg-orange { background-color: $ORANGE-BOOTSTRAP }
+.bg-gray   { background-color: lightgray }
 
-.border-gray   { border: 1px solid lightgray         }
-.border-blue   { border: 1px solid $BLUE-BOOTSTRAP
-}
-.border-orange { border: 1px solid $ORANGE-BOOTSTRAP
-}
-.border-green  { border: 1px solid $GREEN-BOOTSTRAP
-}
+.border-gray   { border: 1px solid lightgray }
+.border-blue   { border: 1px solid $BLUE-BOOTSTRAP }
+.border-orange { border: 1px solid $ORANGE-BOOTSTRAP }
+.border-green  { border: 1px solid $GREEN-BOOTSTRAP }
