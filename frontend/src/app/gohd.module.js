@@ -2,13 +2,13 @@
   'use strict';
 
   var requires = [
-    'gohd.models',
+    'gohd.components',
     'gohd.layout',
+    'gohd.models',
     'ngAnimate',
     'ui.router',
     'ui.bootstrap',
-    'LocalStorageModule',
-    'angular-growl'
+    'LocalStorageModule'
   ];
 
   angular.module('gohd', requires);

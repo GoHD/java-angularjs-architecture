@@ -10,8 +10,10 @@
     $stateProvider
       .state('gohd.inicio', {
         url: '/inicio',
-        authenticate: true,
-        templateUrl: "app/states/inicio/inicio.html"
+        authenticate: false,
+        templateUrl: "app/states/inicio/inicio.html",
+        controller: 'InicioController',
+        controllerAs: 'vm'
       });
   }
 })();

@@ -7,7 +7,7 @@
 
   /* @ngInject */
   function routerConfig($urlRouterProvider) {
-    $urlRouterProvider.when('', '/gohd');
-    $urlRouterProvider.otherwise('/error?code=404');
+    $urlRouterProvider.when('', '/gohd/inicio');
+    $urlRouterProvider.otherwise('/gohd/inicio');
   }
 })();

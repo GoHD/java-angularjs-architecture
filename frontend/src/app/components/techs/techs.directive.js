@@ -11,8 +11,7 @@
       restrict: 'E',
       templateUrl: 'app/components/techs/techs.directive.html',
       controller: DevTecsController,
-      controllerAs: 'vm',
-      bindToController: true
+      controllerAs: 'dv'
     };
 
     return directive;

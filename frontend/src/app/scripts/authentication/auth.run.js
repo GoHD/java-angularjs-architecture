@@ -19,7 +19,7 @@
     }
 
     $rootScope.$on(AUTH_EVENTS.loginSuccess, function() {
-      $state.go('gohd.home');
+      $state.go('gohd.inicio');
     });
 
     $rootScope.$on(AUTH_EVENTS.logoutSuccess, function() {

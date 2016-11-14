@@ -6,7 +6,7 @@
     .service('messagesService', messagesService);
 
   /* @ngInject */
-  function messagesService(growl) {
+  function messagesService() {
 
 
     var service = {
@@ -16,9 +16,6 @@
     return service;
 
     function addErrorMessage(message) {
-      growl.error(message);
     }
-
   }
-
 })();
