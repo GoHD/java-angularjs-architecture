@@ -10,11 +10,9 @@
     $stateProvider
       .state('gohd', {
         url: '/gohd',
-        authenticate: true,
-        templateUrl: "app/layout/shell.html",
-        controller: 'ShellController',
-        controllerAs: 'sc'
+        templateUrl: "app/layout/layout.html",
+        controller: 'LayoutController',
+        controllerAs: 'vm'
       });
   }
-
 })();

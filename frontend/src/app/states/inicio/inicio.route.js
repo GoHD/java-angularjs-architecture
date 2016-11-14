@@ -5,13 +5,13 @@
     .module('gohd')
     .config(routerConfig);
 
-  /** @ngInject */
+  /* @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
-      .state('gohd.home', {
-        url: '/home',
+      .state('gohd.inicio', {
+        url: '/inicio',
         authenticate: true,
-        templateUrl: "app/states/home/home.html"
+        templateUrl: "app/states/inicio/inicio.html"
       });
   }
 })();

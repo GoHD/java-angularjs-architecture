@@ -1,0 +1,66 @@
+<ul class="sidebar-nav">
+  <div class="brand-wrapper">
+    <div class="brand-text-wrapper">
+      <span>Quickstart <strong>GOHD</strong></span>
+    </div>
+    <div class="brand-image-wrapper">
+      <!--<img src="../../../assets/images/logo.png" class="img-responsive" width="30"/>-->
+    </div>
+  </div>
+  <div class="quick-search-wrapper">
+    <input name="quickSearchInput" type="text" ng-model="dvm.modelTypeAhead"
+           placeholder="Buscar menu...           &#xF002;"
+           style="font-family:Arial, FontAwesome"
+           uib-typeahead="menu.name for menu in dvm.menuFastSearchList | filter:$viewValue | limitTo:8"
+           class="form-control quick-menu-search"
+           ng-class="{'type-ahead-mouse-over': dvm.typeAheadHover}"
+           typeahead-on-select="dvm.typeAheadSelectFn($item)"
+           ng-blur="dvm.typeAheadOnBlur()"
+           ng-mouseenter="dvm.typeAheadHover = true"
+           ng-mouseleave="dvm.typeAheadHover = false">
+  </div>
+  <div gohdSidebar>
+    <div ng-repeat="item in dvm.itensMenu">
+      <div gohd-item>
+        <div class="menu-item-wrapper"
+             ng-if="dvm.verifyPermissionSetor(item)"
+             ng-click="btnClickFn(item.state, item.hasSubMenu)"
+             ng-class="{selected: item.isSelected || subMenuOpened}"
+             title="{{item.nome}}">
+          <div class="menu-icon-wrapper">
+            <i class="{{item.icon}}" aria-hidden="true"></i>
+          </div>
+          <div class="menu-text-wrapper">
+            <span>{{ item.nome | limitText: 35 }}</span>
+          </div>
+          <div class="menu-arrow-wrapper">
+            <i ng-if="item.hasSubMenu && !subMenuOpened" class="fa fa-angle-left" aria-hidden="true"></i>
+            <i ng-if="item.hasSubMenu && subMenuOpened" class="fa fa-angle-down" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="divisor" ng-if="item.hasSubMenu && subMenuOpened"></div>
+        <div ng-if="item.hasSubMenu"
+             ng-repeat="subItem in item.subItens"
+             ng-show="subMenuOpened"
+             title="{{subItem.nome}}">
+          <div class="sub-menu-item-wrapper" ng-if="dvm.verifyPermissionSetor(subItem)">
+            <div ng-class="{selected: subItem.isSelected}">
+              <div ng-click="btnClickSubItemFn(subItem.state, subItem.hasSubMenu)">
+                <div class="menu-icon-wrapper">
+                  <i class="{{subItem.icon}}" aria-hidden="true"></i>
+                </div>
+                <div class="menu-text-wrapper">
+                  <span> {{ subItem.nome | limitText: 35 }}</span>
+                </div>
+                <div class="menu-arrow-wrapper"></div>
+              </div>
+            </div>
+            <div class="group-separator" ng-if="subItem.separator">
+              <span>{{ subItem.separator.title | limitText: 35 }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ul>

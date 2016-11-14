@@ -1,0 +1,26 @@
+<nav class="dashboard-navbar col-md-12">
+  <div class="navbar-header">
+  </div>
+  <ul class="nav navbar-nav">
+    <!-- <li class="active"><a href="#">Home</a></li> -->
+  </ul>
+  <ul class="dashboard-navbar-right">
+    <li class="li-bell">
+      <a class="fa fa-bell-o pointer" aria-hidden="true"></a>
+    </li>
+    <li class="li-env">
+      <a class="fa fa-envelope-o pointer" aria-hidden="true"></a>
+    </li>
+    <!--<li>-->
+      <!--<img gravatar-src-once="'{{vm.email}}'" class="img-circle">-->
+    <!--</li>-->
+    <li class="li-welcome">
+      <a>Bem vindo, <strong>{{vm.nome}}</strong><!--<span class="caret"></span>--></a>
+    </li>
+    <li>
+      <a href="#" ng-click="vm.logout()"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>
+        Sair
+      </a>
+    </li>
+  </ul>
+</nav>

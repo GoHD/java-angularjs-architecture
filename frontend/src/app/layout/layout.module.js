@@ -1,8 +1,10 @@
-(function(){
+(function() {
   'use strict';
 
   var requires = [
-    'ui.router'
+    'ui.router',
+    'blockUI',
+    'cfp.hotkeys'
   ];
 
   angular
