@@ -1,4 +1,4 @@
-$template-color: #014870;
+@import "../../layout/variables";
 
 .body-login {
   font-family: 'Lato', sans-serif;
@@ -15,7 +15,7 @@ $template-color: #014870;
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  background: rgba(darken($template-color,40%), 0.10);
+  background: rgba(darken($SIDEBAR-COLOR,40%), 0.10);
 }
 
 .login-box {
@@ -42,9 +42,9 @@ $template-color: #014870;
 
     &:focus {
       outline: none;
-      border-color: $template-color;
+      border-color: $SIDEBAR-COLOR;
       transition: 0.5s;
-      color: $template-color;
+      color: $SIDEBAR-COLOR;
     }
   }
 
@@ -58,7 +58,7 @@ $template-color: #014870;
     font-weight: 400;
     font-size: 0.7em;
     letter-spacing: 1px;
-    background-color: $template-color;
+    background-color: $SIDEBAR-COLOR;
     cursor:pointer;
     outline: none;
 
@@ -106,7 +106,7 @@ $template-color: #014870;
 }
 
 .box-header {
-  background-color: $template-color;
+  background-color: $SIDEBAR-COLOR;
   border-radius: 5px 5px 0 0;
   padding-top: 0px;
 }
