@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gohd')
+    .module('gohd.scripts')
     .factory('SessionStorage', function($rootScope, localStorageService) {
       var sessionStorage = localStorageService.get('session') || {};
 

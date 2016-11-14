@@ -1,26 +1,25 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('gohd')
-        .factory('errorInterceptor', errorInterceptorFn);
+  angular
+    .module('gohd.scripts')
+    .factory('errorInterceptor', errorInterceptorFn);
 
-    /* @ngInject */
-    function errorInterceptorFn($q, $location, messagesService, AUTH_EVENTS) {
-        var interceptor = {
-            responseError: responseErrorFn
-        };
+  /* @ngInject */
+  function errorInterceptorFn($q, $location) {
 
-        return interceptor;
+    var interceptor = {
+      responseError: responseErrorFn
+    };
 
-        function responseErrorFn(response) {
-            if (response.status === 404) {
-                $location.path('/error');
-            } else if (response.status === 400) {
-                messagesService.addErrorMessage(response.data.tituloDoErro);
-            }
-            return $q.reject(response);
-        }
+    return interceptor;
+
+    function responseErrorFn(response) {
+      if (response.status === 404) {
+        $location.path('/error');
+      }
+
+      return $q.reject(response);
     }
-
+  }
 })();

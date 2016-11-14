@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('gohd')
+    .module('gohd.scripts')
     .service('AuthService', AuthService);
 
   /* @ngInject */
-  function AuthService($rootScope, $log, SessionStorage, AUTH_EVENTS, UsuarioLogadoService, AuthModel) {
+  function AuthService($rootScope, $log, SessionStorage, AUTH_EVENTS, UsuarioLogadoService, AuthDao) {
 
     var service = {
       login: login,
@@ -17,7 +17,7 @@
     return service;
 
     function login(credentials) {
-      return AuthModel.Login.save(credentials, function(res) {
+      return AuthDao.Login.save(credentials, function(res) {
           var auth = res;
           SessionStorage.create(auth.token);
           UsuarioLogadoService.atualizaUsuarioLogado(auth);
@@ -35,16 +35,15 @@
         if (UsuarioLogadoService.login === '') {
           findLoggedUserByToken();
         } else {
-          AuthModel.Login.get();
+          AuthDao.Login.get();
         }
     }
 
     function findLoggedUserByToken() {
-      AuthModel.Token.get({token: SessionStorage.token}, function(res) {
+      AuthDao.Token.get({token: SessionStorage.token}, function(res) {
         UsuarioLogadoService.atualizaUsuarioLogado(res);
         $rootScope.$broadcast(AUTH_EVENTS.userInfoChanged);
       });
     }
   }
-
 })();

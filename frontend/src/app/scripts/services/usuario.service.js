@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('gohd')
+    .module('gohd.scripts')
     .service('usuarioService', usuarioService);
 
   /* @ngInject */
-  function usuarioService($q, $http, $log, UsuarioModel) {
+  function usuarioService($q, $http, $log, UsuarioDao) {
 
     var service = {
       buscarUsuarios: buscarUsuarios,
@@ -17,7 +17,7 @@
 
     function adicionarUsuario(usuario) {
       var deferred = $q.defer();
-      UsuarioModel.save(usuario, function(data) {
+      UsuarioDao.save(usuario, function(data) {
           deferred.resolve(data);
         },
         function(err) {
@@ -29,7 +29,7 @@
 
     function buscarUsuarios() {
       var deferred = $q.defer();
-      UsuarioModel.getAll(
+      UsuarioDao.getAll(
         function(data) {
           deferred.resolve(data);
         },

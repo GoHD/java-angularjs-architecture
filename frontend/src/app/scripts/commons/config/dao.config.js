@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gohd.models')
+    .module('gohd.scripts')
     .config(configFn);
 
   /* @ngInject */

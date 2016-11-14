@@ -1,15 +1,4 @@
-$WIDTH-ICON-WRAPPER:        40px;
-$HEIGHT-MENU-ITEM-WRAPPER:  40px;
-$WIDTH-ARROW-WRAPPER:       30px;
-$ITEM-TEXT-LINE-HEIGHT:     15px;
-$MENU-BRAND-HEIGHT:         50px;
-$MENU-BRAND-IMG-WIDTH:      50px;
-
-$MENU-ICON-COLOR:           #FFFFFF;
-$MENU-ITEM-TEXT-COLOR:      #dbdbdb;
-$MENU-ITEM-HOVER-COLOR:     #096099;
-$MENU-BRAND-TEXT-COLOR:     #FFFFFF;
-$SUB-MENU-ITEM-COLOR:       #1982c0;
+@import '../variables';
 
 .brand-wrapper {
   height: $MENU-BRAND-HEIGHT;

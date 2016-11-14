@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('gohd.models')
-    .factory('ClienteModel', ClienteModelFn);
+    .module('gohd.scripts')
+    .factory('ClienteDao', ClienteDaoFn);
 
   /* @ngInject */
-  function ClienteModelFn($resource, ModelsConstants) {
+  function ClienteDaoFn($resource, ModelsConstants) {
     var factory = $resource(ModelsConstants.API.url + '/cliente');
 
     return factory;

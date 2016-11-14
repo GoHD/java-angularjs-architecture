@@ -1,12 +1,4 @@
-$SIDEBAR-SIZE:             200px;
-
-$LIGHT-GRAY:               #dddddd;
-$GRAY:                     #797979;
-$SIDEBAR-COLOR:            #1970A9;
-$SIDEBAR-HEADER-COLOR:     #2980B9;
-$SIDEBAR-ITEM-HOVER-COLOR: #096099;
-$NAVBAR-HAMBURGUER-COLOR:  #1970A9;
-$PANEL_HEADING_COLOR:      #CFD8DC;
+@import 'variables';
 
 .default-font {
   font-family: Roboto-Regular !important;
@@ -18,7 +10,7 @@ body {
 }
 
 input, select, button, textarea {
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 .row {
   margin-top: 10px;
@@ -35,10 +27,10 @@ input, select, button, textarea {
 */
 .panel {
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
  }
 .panel-heading {
-  border-radius: 0px;
+  border-radius: 0;
   padding-top: 1px;
   padding-bottom: 1px;
 
@@ -96,7 +88,7 @@ label {
   @extend .container-fluid;
 
   padding-left: $SIDEBAR-SIZE;
-  padding-right: 0px;
+  padding-right: 0;
   height: 100vh;
 }
 .route-content-panel {
@@ -139,8 +131,8 @@ label {
   color: gray;
 }
 .pagination {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .tachado {
   text-decoration: line-through;
@@ -163,8 +155,8 @@ label {
   }
 }
 .time-footer {
-  padding-bottom: 0px;
-  padding-top: 0px;
+  padding-bottom: 0;
+  padding-top: 0;
   text-align: right;
 }
 .fa-btn {
@@ -186,11 +178,11 @@ label {
 
   background-color: white;
   border: 2px solid #b8b8b8;
-  -webkit-box-shadow:  0px 0px 0px 0px #000;
-  box-shadow:  0px 0px 0px 0px #000;
-  padding-top: 0px;
+  -webkit-box-shadow:  0 0 0 0 #000;
+  box-shadow:  0 0 0 0 #000;
+  padding-top: 0;
   div {
-    padding-left: 0px;
+    padding-left: 0;
   }
 }
 .light-badge {

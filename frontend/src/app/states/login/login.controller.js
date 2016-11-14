@@ -6,7 +6,7 @@
     .controller('LoginController', LoginController);
 
   /* @ngInject */
-  function LoginController($rootScope, AuthService, AUTH_EVENTS) {
+  function LoginController(AuthService) {
 
     var vm = this;
     vm.efetuarLogin = efetuarLogin;

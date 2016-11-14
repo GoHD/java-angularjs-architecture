@@ -4,8 +4,7 @@
   var requires = [
     'gohd.components',
     'gohd.layout',
-    'gohd.models',
-    'ngAnimate',
+    'gohd.scripts',
     'ui.router',
     'ui.bootstrap',
     'LocalStorageModule'

@@ -31,7 +31,7 @@
             <i class="{{item.icon}}" aria-hidden="true"></i>
           </div>
           <div class="menu-text-wrapper">
-            <span>{{ item.nome | limitText: 35 }}</span>
+            <span>{{ item.nome | textLimit: 35 }}</span>
           </div>
           <div class="menu-arrow-wrapper">
             <i ng-if="item.hasSubMenu && !subMenuOpened" class="fa fa-angle-left" aria-hidden="true"></i>
@@ -50,13 +50,13 @@
                   <i class="{{subItem.icon}}" aria-hidden="true"></i>
                 </div>
                 <div class="menu-text-wrapper">
-                  <span> {{ subItem.nome | limitText: 35 }}</span>
+                  <span> {{ subItem.nome | textLimit: 35 }}</span>
                 </div>
                 <div class="menu-arrow-wrapper"></div>
               </div>
             </div>
             <div class="group-separator" ng-if="subItem.separator">
-              <span>{{ subItem.separator.title | limitText: 35 }}</span>
+              <span>{{ subItem.separator.title | textLimit: 35 }}</span>
             </div>
           </div>
         </div>

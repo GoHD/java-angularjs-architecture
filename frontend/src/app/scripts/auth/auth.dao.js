@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('gohd.models')
-    .factory('AuthModel', AuthModelFn);
+    .module('gohd.scripts')
+    .factory('AuthDao', AuthDaoFn);
 
   /* @ngInject */
-  function AuthModelFn($resource, ModelsConstants) {
+  function AuthDaoFn($resource, ModelsConstants) {
 
     var factory = {
       Login: $resource(ModelsConstants.API.url + '/login'),

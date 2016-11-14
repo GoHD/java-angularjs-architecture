@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gohd.models')
+    .module('gohd.scripts')
     .constant('ModelsConstants', {
       environment: 'production',
       API: {

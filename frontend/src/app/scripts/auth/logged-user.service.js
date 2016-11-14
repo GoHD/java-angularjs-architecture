@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gohd')
+    .module('gohd.scripts')
     .service('UsuarioLogadoService', UsuarioLogadoService);
 
   /* @ngInject */

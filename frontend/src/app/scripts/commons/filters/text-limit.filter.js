@@ -2,10 +2,10 @@
   'use strict';
 
   angular
-    .module('gohd')
-    .filter('limitText', LimitText);
+    .module('gohd.scripts')
+    .filter('textLimit', textLimit);
 
-  function LimitText() {
+  function textLimit() {
     return function (text, limit) {
       if (!limit) { return text; }
 

@@ -128,18 +128,20 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 .no-padding-vertical   {  padding-top:  0px !important;  padding-bottom: 0px !important; }
 .no-padding-horizontal {  padding-left: 0px !important;  padding-right:  0px !important; }
 
-$red-bootstrap:    #d9534f;
-$green-bootstrap:  #5cb85c;
-$orange-bootstrap: #f0ad4e;
-$blue-bootstrap:   #5bc0de;
-
-.bg-blue   { background-color: $blue-bootstrap   }
-.bg-red    { background-color: $red-bootstrap    }
-.bg-green  { background-color: $green-bootstrap  }
-.bg-orange { background-color: $orange-bootstrap }
+.bg-blue   { background-color: $BLUE-BOOTSTRAP
+}
+.bg-red    { background-color: $RED-BOOTSTRAP
+}
+.bg-green  { background-color: $GREEN-BOOTSTRAP
+}
+.bg-orange { background-color: $ORANGE-BOOTSTRAP
+}
 .bg-gray   { background-color: lightgray         }
 
 .border-gray   { border: 1px solid lightgray         }
-.border-blue   { border: 1px solid $blue-bootstrap   }
-.border-orange { border: 1px solid $orange-bootstrap }
-.border-green  { border: 1px solid $green-bootstrap  }
+.border-blue   { border: 1px solid $BLUE-BOOTSTRAP
+}
+.border-orange { border: 1px solid $ORANGE-BOOTSTRAP
+}
+.border-green  { border: 1px solid $GREEN-BOOTSTRAP
+}
