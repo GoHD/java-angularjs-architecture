@@ -24,7 +24,12 @@
           state: 'gohd.usuario',
           icon: 'fa fa-file-text-o',
           hasSubMenu: false
-        }
+        }, {
+        nome: 'Exemplos',
+        state: 'gohd.exemplos',
+        icon: 'fa fa-file-text-o',
+        hasSubMenu: false
+      }
       ];
     }
   }
