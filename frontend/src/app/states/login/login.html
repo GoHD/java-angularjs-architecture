@@ -1,19 +1,27 @@
 <div class="body-login">
   <div class="wrapper-login">
     <form id="loginForm" ng-submit="vm.efetuarLogin(vm.credenciais)" class="login-box">
+
       <div class="box-header">
         <h2>Super Quickstart Project</h2>
       </div>
-      <span><i class="fa fa-user" aria-hidden="true"></i></span>
-      <input type="text" placeholder="Usuario" ng-model="vm.credenciais.login" autocomplete="off">
+
+      <div class="ui left icon input">
+        <input type="text" placeholder="Usuário" ng-model="vm.credenciais.login" autocomplete="off">
+        <i class="user icon"></i>
+      </div>
       <br/>
-      <span><i class="fa fa-lock" aria-hidden="true"></i></span>
-      <input type="password" placeholder="Senha" ng-model="vm.credenciais.senha" autocomplete="off">
+
+      <div class="ui left icon input">
+        <input type="password" placeholder="Senha" ng-model="vm.credenciais.senha" autocomplete="off">
+        <i class="user icon"></i>
+      </div>
       <br/>
-      <button class="btn-login" type="submit">Efetuar Login
-        <i ng-show="vm.loading" class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
-      </button>
+
+      <button class="ui button" type="submit" ng-class="{loading: vm.loading}">Efetuar Login</button>
+      <!--<i ng-show="vm.loading" class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>-->
       <br/>
+
       <div class="techs">
         <img style="height: 30px;" src="../../../assets/images/angular.png" alt="AngularJS"/>
         <img style="height: 50px;" src="../../../assets/images/java.png" alt="Java"/>

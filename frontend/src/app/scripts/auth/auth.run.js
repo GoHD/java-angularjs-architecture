@@ -28,7 +28,7 @@
     }
 
     function loginSuccessFn() {
-      $state.go('dashboard.inicio');
+      $state.go('gohd.inicio');
     }
 
     function logoutSuccessFn() {

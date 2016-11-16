@@ -1,6 +1,6 @@
 @import "../variables";
 
-.dashboard-navbar {
+.gohd-navbar {
   @extend .nav;
   @extend .navbar-fixed-top;
   @include gray-bottom-shadow();
@@ -17,7 +17,7 @@
   }
 }
 
-.dashboard-navbar-right {
+.gohd-navbar-right {
   @extend .nav;
   @extend .navbar-nav;
   @extend .navbar-right;
