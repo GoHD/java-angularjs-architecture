@@ -3,6 +3,7 @@ package com.github.app.model.service;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
 import javax.validation.Validator;
 
@@ -15,7 +16,7 @@ public abstract class ServicoGenerico<E extends IEntity<ID>, ID extends Serializ
     
     @Inject
     Validator validator;
-    
+
     public E insereOuAtualiza(E entity) {
         if (entity.getId() == null) {
             return insere(entity);
@@ -58,7 +59,7 @@ public abstract class ServicoGenerico<E extends IEntity<ID>, ID extends Serializ
     public void remove(ID id) {
         getDao().remove(id);
     }
-    
+
     protected abstract DaoGenerico<E, ID> getDao();
-    
+
 }

@@ -6,7 +6,7 @@
     .service('clienteService', clienteService);
 
   /* @ngInject */
-  function clienteService($q, $http, $log, ClienteModel) {
+  function clienteService($q, $http, $log, ClienteDao) {
 
     var service = {
       buscarClientes: buscarClientes,
@@ -17,7 +17,7 @@
 
     function adicionarCliente(cliente) {
       var deferred = $q.defer();
-      ClienteModel.save(cliente, function(data) {
+      ClienteDao.save(cliente, function(data) {
           deferred.resolve(data);
         },
         function(err) {
@@ -29,7 +29,7 @@
 
     function buscarClientes() {
       var deferred = $q.defer();
-      ClienteModel.getAll(
+      ClienteDao.getAll(
         function(data) {
           deferred.resolve(data);
         },

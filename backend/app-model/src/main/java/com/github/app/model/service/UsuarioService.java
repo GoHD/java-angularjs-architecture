@@ -1,22 +1,20 @@
 package com.github.app.model.service;
 
-import static com.github.app.i18n.MensagensI18n.*;
-
-import java.util.Optional;
-
-import javax.ejb.Stateless;
-import javax.inject.Inject;
-
-import org.mindrot.jbcrypt.BCrypt;
-
 import com.github.app.common.exception.ErroDoClienteException;
 import com.github.app.common.security.ConstantesDeSeguranca;
 import com.github.app.common.utils.ValidationUtils;
 import com.github.app.model.dao.DaoGenerico;
 import com.github.app.model.dao.UsuarioDao;
 import com.github.app.model.entity.Usuario;
+import org.mindrot.jbcrypt.BCrypt;
 
-@Stateless
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import java.util.Optional;
+
+import static com.github.app.i18n.MensagensI18n.LOGIN_JA_UTILIZADO;
+
+@ApplicationScoped
 public class UsuarioService extends ServicoGenerico<Usuario, Long> {
 
     @Inject
@@ -26,7 +24,7 @@ public class UsuarioService extends ServicoGenerico<Usuario, Long> {
     protected DaoGenerico<Usuario, Long> getDao() {
         return usuarioDao;
     }
-    
+
     @Override
     public Usuario insere(Usuario entity) {
         ValidationUtils.validaAtributosDaEntidade(validator, entity);

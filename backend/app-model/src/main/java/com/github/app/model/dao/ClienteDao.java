@@ -1,11 +1,13 @@
 package com.github.app.model.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-
 import com.github.app.model.entity.Cliente;
 import com.github.app.model.filtros.FiltroCliente;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+@ApplicationScoped
 public class ClienteDao extends DaoGenerico<Cliente, Long> implements IBuscaComFiltros<Cliente, FiltroCliente>{
 
     @Override

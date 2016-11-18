@@ -2,12 +2,15 @@ package com.github.app.model.dao;
 
 import java.util.Optional;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import com.github.app.model.entity.Usuario;
 import com.github.app.model.entity.Usuario.NamedQueries;
 
+@ApplicationScoped
 public class UsuarioDao extends DaoGenerico<Usuario, Long> {
 
     @Override

@@ -8,13 +8,6 @@ import com.github.app.model.service.ServicoGenerico;
 import com.github.app.model.service.UsuarioService;
 
 @Path("/usuario")
-public class UsuarioRest extends CrudRest<Usuario, Long> {
+public class UsuarioRest extends CrudEntityRest<Usuario, Long, UsuarioService> {
 
-    @Inject
-    private UsuarioService usuarioService;
-
-    @Override
-    protected ServicoGenerico<Usuario, Long> getServico() {
-        return usuarioService;
-    }
 }

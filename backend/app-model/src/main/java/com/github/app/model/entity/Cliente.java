@@ -55,7 +55,6 @@ public class Cliente implements Serializable, IEntity<Long> {
     @Email
     private String email;
     
-    @NotNull
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate dataNascimento;
