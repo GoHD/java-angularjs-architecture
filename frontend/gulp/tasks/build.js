@@ -21,7 +21,7 @@ gulp.task('partials', function () {
       collapseWhitespace: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'gohd',
+      module: 'dashboard',
       root: 'app'
     }))
     .pipe(gulp.dest(globals.paths.tmp + '/partials/'));
@@ -54,6 +54,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     //.pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
     .pipe($.replace('../../bower_components/font-awesome/fonts/', '../fonts/'))
+    .pipe($.replace('../../../fonts/Roboto/', '../fonts/Roboto/'))
     .pipe($.cssnano())
     .pipe($.rev())
     //.pipe($.sourcemaps.write('maps'))
@@ -77,7 +78,7 @@ gulp.task('fonts-serve', ['copy-bs-fonts-serve', 'copy-fa-fonts-serve', 'copy-ro
 gulp.task('copy-roboto-fonts', function() {
   return gulp
     .src(config.wiredep.directory + '/roboto-fontface/fonts/roboto/*.{eot,svg,ttf,woff,woff2}')
-    .pipe(gulp.dest(path.join(globals.paths.dist, '/fonts/Roboto/')));
+    .pipe(gulp.dest(path.join(globals.paths.dist, 'fonts/Roboto/')));
 });
 
 gulp.task('copy-roboto-fonts-serve', function() {
@@ -86,22 +87,22 @@ gulp.task('copy-roboto-fonts-serve', function() {
     .pipe(gulp.dest(path.join(globals.paths.tmp, '/serve/fonts/roboto/')));
 });
 
-gulp.task('copy-bs-fonts', function(){
+gulp.task('copy-bs-fonts', function() {
   return gulp
     .src(config.wiredep.directory + '/bootstrap/fonts/*.{eot,svg,ttf,woff,woff2}')
-    .pipe(gulp.dest(path.join(globals.paths.dist, '/fonts/bootstrap/')));
+    .pipe(gulp.dest(path.join(globals.paths.dist, 'fonts/bootstrap/')));
 });
 
-gulp.task('copy-bs-fonts-serve', function(){
+gulp.task('copy-bs-fonts-serve', function() {
   return gulp
     .src(config.wiredep.directory + '/bootstrap/fonts/*.{eot,svg,ttf,woff,woff2}')
     .pipe(gulp.dest(path.join(globals.paths.tmp, '/serve/fonts/bootstrap/')));
 });
 
-gulp.task('copy-fa-fonts', function(){
+gulp.task('copy-fa-fonts', function() {
   return gulp
     .src(config.wiredep.directory + '/font-awesome/fonts/*.{eot,svg,ttf,woff,woff2}')
-    .pipe(gulp.dest(path.join(globals.paths.dist, '/fonts/')));
+    .pipe(gulp.dest(path.join(globals.paths.dist, 'fonts/')));
 });
 
 gulp.task('copy-fa-fonts-serve', function(){
