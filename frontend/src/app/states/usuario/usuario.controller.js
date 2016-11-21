@@ -14,6 +14,8 @@
 
     vm.salvar = salvarFn;
 
+    buscarUsuarios();
+
     function salvarFn(usuario) {
       usuarioService.adicionarUsuario(usuario).then(
         function (data) {

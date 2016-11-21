@@ -6,7 +6,9 @@
     .service('clienteService', clienteService);
 
   /* @ngInject */
-  function clienteService($q, $http, $log, ClienteDao) {
+  function clienteService($q, $http, ModelsConstants) {
+
+    var clienteUrl = ModelsConstants.API.url + '/cliente';
 
     var service = {
       buscarClientes: buscarClientes,
@@ -17,27 +19,17 @@
 
     function adicionarCliente(cliente) {
       var deferred = $q.defer();
-      ClienteDao.save(cliente, function(data) {
-          deferred.resolve(data);
-        },
-        function(err) {
-          deferred.reject(err);
-        });
-
+      $http.post(clienteUrl, cliente).then(function(res) {
+        deferred.resolve(res.data);
+      });
       return deferred.promise;
     }
 
     function buscarClientes() {
       var deferred = $q.defer();
-      ClienteDao.getAll(
-        function(data) {
-          deferred.resolve(data);
-        },
-        function(err) {
-          deferred.reject(err);
-        }
-      );
-
+      $http.get(clienteUrl).then(function(res){
+        deferred.resolve(res.data);
+      });
       return deferred.promise;
     }
   }

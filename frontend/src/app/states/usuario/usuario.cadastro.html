@@ -5,3 +5,26 @@
     </formly-form>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2" ng-if="vm.usuarios.length > 0">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Usuários Cadastrados</h4>
+      </div>
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <th>Nome</th>
+            <th>Login</th>
+            <th>E-Mail</th>
+          </tr>
+          <tr ng-repeat="usuario in vm.usuarios">
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.login}}</td>
+            <td>{{usuario.email}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

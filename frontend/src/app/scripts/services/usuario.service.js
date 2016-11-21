@@ -6,7 +6,9 @@
     .service('usuarioService', usuarioService);
 
   /* @ngInject */
-  function usuarioService($q, $http, $log, UsuarioDao) {
+  function usuarioService($q, $http, ModelsConstants) {
+
+    var usuarioUrl = ModelsConstants.API.url + '/usuario';
 
     var service = {
       buscarUsuarios: buscarUsuarios,
@@ -17,27 +19,17 @@
 
     function adicionarUsuario(usuario) {
       var deferred = $q.defer();
-      UsuarioDao.save(usuario, function(data) {
-          deferred.resolve(data);
-        },
-        function(err) {
-          deferred.reject(err);
-        });
-
+      $http.post(usuarioUrl, usuario).then(function(res) {
+        deferred.resolve(res.data);
+      });
       return deferred.promise;
     }
 
     function buscarUsuarios() {
       var deferred = $q.defer();
-      UsuarioDao.getAll(
-        function(data) {
-          deferred.resolve(data);
-        },
-        function(err) {
-          deferred.reject(err);
-        }
-      );
-
+      $http.get(usuarioUrl).then(function(res){
+        deferred.resolve(res.data);
+      });
       return deferred.promise;
     }
   }

@@ -8,13 +8,14 @@ import com.github.app.model.dao.UsuarioDao;
 import com.github.app.model.entity.Usuario;
 import org.mindrot.jbcrypt.BCrypt;
 
+import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.Optional;
 
 import static com.github.app.i18n.MensagensI18n.LOGIN_JA_UTILIZADO;
 
-@ApplicationScoped
+@Stateless
 public class UsuarioService extends ServicoGenerico<Usuario, Long> {
 
     @Inject
