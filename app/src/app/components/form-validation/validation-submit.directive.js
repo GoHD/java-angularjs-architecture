@@ -6,7 +6,7 @@
     .directive('validationSubmit', ValidationSubmit);
 
   /* @ngInject */
-  function ValidationSubmit($anchorScroll) {
+  function ValidationSubmit() {
     var directive = {
       restrict: 'A',
       require: '^validationContainer',
@@ -26,8 +26,6 @@
           scope.$apply(function () {
             scope.validationSubmit();
           });
-        } else {
-          $anchorScroll();
         }
       });
     }

@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-md-4">
+
     <h4>Funções disponíveis no sideMessagesService</h4>
     <ul>
       <li><a href="" ng-click="vm.exibirMensagemInfo()">Mensagem de Informação</a></li>
@@ -8,6 +9,7 @@
       <li><a href="" ng-click="vm.exibirMensagemDeAviso()">Mensagem de Aviso</a></li>
       <li><a href="" ng-click="vm.exibirMensagemDeSucesso()">Mensagem de Sucesso</a></li>
     </ul>
+
     <h4>Funções disponíveis no topMessagesService</h4>
     <ul>
       <li><a href="" ng-click="vm.exibirMensagemTopInfo()">Mensagem de Informação</a></li>
@@ -16,10 +18,8 @@
       <li><a href="" ng-click="vm.exibirMensagemTopSucesso()">Mensagem de Sucesso</a></li>
       <li><a href="" ng-click="vm.exibirMensagemTopComMuitasMensagens()">Muitas Mensagens</a></li>
     </ul>
-  </div>
-  <div class="col-md-4">
-    <h4 class="bottom20">Validação de Formulário com formValidation</h4>
 
+    <h4 class="bottom20">Validação de Formulário com formValidation</h4>
     <h5><i>Informações Obrigatórias</i></h5>
     <validation-container>
       <validation-messages></validation-messages>
@@ -31,7 +31,6 @@
              ng-model="vm.formulario1.senha" validation-input>
       <button type="text" class="btn btn-default bottom20" validation-submit="vm.validarFormulario()">Validar Formulário</button>
     </validation-container>
-
     <h5><i>Informações Restritas em Min e Max</i></h5>
     <validation-container>
       <validation-messages></validation-messages>
@@ -43,7 +42,6 @@
              ng-model="vm.formulario2.senha" validation-input>
       <button type="text" class="btn btn-default bottom20" validation-submit="vm.validarFormulario()">Validar Formulário</button>
     </validation-container>
-
     <h5><i>Informações Obrigatórias por Condição</i></h5>
     <validation-container>
       <validation-messages></validation-messages>
@@ -54,8 +52,13 @@
              placeholder="Obrigatório se primeiro campo estiver preenchido"
              required-if="vm.obrigaCampoTeste()"
              ng-model="vm.formulario4.senha" validation-input>
-      <button type="text" class="btn btn-default" validation-submit="vm.validarFormulario()">Validar Formulário</button>
+      <button type="text" class="btn btn-default bottom20" validation-submit="vm.validarFormulario()">Validar Formulário</button>
     </validation-container>
+
+    <h4>Mensagens fixas com a tag 'fixed-message'</h4>
+    <fixed-message type="info" message="Olá! Essa é uma mensagem de informação fixa!" close="false"></fixed-message>
+    <fixed-message type="warning" message="Olá! Essa é uma mensagem de aviso fixa!" close="true"></fixed-message>
+    <fixed-message type="danger" message="Olá! Essa é uma mensagem de erro fixa!" close="true"></fixed-message>
 
   </div>
 </div>
