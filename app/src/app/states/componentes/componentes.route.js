@@ -8,11 +8,11 @@
   /* @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
-      .state('gohd.exemplos', {
-        url: '/exemplos',
+      .state('gohd.componentes', {
+        url: '/componentes',
         authenticate: false,
-        templateUrl: "app/states/exemplos/exemplos.html",
-        controller: 'ExemplosController',
+        templateUrl: "app/states/componentes/componentes.html",
+        controller: 'ComponentesController',
         controllerAs: 'vm'
       });
   }

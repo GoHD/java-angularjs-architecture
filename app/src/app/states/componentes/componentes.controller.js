@@ -3,10 +3,10 @@
 
   angular
     .module('gohd')
-    .controller('ExemplosController', ExemplosController);
+    .controller('ComponentesController', ComponentesController);
 
   /* @ngInject */
-  function ExemplosController(sideMessages, topMessagesService) {
+  function ComponentesController(sideMessages, topMessagesService) {
     var vm = this;
 
     vm.exibirMensagemInfo = exibirMensagemInfo;

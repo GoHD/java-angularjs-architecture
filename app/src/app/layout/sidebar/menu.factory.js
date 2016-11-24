@@ -22,17 +22,17 @@
         }, {
           nome: 'Usuário',
           state: 'gohd.usuario',
-          icon: 'fa fa-file-text-o',
+          icon: 'fa fa-user',
           hasSubMenu: false
         }, {
           nome: 'Cliente',
           state: 'gohd.cliente',
-          icon: 'fa fa-file-text-o',
+          icon: 'fa fa-male',
           hasSubMenu: false
         }, {
-        nome: 'Exemplos',
-        state: 'gohd.exemplos',
-        icon: 'fa fa-file-text-o',
+        nome: 'Componentes',
+        state: 'gohd.componentes',
+        icon: 'fa fa-wrench',
         hasSubMenu: false
       }
       ];

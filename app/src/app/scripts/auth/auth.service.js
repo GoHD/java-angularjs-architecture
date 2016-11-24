@@ -6,7 +6,7 @@
     .service('AuthService', AuthService);
 
   /* @ngInject */
-  function AuthService($rootScope, $log, SessionStorage, AUTH_EVENTS, UsuarioLogadoService, AuthDao) {
+  function AuthService($rootScope, SessionStorage, AUTH_EVENTS, UsuarioLogadoService, AuthDao) {
 
     var service = {
       login: login,

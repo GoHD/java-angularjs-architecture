@@ -10,7 +10,8 @@
     .run(function($httpBackend) {
 
       $httpBackend.whenGET(/.html$/).passThrough();
-
+      $httpBackend.whenGET('http://localhost:8080/app-rest/usuario').respond([]);
+      $httpBackend.whenGET('http://localhost:8080/app-rest/cliente').respond([]);
       $httpBackend.whenGET('http://localhost:8080/app-rest/login/busca-usuario-por-token')
         .respond(200, {
           "id":1,
@@ -25,7 +26,7 @@
           "email":"usuario@mock.com"
         });
 
-      $httpBackend.whenPOST('http://localhost:8080/app-rest/login')
+      $httpBackend.whenGET('http://localhost:8080/app-rest/login')
         .respond(200, {
           "id":1,
           "nome":"Usuário Mock",
