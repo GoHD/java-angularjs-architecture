@@ -8,6 +8,7 @@
   /* @ngInject */
   function ComponentesController(sideMessages, topMessagesService) {
     var vm = this;
+    vm.formulario3 = {};
 
     vm.exibirMensagemInfo = exibirMensagemInfo;
     vm.exibirMensagemInfoWithUser = exibirMensagemInfoWithUser;
@@ -20,6 +21,16 @@
     vm.exibirMensagemTopErro = exibirMensagemTopErro;
     vm.exibirMensagemTopSucesso = exibirMensagemTopSucesso;
     vm.exibirMensagemTopComMuitasMensagens = exibirMensagemTopComMuitasMensagens;
+
+    vm.validarFormulario = validarFormulario;
+    vm.obrigaCampoTeste = obrigaCampoTeste;
+
+    function obrigaCampoTeste() {
+      return vm.formulario3.nome;
+    }
+    function validarFormulario() {
+      sideMessages.success('Cadastro efetuado com sucesso.', 'Woah!');
+    }
 
     function exibirMensagemTopComMuitasMensagens() {
       topMessagesService.addMessage([
@@ -45,7 +56,7 @@
     }
 
     function exibirMensagemDeSucesso() {
-      sideMessages.success('Parabén pela conquista.', 'Woah!');
+      sideMessages.success('Parabéns pela conquista.', 'Woah!');
     }
 
     function exibirMensagemDeAviso() {

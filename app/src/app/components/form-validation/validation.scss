@@ -1,0 +1,22 @@
+.input-with-error {
+  outline: 1px solid $RED-BOOTSTRAP;
+}
+.md-top-m-container {
+  margin-bottom: 8px !important;
+}
+.md-more-messages {
+  margin-top: 12px;
+
+  p {
+    font-size: 0.9em;
+    margin-bottom: 0px;
+    cursor: pointer;
+  }
+}
+.md-top-messages-title {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
