@@ -2,7 +2,8 @@
   'use strict';
 
   var requires = [
-    'toaster'
+    'toaster',
+    'ng-sweet-alert'
   ];
 
   angular
