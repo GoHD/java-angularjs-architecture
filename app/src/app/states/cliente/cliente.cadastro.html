@@ -1,4 +1,4 @@
-<div class="col-md-offset-2 col-md-4">
+<div class="col-md-5">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4>Novo Cliente</h4>
@@ -7,60 +7,62 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" id="name" maxlength="150" ng-model="cc.cliente.nome" class="form-control" />
+                        <label>Nome</label>
+                        <input type="text" maxlength="150" ng-model="cc.cliente.nome" class="form-control" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name">Sobrenome</label>
-                        <input type="text" id="name" maxlength="150" ng-model="cc.cliente.sobrenome" class="form-control" />
+                        <label>Sobrenome</label>
+                        <input type="text" maxlength="150" ng-model="cc.cliente.sobrenome" class="form-control" />
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name">CPF</label>
-                        <input type="text" id="name" maxlength="150" ng-model="cc.cliente.cpf" class="form-control" />
+                        <label>CPF</label>
+                        <input type="text" maxlength="150" ng-model="cc.cliente.cpf" class="form-control" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name">RG</label>
-                        <input type="text" id="name" maxlength="150" ng-model="cc.cliente.rg" class="form-control" />
+                        <label>RG</label>
+                        <input type="text" maxlength="150" ng-model="cc.cliente.rg" class="form-control" />
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="name">E-mail</label>
-                        <input type="email" id="name" maxlength="150" ng-model="cc.cliente.email" class="form-control" />
+                        <label>E-mail</label>
+                        <input type="email" maxlength="150" ng-model="cc.cliente.email" class="form-control" />
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name">Data de nascimento</label>
-                        <input type="text" id="name" maxlength="150" ng-model="cc.cliente.dataNascimento" class="form-control" />
+                        <label>Data de nascimento</label>
+                        <input type="text" maxlength="150" ng-model="cc.cliente.dataNascimento" class="form-control" />
                     </div>
                 </div>
             </div>
 
         </div>
         <div class="panel-footer">
-            <button ng-click="cc.salvar(cc.cliente)" class="btn btn-primary">Salvar</button>
+            <button ng-click="cc.cliente = {}" class="btn btn-default">Limpar</button>
+            <button ng-click="cc.salvar(cc.cliente)" class="btn btn-success">Salvar</button>
         </div>
     </div>
 </div>
-<div class="col-md-4" ng-if="cc.clientes.length > 0">
+<div class="col-md-7">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4>Clientes Cadastrados</h4>
         </div>
         <div class="panel-body">
+          <h4 ng-show="cc.clientes.length == 1" class="ng-repeat-empty">Nenhum cliente cadastrado.</h4>
         </div>
     </div>
 </div>

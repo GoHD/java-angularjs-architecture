@@ -1,18 +1,29 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <formly-form model="vm.usuario" fields="vm.camposUsuario">
-      <button type="submit" class="btn btn-info top10" ng-click="vm.salvar(vm.usuario)">Submit</button>
-    </formly-form>
+
+  <div class="col-md-5">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Cadastrar Usuário</h4>
+      </div>
+      <div class="panel-body">
+        <formly-form model="vm.usuario" fields="vm.camposUsuario">
+          <button type="submit" class="btn btn-info top10" ng-click="vm.salvar(vm.usuario)">Submit</button>
+        </formly-form>
+      </div>
+      <div class="panel-footer">
+        <button ng-click="vm.usuario = {}" class="btn btn-default">Limpar</button>
+      </div>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-8 col-md-offset-2" ng-if="vm.usuarios.length > 0">
+
+  <div class="col-md-7">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4>Usuários Cadastrados</h4>
       </div>
       <div class="panel-body">
-        <table class="table">
+        <h4 ng-show="vm.usuarios.length == 0" class="ng-repeat-empty">Nenhum usuário cadastrado.</h4>
+        <table class="table" ng-show="vm.usuarios.length > 0">
           <tr>
             <th>Nome</th>
             <th>Login</th>
@@ -27,4 +38,5 @@
       </div>
     </div>
   </div>
+
 </div>

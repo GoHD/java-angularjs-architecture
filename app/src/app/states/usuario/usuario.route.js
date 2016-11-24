@@ -5,7 +5,7 @@
     .module('gohd')
     .config(routerConfig);
 
-  /** @ngInject */
+  /* @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
       .state('gohd.usuario', {
@@ -16,5 +16,4 @@
         controllerAs: 'vm'
       });
   }
-
 })();

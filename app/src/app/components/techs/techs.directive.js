@@ -5,7 +5,7 @@
     .module('gohd')
     .directive('devTecs', devTecs);
 
-  /** @ngInject */
+  /* @ngInject */
   function devTecs() {
     var directive = {
       restrict: 'E',

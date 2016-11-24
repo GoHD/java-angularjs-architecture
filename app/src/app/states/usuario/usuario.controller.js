@@ -5,7 +5,7 @@
     .module('gohd')
     .controller('UsuarioController', UsuarioController);
 
-  /** @ngInject */
+  /* @ngInject */
   function UsuarioController(usuarioService, $log) {
 
     var vm = this;

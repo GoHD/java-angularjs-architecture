@@ -1,42 +1,40 @@
-(function() {
-    'use strict';
+(function () {
+  'use strict';
 
-    angular
-      .module('gohd')
-      .controller('ClienteController', ClienteController);
+  angular
+    .module('gohd')
+    .controller('ClienteController', ClienteController);
 
-    /** @ngInject */
-    function ClienteController(clienteService, $log) {
-      var vm = this;
+  /* @ngInject */
+  function ClienteController(clienteService, $log) {
+    var vm = this;
 
-      vm.salvar = salvarFn;
-      vm.clientes = [];
+    vm.salvar = salvarFn;
+    vm.clientes = [];
 
-      buscarClientes();
+    buscarClientes();
 
-      function salvarFn(cliente) {
-        clienteService.adicionarCliente(cliente).then(
-          function(data) {
-            vm.clientes.push(data);
-            delete vm.cliente;
-          },
-          function(e) {
-            $log.debug("Ocorreu um erro ao salvar um cliente: " + e);
-          }
-        );
-      }
+    function salvarFn(cliente) {
+      clienteService.adicionarCliente(cliente).then(
+        function (data) {
+          vm.clientes.push(data);
+          delete vm.cliente;
+        },
+        function (e) {
+          $log.debug("Ocorreu um erro ao salvar um cliente: " + e);
+        }
+      );
+    }
 
-      function buscarClientes() {
-        clienteService.buscarClientes().then(
-          function(data) {
-            vm.clientes.push(data);
-          },
-          function(e) {
-            $log.debug("Ocorreu um erro ao buscar os clientes cadastrados: " + e);
-          }
-        );
-      }
-
+    function buscarClientes() {
+      clienteService.buscarClientes().then(
+        function (data) {
+          vm.clientes.push(data);
+        },
+        function (e) {
+          $log.debug("Ocorreu um erro ao buscar os clientes cadastrados: " + e);
+        }
+      );
+    }
   }
-
 })();

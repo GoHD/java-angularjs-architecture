@@ -5,7 +5,7 @@
     .module('gohd.layout')
     .config(routerConfig);
 
-  /** @ngInject */
+  /* @ngInject */
   function routerConfig($stateProvider) {
     $stateProvider
       .state('gohd', {
