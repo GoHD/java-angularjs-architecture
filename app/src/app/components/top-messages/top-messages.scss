@@ -1,0 +1,23 @@
+.top-m-container {
+  margin-top: 10px;
+  padding-bottom: 0px !important;
+}
+.alert {
+  margin-bottom: 0px;
+}
+.more-messages {
+  margin-top: 12px;
+
+  p {
+    font-size: 0.9em;
+    margin-bottom: 0px;
+    cursor: pointer;
+  }
+}
+.top-messages-title {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

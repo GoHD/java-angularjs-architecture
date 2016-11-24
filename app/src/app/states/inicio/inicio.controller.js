@@ -6,7 +6,5 @@
     .controller('InicioController', InicioController);
 
   /* @ngInject */
-  function InicioController() {
-    var vm = this;
-  }
+  function InicioController() {}
 })();
