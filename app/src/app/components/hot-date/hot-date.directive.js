@@ -11,6 +11,7 @@
       'app/components/tdate/tdate.html',
       '<p class="input-group">' +
         '<input type="text" ' +
+                'name="{{name}}" ' +
                 'class="form-control" ' +
                 'placeholder="dd/mm/yyyy" ' +
                 'uib-datepicker-popup="dd/MM/yyyy" ' +
@@ -43,7 +44,8 @@
       controller: TDateController,
       controllerAs: 'vm',
       scope: {
-        ngModel: '='
+        ngModel: '=',
+        name: '@'
       },
       compile: function(element, $attrs) {
         var el = angular.element(element.context.childNodes[0].childNodes[0]);

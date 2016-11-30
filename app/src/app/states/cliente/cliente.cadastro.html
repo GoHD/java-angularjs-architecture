@@ -1,68 +1,71 @@
-<div class="col-md-5">
+<validation-container>
+  <div class="col-md-5">
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>Novo Cliente</h4>
+      <div class="panel-heading">
+        <h4>Novo Cliente</h4>
+      </div>
+      <div class="panel-body">
+        <validation-messages></validation-messages>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome</label>
+              <input type="text" name="Nome" min="4" max="60" ng-required="true" ng-model="cc.cliente.nome" class="form-control" validation-input/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Sobrenome</label>
+              <input type="text" name="Sobrenome" min="4" max="60" ng-required="true" ng-model="cc.cliente.sobrenome" class="form-control" validation-input/>
+            </div>
+          </div>
         </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Nome</label>
-                        <input type="text" maxlength="150" ng-model="cc.cliente.nome" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Sobrenome</label>
-                        <input type="text" maxlength="150" ng-model="cc.cliente.sobrenome" class="form-control" />
-                    </div>
-                </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>CPF</label>
+              <input type="text" name="CPF" ng-required="true" ng-model="cc.cliente.cpf" class="form-control" validation-input/>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>CPF</label>
-                        <input type="text" maxlength="150" ng-model="cc.cliente.cpf" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>RG</label>
-                        <input type="text" maxlength="150" ng-model="cc.cliente.rg" class="form-control" />
-                    </div>
-                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>RG</label>
+              <input type="text" name="RG" ng-required="true" ng-model="cc.cliente.rg" class="form-control" validation-input/>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" maxlength="150" ng-model="cc.cliente.email" class="form-control" />
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" name="E-mail" ng-required="true" ng-model="cc.cliente.email" class="form-control" validation-input/>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Data de nascimento</label>
-                        <input type="text" maxlength="150" ng-model="cc.cliente.dataNascimento" class="form-control" />
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Data de nascimento</label>
+              <hot-date name="Data de Nascimento" ng-model="cc.cliente.dataNascimento" validation-input></hot-date>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <button ng-click="cc.cliente = {}" class="btn btn-default">Limpar</button>
+        <button validation-submit="cc.salvar(cc.cliente)" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </div>
+</validation-container>
 
-        </div>
-        <div class="panel-footer">
-            <button ng-click="cc.cliente = {}" class="btn btn-default">Limpar</button>
-            <button ng-click="cc.salvar(cc.cliente)" class="btn btn-success">Salvar</button>
-        </div>
-    </div>
-</div>
 <div class="col-md-7">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>Clientes Cadastrados</h4>
-        </div>
-        <div class="panel-body">
-          <h4 ng-show="cc.clientes.length == 1" class="ng-repeat-empty">Nenhum cliente cadastrado.</h4>
-        </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Clientes Cadastrados</h4>
     </div>
+    <div class="panel-body">
+      <h4 ng-show="cc.clientes.length == 1" class="ng-repeat-empty">Nenhum cliente cadastrado.</h4>
+    </div>
+  </div>
 </div>
